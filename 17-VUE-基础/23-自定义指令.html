@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-focus>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        // 需求：打开网页，光标自动定位到输入框
+        // 自定义指令，focus是自定义的指令名字，使用时用v-focus
+        // bind：只调用一次，指令第一次绑定到元素时调用。
+        // inserted：被绑定元素插入父节点时调用
+        // update：所在组件的 VNode 更新时调用，但是可能发生在其子 VNode 更新之前。指令的值可能发生了改变，也可能没有。
+
+        Vue.directive('focus', {
+            inserted: function(el) {
+                // 参数el：表示指令所绑定的元素,这里就是input输入框了
+                el.focus();
+            }
+        });
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            }
+        });
+    </script>
+</body>
+
+</html>

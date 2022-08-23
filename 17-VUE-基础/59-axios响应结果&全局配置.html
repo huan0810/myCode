@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script src="js/axios.js"></script>
+    <script>
+      // data： 实际响应回来的数据
+      // headers： 响应头信息
+      // status： 响应状态码
+      // statusText： 响应状态信息
+
+      // 如果返回结果是JSON形式，axios内部会自动帮我们解析，不需要我们再转化了
+      // axios.get('http://localhost:3000/axios-json').then(ret => {
+      //     console.log(ret.data); //后台定义的响应结果是JSON形式，用axios直接返回一个对象
+      //     console.log(ret.data.age); //12
+      // });
+
+      // 全局配置
+      // axios.defaults.timeout = 3000; // 超时时间
+      // axios.defaults.baseURL = 'http://localhost:3000/app'; // 配置请求的基准URL地址，之后再发请求就只需要拼接后面的内容
+      // axios.defaults.headers['mytoken'] = ‘aqwerwqwerqwer2ewrwe23eresdf23’ // 设置请求头,‘mytoken’是自定义名称
+      axios.defaults.baseURL = 'http://localhost:3000/'
+      axios.defaults.headers['mytoken'] = 'hi'
+      axios.get('axios-json').then((ret) => {
+        console.log(ret.data.age) //12
+      })
+
+      // 可以用axios.create()设置全局配置，此方法返回的是一个function
+      const whiteUrl = ['/login', '/book/home/v2']
+      const url = '/book/home/v2'
+      // axios.create()设置全局配置
+      const request = axios.create({
+        baseURL: 'https://test.youbaobao.xyz:18081',
+        timeout: 5000
+      })
+
+      // 加入请求拦截器
+      request.interceptors.request.use(
+        (config) => {
+          // throw new Error('error...')
+          const url = config.url.replace(config.baseURL, '')
+          if (whiteUrl.some((wl) => url === wl)) {
+            return config
+          }
+          config.headers['token'] = 'abcd'
+          return config
+        },
+        (error) => {
+          return Promise.reject(error)
+        }
+      )
+
+      // 通过request构造函数再次发起请求
+      request({
+        url,
+        method: 'get',
+        params: {
+          openId: '1234'
+        }
+      }).catch((err) => {
+        console.log(err)
+      })
+    </script>
+  </body>
+</html>

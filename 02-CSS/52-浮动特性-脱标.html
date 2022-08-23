@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 浮动特性一：
+        脱离标准流的控制。不再保留原来的位置，这个位置被其他标准流盒子占有，会出现层叠 */
+        /* 而且浮动的盒子只会覆盖后面的标准流，不会影响前面的标准流 */
+        
+        .one {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+            float: left;
+        }
+        
+        .two {
+            width: 200px;
+            height: 150px;
+            background-color: rgb(235, 189, 196);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="one">浮动的盒子</div>
+    <div class="two">标准流的盒子</div>
+</body>
+
+</html>

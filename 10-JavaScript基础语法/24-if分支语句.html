@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // if
+        // if (条件表达式) {
+        //     条件成立执行的代码语句
+        // }
+        if (false) {
+            alert('沙漠骆驼'); //条件false，此句不执行
+        }
+
+        // if else双分支语句
+        // 条件成立 执行 if 里面代码，否则执行else 里面的代码
+        // if (条件表达式) {
+        //     [如果] 条件成立执行的代码
+        // } else {
+        //     [否则] 执行的代码
+        // }
+        var age = prompt('请输入年龄：');
+        if (age >= 18) {
+            alert('可以进入网吧');
+        } else {
+            alert('滚回去写作业！');
+        }
+
+        // if  else if多分支语句
+        // 适合于检查多重条件。
+        // if (条件表达式1) {
+        //     语句1;
+        // } else if (条件表达式2) {
+        //     语句2;
+        // } else if (条件表达式3) {
+        //     语句3;
+        //         ....
+        // } else {
+        //     // 上述条件都不成立执行此处代码
+        // }
+        var score = prompt('请输入您的分数：')
+        if (score >= 90) {
+            alert('A');
+        } else if (score >= 80) {
+            alert('B');
+        } else if (score >= 70) {
+            alert('C');
+        } else if (score >= 60) {
+            alert('D');
+        } else {
+            alert('E');
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

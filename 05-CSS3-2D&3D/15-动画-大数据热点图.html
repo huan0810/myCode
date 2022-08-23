@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #333;
+        }
+        
+        .map {
+            position: relative;
+            width: 747px;
+            height: 617px;
+            background: url(media/map.png) no-repeat;
+            margin: 50px auto;
+        }
+        
+        .city {
+            position: absolute;
+            top: 227px;
+            left: 546px;
+            color: #fff;
+        }
+        /* 改变台北,广州的定位,其他样式不变 */
+        
+        .tb {
+            /* 有top和bottom优先执行top值,所以此处只能复写层叠top值 */
+            top: 498px;
+            left: 659px;
+        }
+        
+        .gzh {
+            top: 542px;
+            left: 546px;
+        }
+        
+        .dotted {
+            width: 8px;
+            height: 8px;
+            background-color: #09f;
+            border-radius: 50%;
+        }
+        /* 使用属性选择器选出pulse开头的 */
+        
+        .city div[class^="pulse"] {
+            /* 保证波纹在父盒子里水平垂直居中，放大之后就会中心向四周发散 */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            /* 盒子阴影,12px指的是模糊距离 */
+            box-shadow: 0 0 12px #009dfd;
+            border-radius: 50%;
+            /* linear匀速 */
+            animation: pulse 1.2s linear infinite;
+        }
+        /* 定义动画延迟：pulse1先走，pulse2再走，pulse3最后走
+        注意注意：直接写.pulse2是层叠不了上面.city div[class^="pulse"]的属性的，
+        .city div.pulse2是为了提高权重 */
+        
+        .city div.pulse2 {
+            animation-delay: .4s;
+        }
+        
+        .city div.pulse3 {
+            animation-delay: .8s;
+        }
+        
+        @keyframes pulse {
+            0% {}
+            70% {
+                /* 此处之所以改变宽高，而不使用缩放transform: scale(2);
+                是因为缩放会把阴影也放大了，不好看 */
+                width: 40px;
+                height: 40px;
+                opacity: 1;
+            }
+            100% {
+                width: 70px;
+                height: 70px;
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="map">
+        <div class="city">
+            <div class="dotted"></div>
+            <div class="pulse1"></div>
+            <div class="pulse2"></div>
+            <div class="pulse3"></div>
+        </div>
+        <div class="city tb">
+            <div class="dotted"></div>
+            <div class="pulse1"></div>
+            <div class="pulse2"></div>
+            <div class="pulse3"></div>
+        </div>
+        <div class="city gzh">
+            <div class="dotted"></div>
+            <div class="pulse1"></div>
+            <div class="pulse2"></div>
+            <div class="pulse3"></div>
+        </div>
+    </div>
+</body>
+
+</html>

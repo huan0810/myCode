@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.类名首字母大写
+        // 2.类里面所有函数都不需要加function
+        // 3.多个函数方法之间不需要添加逗号分隔
+        // 4.ES6中类没有变量提升，所以必须先定义类，才能实例化对象
+        // 5.类里面的共有属性、方法一定要加this使用
+        class Star {
+            constructor(userName) {
+                this.uname = userName; //给实例添加uname属性
+            }
+            sing(song) {
+                console.log(this.uname + song);
+            }
+        }
+        // new的时候，自动执行构造函数，'刘德华'传递给userName。this指向所创建的实例
+        var ldh = new Star('刘德华');
+        console.log(ldh.uname); //刘德华
+        ldh.sing('啦啦啦');
+
+        // constructor() 方法是类的构造函数(默认方法)，用于传递参数,返回实例对象(不需要return了)，
+        // 通过 new 命令生成对象实例时，自动调用该方法。如果没有显式定义, 类内部会自动给我们创建一个constructor()
+    </script>
+</body>
+
+</html>

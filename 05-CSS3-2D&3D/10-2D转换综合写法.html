@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 同时使用多个转换，其格式为：transform: translate() rotate() scale() ...等，
+        1、空格隔开
+        2、其顺序会影转换的效果,先旋转会改变坐标轴方向。
+        3、当同时有位移和其他属性时，要将位移放在最前面 */
+        
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            transition: all .5s;
+        }
+        
+        div:hover {
+            /* 把位移属性放在最前面 */
+            transform: translate(50px, 50px) rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

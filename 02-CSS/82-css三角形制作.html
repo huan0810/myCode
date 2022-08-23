@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1 {
+            width: 0;
+            height: 0;
+            border-top: 10px solid palegoldenrod;
+            border-bottom: 10px solid rgb(128, 99, 99);
+            border-left: 10px solid rgb(43, 119, 60);
+            border-right: 10px solid skyblue;
+        }
+        
+        .box2 {
+            width: 0;
+            height: 0;
+            border: 10px solid transparent;
+            border-top: 10px solid skyblue;
+            margin-top: 50px;
+        }
+        
+        .jd {
+            /* 子绝父相 */
+            position: relative;
+            width: 200px;
+            height: 80px;
+            background-color: skyblue;
+            margin-top: 30px;
+        }
+        
+        .jd span {
+            position: absolute;
+            top: 10px;
+            right: -25px;
+            width: 0;
+            height: 0;
+            background-color: #fff;
+            /* 为了照顾兼容性，可以加上以下两行 */
+            line-height: 0;
+            font-size: 0;
+            border: 15px solid transparent;
+            border-left: 10px solid skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <!-- 制作网页里的三角效果 -->
+    <div class="jd">
+        <span></span>
+    </div>
+</body>
+
+</html>

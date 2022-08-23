@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 属性选择器的权重同类、伪类选择器，都是0010，
+        但是一般前面还有一个标签选择器，最后标签+属性选择器权重为0011 */
+        /* 1.选出必须是input，同时具有value这个属性 */
+        
+        input[value] {
+            color: paleturquoise;
+        }
+        /* 2.选出 input标签且type="password"的某些元素,""可加可不加
+        权重：(标签)0001+(属性)0010=0011 */
+        
+        input[type="password"] {
+            color: palevioletred;
+        }
+        /* 3.选出 div标签 class值以icon开头的元素 */
+        
+        div[class^="icon"] {
+            color: plum;
+        }
+        /* 4.选出 section标签 class值以data结尾的元素 */
+        
+        section[class$="data"] {
+            color: peru;
+        }
+        /* 5.选出 p标签 class属性中含有xzh的元素 */
+        
+        p[class*="xzh"] {
+            color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 1.属性选择器可以选出 具有特定属性的元素 -->
+    <input type="text" value="请输入用户名">
+    <input type="text">
+
+    <!-- 2.(重点)选出 属性=值的某些元素 -->
+    <input type="text" name="" id="">
+    <input type="password" name="" id="">
+
+    <!-- 3.选出 某个属性值以***开头的元素 -->
+    <div class="icon1">小图标1</div>
+    <div class="icon2">小图标2</div>
+    <div class="icon3">小图标3</div>
+    <div class="icon4">小图标4</div>
+    <div class="iicon4">打酱油的</div>
+
+    <!-- 4.选出 某个属性值以***结尾的元素 -->
+    <section class="icon1-data">我变色</section>
+    <section class="icon2-data">我变色</section>
+    <section class="icon3-no">我不变色</section>
+
+    <!-- 5.选出 某个属性值中含有***的元素 -->
+    <p class="one-xzh-four">选中的标签</p>
+    <p class="two-xzh-five">选中的标签</p>
+    <p class="there-xzh-six">选中的标签</p>
+    <p class="tennine">未选中的标签</p>
+</body>
+
+</html>

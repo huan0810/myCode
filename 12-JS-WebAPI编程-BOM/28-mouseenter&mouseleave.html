@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+            margin: 100px auto;
+        }
+        
+        .son {
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="father">
+        <div class="son"></div>
+    </div>
+    <script>
+        // mouseenter鼠标经过，mouseleave鼠标离开
+        // 它们与mouseover、mouseout的区别是：mouseenter、mouseleave不会冒泡
+        // mouseover 鼠标经过自身盒子会触发，经过子盒子还会触发。 mouseenter只会经过自身盒子触发
+
+        var father = document.querySelector('.father');
+        var son = document.querySelector('.son');
+
+        father.addEventListener('mouseenter', function() {
+            console.log('鼠标经过');
+        })
+        father.addEventListener('mouseleave', function() {
+            console.log('鼠标离开');
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            /* 父标签添加透视，增加立体效果 */
+            perspective: 300px;
+        }
+        
+        img {
+            display: block;
+            width: 200px;
+            height: 200px;
+            margin: 200px auto;
+            border: 3px solid skyblue;
+            /* border-radius: 50%; */
+            transition: all 3s;
+        }
+        /* 鼠标经过,沿Y轴旋转 */
+        
+        img:hover {
+            /* 旋转方向：左手准则，左手大拇指指向y轴正向，其余手指弯曲方向是正deg时图片旋转方向 */
+            transform: rotateY(45deg);
+        }
+    </style>
+</head>
+
+<body>
+    <img src="media/pic.jpg" alt="">
+</body>
+
+</html>

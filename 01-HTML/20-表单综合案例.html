@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表单综合案例</title>
+</head>
+
+<body>
+    <form>
+        <h4 align="center">青春不常在，抓紧谈恋爱</h4>
+        <table align="center" cellpadding="5" cellspacing="2" width="600">
+            <tr>
+                <td>性别</td>
+                <td>
+                    <input type="radio" name="gender" id="man" value="男">
+                    <label for="man"><img src="images/man.jpg"> 男</label>
+                    <input type="radio" name="gender" id="woman" value="女" checked="checked">
+                    <label for="woman"><img src="images/women.jpg"> 女</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="shengri">生日</label></td>
+                <td>
+                    <select name="year" id="shengri">
+                        <option>--请选择年--</option>
+                        <option>2010</option>
+                        <option>2011</option>
+                        <option>2012</option>
+                        <option>2013</option>
+                        <option>2014</option>
+                        <option>2015</option>
+                        <option>2016</option>
+                        <option>2017</option>
+                    </select>
+                    <select name="month">
+                        <option>--请选择月--</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                    </select>
+                    <select name="day">
+                        <option>--请选择日--</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>13</option>
+                        <option>14</option>
+                        <option>15</option>
+                        <option>16</option>
+                        <option>17</option>
+                        <option>18</option>
+                        <option>19</option>
+                        <option>20</option>
+                        <option>21</option>
+                        <option>22</option>
+                        <option>23</option>
+                        <option>24</option>
+                        <option>25</option>
+                        <option>26</option>
+                        <option>27</option>
+                        <option>28</option>
+                        <option>29</option>
+                        <option>30</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="diqu">所在地区</label></td>
+                <td><input type="text" name="place" id="diqu" value="火星"></td>
+            </tr>
+            <tr>
+                <td>婚姻状况</td>
+                <td>
+                    <input type="radio" name="marriage" value="未婚" id="weihun" checked="checked"><label for="weihun">未婚</label>
+                    <input type="radio" name="marriage" value="已婚" id="yihun"><label for="yihun">已婚</label>
+                    <input type="radio" name="marriage" value="离婚" id="lihun"><label for="lihun">离婚</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="xueli">学历</label></td>
+                <td><input type="text" name="education" id="xueli" value="幼儿园"></td>
+            </tr>
+            <tr>
+                <td>喜欢的类型</td>
+                <td>
+                    <input type="checkbox" name="hobby" value="妩媚的" id="wumei"><label for="wumei">妩媚的</label>
+                    <input type="checkbox" name="hobby" value="可爱的" id="keai"><label for="keai">可爱的</label>
+                    <input type="checkbox" name="hobby" value="小鲜肉" id="xiaoxianrou"><label for="xiaoxianrou">小鲜肉</label>
+                    <input type="checkbox" name="hobby" value="老腊肉" id="laolarou"><label for="laolarou">老腊肉</label>
+                    <input type="checkbox" name="hobby" value="都喜欢" id="douxihuan"><label for="douxihuan">都喜欢</label>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="jieshao">自我介绍</label></td>
+                <td><textarea name="introduction" id="jieshao" rows="3" cols="30">这是正儿八经的介绍</textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="免费注册"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="checkbox" name="agree" id="tongyi" checked="checked">
+                    <label for="tongyi">我同意注册条款和会员加入标准</label>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><a href="#">我是会员，立即登录</a></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <h5>我承诺</h5>
+                    <ul>
+                        <li>年满18，单身</li>
+                        <li>抱着严肃的态度</li>
+                        <li>真诚寻找另一半</li>
+                    </ul>
+                </td>
+            </tr>
+
+        </table>
+    </form>
+</body>
+
+</html>

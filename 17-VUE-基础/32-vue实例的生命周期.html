@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{msg}}</div>
+        <button @click='update'>更新</button>
+        <button @click='destroy'>销毁</button>
+    </div>
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript">
+        //   Vue实例的生命周期
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '生命周期'
+            },
+            methods: {
+                update: function() {
+                    this.msg = '更新阶段';
+                },
+                destroy: function() {
+                    this.$destroy(); //销毁属性data、methods，释放资源，节省内存
+                }
+            },
+            // vue实例整个生命周期包含8个生命周期相关的钩子函数，
+            // mounted函数中，可以调用后台接口，获取数据，并填充到模板里
+            // 挂载阶段
+            beforeCreate: function() { //组件刚开始创建
+                console.log('beforeCreate');
+            },
+            created: function() { //组件在内存里创建好了
+                console.log('created');
+            },
+            beforeMount: function() { //将要渲染组件时
+                console.log('beforeMount');
+            },
+            mounted: function() { //组件已经被渲染到浏览器页面里了
+                console.log('mounted');
+            },
+            // 更新阶段
+            beforeUpdate: function() {
+                console.log('beforeUpdate');
+            },
+            updated: function() {
+                console.log('updated');
+            },
+            // 销毁阶段
+            beforeDestroy: function() {
+                console.log('beforeDestroy');
+            },
+            destroyed: function() {
+                console.log('destroyed');
+            }
+        });
+    </script>
+</body>
+
+</html>

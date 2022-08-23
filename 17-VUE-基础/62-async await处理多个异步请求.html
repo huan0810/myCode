@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script src="js/axios.js"></script>
+    <script>
+        // async/await处理多个异步请求
+        // 使用await顺序处理异步任务，这样就不需要回调函数或then()处理每次的结果了
+        axios.defaults.baseURL = 'http:localhost:3000';
+
+        async function queryData() {
+            var info = await axios.get('/async1');
+            var ret = await axios.get('/async2?info2=' + info.data);
+            return ret.data;
+        }
+        queryData().then(data => {
+            console.log(data);
+        });
+    </script>
+</body>
+
+</html>

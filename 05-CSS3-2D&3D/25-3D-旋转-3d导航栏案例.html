@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        ul {
+            margin: 100px;
+        }
+        
+        ul li {
+            float: left;
+            list-style: none;
+            margin: 0 5px;
+            width: 100px;
+            height: 30px;
+            perspective: 400px;
+        }
+        
+        .box {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: all .4s;
+        }
+        
+        .box:hover {
+            transform: rotateX(90deg);
+        }
+        
+        .front,
+        .bottom {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            line-height: 30px;
+            text-align: center;
+        }
+        
+        .front {
+            background-color: pink;
+            z-index: 1;
+            /* 注意注意：此处不能把“导航栏”面后移了，因为会使最后旋转时的中心轴在粉色盒子中间，最后旋转时就跑偏了。
+            此处应该把“翻转”粉色盒子前移，可以使最后旋转中心轴在整个长方体正中间 */
+            transform: translateZ(15px);
+        }
+        
+        .bottom {
+            background-color: rgb(196, 101, 101);
+            /* 右移动和其他样式，移动必须写在最前面 */
+            transform: translateY(15px) rotateX(-90deg);
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>
+            <div class="box">
+                <div class="front">翻转</div>
+                <div class="bottom">导航栏</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">翻转</div>
+                <div class="bottom">导航栏</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">翻转</div>
+                <div class="bottom">导航栏</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">翻转</div>
+                <div class="bottom">导航栏</div>
+            </div>
+        </li>
+        <li>
+            <div class="box">
+                <div class="front">翻转</div>
+                <div class="bottom">导航栏</div>
+            </div>
+        </li>
+    </ul>
+</body>
+
+</html>

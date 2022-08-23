@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        div {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // jQuery已经封装好自定义动画animate，直接调用传参即可
+        // animate(params, [speed], [easing], [fn])
+        // params: 想要更改的样式属性， 以对象形式传递， 必须写。 其余参数都可以省略。
+        // 属性名可以不用带引号， 如果是复合属性则需要采取驼峰命名法 borderLeft。
+        // speed： 速度之一的字符串(“slow”, “normal”, or“ fast”) 或表示动画时长的毫秒数值(如： 1000)。
+        // easing：(Optional) 用来指定切换效果， 默认是“ swing”， 可用参数“ linear”。
+        // fn: 回调函数， 在动画完成时执行的函数， 每个元素执行一次。
+
+
+        $(function() {
+            $("button").click(function() {
+                $("div").animate({
+                    left: 400,
+                    top: 400,
+                    opacity: .5
+                }, 500);
+            });
+        })
+    </script>
+    <button>动起来</button>
+    <div></div>
+</body>
+
+</html>

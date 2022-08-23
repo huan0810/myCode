@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 任何元素都可以浮动，
+        不管原先是什么模式的元素，添加浮动后都有行内块元素相似特性。
+        如果行内元素有了浮动，不需要转换为块元素/行内块元素就可以直接给宽高.
+        如果块元素没有设置宽度，默认和父元素一样宽，但添加浮动之后，内容有多宽盒子就有多宽 */
+        /* 比如span原本是行内元素，若要显示宽高背景色，需要转换成块元素，或浮动起来。
+        p是块元素，未指定宽度，浮动之后，宽度是文字的宽度 */
+        
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        span,
+        div {
+            /* display: block; */
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        
+        p {
+            float: left;
+            height: 200px;
+            background-color: palevioletred;
+        }
+    </style>
+</head>
+
+<body>
+    <span>span1</span>
+    <span>span1</span>
+    <div>div</div>
+    <p>p</p>
+</body>
+
+</html>

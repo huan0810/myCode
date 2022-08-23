@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1.加+ 减- 乘* 除/ 取余(取模)%
+        console.log(5 / 3); //输出1.6666666666666667,不是整除,而是保留小数
+        console.log(5 % 3); //输出2,取余是取余数
+
+        // 2.浮点数 算术运算里面会有问题，因为程序把小数转换成二进制运算，会有误差
+        // 尽量避免直接用浮点数进行运算
+        console.log(.1 + .2); //输出0.30000000000000004。
+        console.log(0.07 * 100); //7.000000000000001
+        // 避免使用浮点数进行比较，是否相等
+        var num = 0.1 + 0.2;
+        console.log(num == 0.3); //false
+
+        // 3.前置递增、递减：先自加1，后返回值
+        // 注意： 递增递减只能和变量配合使用，不能写成++2
+        var age = 10;
+        console.log(++age + 10); //21
+        console.log(age);
+        // 4.后置递增、递减：先返回原值，后自加1
+        var age1 = 10;
+        console.log(age1++ + 10); //20
+        console.log(age);
+        // 5.前置后置递增,综合运算
+        console.log('------------------------------');
+        var e = 10;
+        var f = e++ + ++e; //10+12
+        console.log('e=' + e); //12
+        console.log('f=' + f); //22
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* z-index: 1; 
+        只有定位的盒子才会有此属性。标准流、浮动没有此属性
+        数值可以是正整数、负整数、0。默认auto。数字不能加单位
+        数值越大，盒子越靠上;若属性值相同，按书写顺序，后来居上 */
+        
+        .box {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+        }
+        
+        .box1 {
+            background-color: rgb(250, 216, 216);
+            z-index: 1;
+        }
+        
+        .box2 {
+            background-color: rgb(247, 141, 141);
+            top: 50px;
+            left: 50px;
+            z-index: 2;
+        }
+        
+        .box3 {
+            background-color: rgb(247, 37, 37);
+            top: 100px;
+            left: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box box1">盒子一</div>
+    <div class="box box2">盒子二</div>
+    <div class="box box3">盒子三</div>
+</body>
+
+</html>

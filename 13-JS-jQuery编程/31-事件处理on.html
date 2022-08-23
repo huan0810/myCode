@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        
+        .current {
+            background-color: purple;
+        }
+    </style>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="current"></div>
+    <ul>
+        <li>我们都是好孩子</li>
+        <li>我们都是好孩子</li>
+        <li>我们都是好孩子</li>
+        <li>我们都是好孩子</li>
+        <li>我们都是好孩子</li>
+    </ul>
+    <ol>
+
+    </ol>
+    <script>
+        $(function() {
+            // 1. 单个事件注册
+            // $("div").click(function() {
+            //     $(this).css("background", "purple");
+            // });
+            // $("div").mouseenter(function() {
+            //     $(this).css("background", "skyblue");
+            // });
+
+            // 2. 事件处理on
+            // (1) on可以绑定1个或者多个事件处理程序
+            $("div").on({
+                mouseover: function() {
+                    $(this).css("background", "skyblue");
+                },
+                mouseout: function() {
+                    $(this).css("background", "red");
+                }
+            });
+            // 鼠标经过，离开都会触发同一个事件,可以简写如下
+            // $("div").on("mouseenter mouseleave", function() {
+            //     $(this).toggleClass("current");
+            // });
+
+            // (2) on可以实现事件委托（委派）
+            // $("ul li").click();原来的写法是用隐式迭代给每个li都绑定了事件
+
+            // click是绑定在ul身上的，但是触发的对象是ul里面的小li
+            // 点击li会事件冒泡到ul上，ul上有点击事件，会执行事件内容（弹出11）
+            $("ul").on("click", "li", function() {
+                alert(11);
+            });
+
+
+            // (3) on可以给未来动态创建的元素绑定事件,
+            // 利用事件委托，给原本页面就存在的ol绑定事件，但是触发的对象是ol里面的小li
+            // $("ol li").click(function() {
+            //     alert(11);
+            // })
+            $("ol").on("click", "li", function() {
+                alert(11);
+            })
+            var li = $("<li>我是后来创建的</li>");
+            $("ol").append(li);
+        })
+    </script>
+</body>
+
+</html>

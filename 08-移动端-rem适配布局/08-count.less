@@ -1,0 +1,14 @@
+// 1、less运算符的左右必须有空格！！！不然易出问题
+// 2、两个数参与运算，若其一有单位则以其一的单位为准；若两个数都有单位，则以第一个数的单位为准
+@border: 5px + 3;
+div {
+    width: 200px - 50;
+    height: (200px + 50px) * 2;
+    border: @border dotted pink;
+    background-color: #fff - #222;
+}
+// less有运算功能，所以以后的rem单位可以直接写公式
+img {
+    width: (82 / 50rem);
+    height: (82 / 50rem);
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            padding: 100px;
+        }
+        
+        textarea {
+            width: 200px;
+            height: 100px;
+            border: 1px solid pink;
+            /* 因为浏览器定义了文本框的样式,此处把文本框的轮廓样式设置为none */
+            outline: none;
+            /* 定义文本框不能被用户缩放 */
+            resize: none;
+        }
+        
+        ul {
+            margin-top: 50px;
+        }
+        
+        li {
+            width: 300px;
+            padding: 5px;
+            background-color: rgb(247, 240, 244);
+            color: rgb(36, 31, 31);
+            font-size: 14px;
+            margin: 15px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id=""></textarea>
+    <button>发布</button>
+    <ul>
+    </ul>
+
+    <script>
+        // 1.获取元素
+        var text = document.querySelector('textarea');
+        var btn = document.querySelector('button');
+        var ul = document.querySelector('ul');
+        // 2.注册事件
+        btn.onclick = function() {
+            // 先判断以下用户输入内容是否为空
+            if (text.value == '') {
+                alert('输入内容才能留言哦~');
+                return false;
+            } else {
+                // （1）创建li,并把文本框的内容(value)赋值给li的内容
+                var li = document.createElement('li');
+                li.innerHTML = text.value;
+                // （2）添加li
+                ul.insertBefore(li, ul.children[0]);
+            }
+        }
+    </script>
+</body>
+
+</html>

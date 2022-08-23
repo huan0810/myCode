@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // do...while循环，其实是while循环的变体
+        // 执行思路：先执行一次代码块，然后对条件表达式进行判断，
+        // 如果条件为true则重复执行循环体，为false则退出循环
+        // 注意：do...while的循环体至少执行一次
+        // do {
+        //     循环体
+        // } while (条件表达式);
+
+        // 1.do...while初体验
+        var i = 1;
+        do {
+            console.log('我爱你');
+            i++; //不更新计数器就会死循环了！！！
+        } while (i <= 0); //即使初始化的i不满足条件，也会执行一次循环体
+
+
+        // 2.打印一个人的一生
+        var age = 0;
+        do {
+            if (age == 0) {
+                console.log('她出生了');
+            } else if (age == 100) {
+                console.log('她走了');
+            } else {
+                console.log('今年她' + age + '岁了');
+            }
+            age++;
+        } while (age <= 100);
+
+        // 3.1-100求和
+        var j = 1;
+        var sum = 0;
+        do {
+            sum += j;
+            j++;
+        } while (j <= 100)
+        console.log('sum=' + sum);
+
+        // 4.弹出提示框：你爱我吗？若输入我爱你，则结束提示，否则一直提示
+        // 此案例用do...while比用while简单
+        do {
+            var str = prompt('你爱我吗？');
+        } while (str !== '我爱你')
+        alert('我也爱你啊！');
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

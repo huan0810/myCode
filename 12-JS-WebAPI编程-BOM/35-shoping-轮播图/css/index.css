@@ -1,0 +1,406 @@
+/* ! index.html首页专有的css */
+
+
+/* ? 首页专有的模块main start */
+
+.main {
+    width: 980px;
+    height: 455px;
+    margin-left: 220px;
+    margin-top: 10px;
+}
+
+.focus {
+    position: relative;
+    width: 721px;
+    height: 455px;
+    background-color: purple;
+    overflow: hidden;
+}
+
+.focus ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 600%;
+}
+
+.focus ul li {
+    float: left;
+}
+
+.arrow-l,
+.arrow-r {
+    display: none;
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+    width: 24px;
+    height: 40px;
+    background: rgba(0, 0, 0, .3);
+    text-align: center;
+    line-height: 40px;
+    color: #fff;
+    font-family: 'icomoon';
+    font-size: 18px;
+    z-index: 2;
+}
+
+.arrow-r {
+    right: 0;
+}
+
+.circle {
+    position: absolute;
+    bottom: 10px;
+    left: 50px;
+}
+
+.circle li {
+    float: left;
+    width: 8px;
+    height: 8px;
+    /*background-color: #fff;*/
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    margin: 0 3px;
+    border-radius: 50%;
+    /*鼠标经过显示小手*/
+    cursor: pointer;
+}
+
+.current {
+    background-color: #fff;
+}
+
+.newsflash {
+    float: right;
+    width: 250px;
+    height: 455px;
+}
+
+.newsflash .news {
+    height: 165px;
+    border: 1px solid #e4e4e4;
+}
+
+.news .news-hd {
+    height: 33px;
+    line-height: 33px;
+    border-bottom: 1px dotted #e4e4e4;
+    padding: 0 15px;
+}
+
+.news .news-hd h5 {
+    float: left;
+    font-size: 14px;
+}
+
+.news .news-hd .more {
+    float: right;
+    font-size: 12px;
+}
+
+.news .news-hd .more::after {
+    content: '\e918';
+    font-family: 'icomoon';
+}
+
+.news .news-bd {
+    padding: 5px 15px 0;
+}
+
+.news .news-bd ul li {
+    height: 24px;
+    line-height: 24px;
+    /* 以下三行:超出部分文字隐藏,文字强制一行显示,用省略号表示 */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.newsflash .lifeservice {
+    overflow: hidden;
+    height: 209px;
+    border: 1px solid #e4e4e4;
+    border-top: 0;
+}
+
+.newsflash .lifeservice ul {
+    /* 由于宽度放不下四个li a,所以让ul足够宽可以放下li a,在把超出lifeservice盒子的部分隐藏 */
+    width: 252px;
+}
+
+.newsflash .lifeservice ul li:nth-child(2) a {
+    position: relative;
+}
+
+.newsflash .lifeservice ul li a {
+    float: left;
+    width: 63px;
+    height: 71px;
+    border-right: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    /* text-align: center;可以让a盒子里面的行内/行内块元素水平居中显示 */
+    text-align: center;
+    padding-top: 12px;
+}
+
+.newsflash .lifeservice ul li:nth-child(2) a em {
+    /* 注意此处一定是选取ul的第二个li标签,:nth-child(2)加在li后面 */
+    /* 给第二个盒子加上满减标签 */
+    position: absolute;
+    top: -4px;
+    right: 0px;
+}
+
+.newsflash .lifeservice ul li a i {
+    display: inline-block;
+    width: 24px;
+    height: 28px;
+    background: url(../images/icons.png) no-repeat -18px -15px;
+}
+
+.newsflash .bargain {
+    margin-top: 6px;
+}
+
+
+/* ? 首页专有的模块main end */
+
+
+/* ? 首页专有推荐模块recom start */
+
+.recom {
+    height: 163px;
+    margin-top: 12px;
+    /* background-color: #ebebeb; */
+}
+
+.recom_hd {
+    float: left;
+    width: 205px;
+    height: 100%;
+    text-align: center;
+    padding-top: 30px;
+    background-color: #5c5251;
+}
+
+.recom_bd {
+    float: left;
+}
+
+.recom_bd ul li {
+    float: left;
+    position: relative;
+}
+
+.recom_bd ul li img {
+    /* 把li里面的图片大小写成固定值，防止因图片大小不一导致布局混乱 */
+    width: 248px;
+    height: 163px;
+}
+
+.recom_bd ul li:nth-child(-n+3)::after {
+    /* 选出前三个li加上伪元素 */
+    /* 必须有content元素，没有内容可以为空 */
+    content: '';
+    /* div::before、 div::after创建的伪元素都属于行内元素，
+    需要 转换为块级元素/加浮动/加绝对、固定定位 才能设置宽高 */
+    position: absolute;
+    top: 10px;
+    right: 0;
+    background-color: #ddd;
+    width: 1px;
+    height: 143px;
+}
+
+
+/* ? 首页专有推荐模块recom end */
+
+
+/* ? (自制)like猜你喜欢模块 start */
+
+.like {
+    height: 270px;
+    margin-top: 20px;
+}
+
+.like_hd {
+    height: 40px;
+    line-height: 40px;
+    padding-right: 20px;
+}
+
+.like_hd h4 {
+    float: left;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.like_hd a {
+    float: right;
+    font-size: 12px;
+}
+
+.like_hd a::after {
+    content: '\ea2e';
+    font-family: 'icomoon';
+}
+
+.like_bd {
+    height: 230px;
+    border: 1px solid #ededed;
+}
+
+.like_bd ul {
+    width: 1202px;
+}
+
+.like_bd ul li {
+    /* 子绝父相 */
+    position: relative;
+    float: left;
+    width: 200px;
+    height: 228px;
+}
+
+.like_bd ul li:nth-child(-n+5):after {
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+    width: 1px;
+    height: 62px;
+    background-color: #ededed;
+}
+
+.like_bd ul li a {
+    width: 100%;
+    height: 100%;
+}
+
+.like_bd ul li a div {
+    /* 复习水平居中:   text-align: center;  或  margin: 0 auto;  
+    块级元素：盒子必须指定宽度width，盒子左右的外边距都设置为auto
+    行内元素、行内块元素：给其父元素添加text-align:center即可 */
+    /* img是行内块元素，所以使用text-align: center; */
+    text-align: center;
+    width: 200px;
+    height: 158px;
+    line-height: 158px;
+}
+
+.like_bd ul li a p {
+    font-size: 12px;
+    margin-left: 35px;
+}
+
+.like_bd ul li a h4 {
+    font-size: 18px;
+    color: #df3033;
+    margin-left: 35px;
+}
+
+.like_bd ul li a h4 span {
+    font-size: 14px;
+}
+
+
+/* ? (自制)like猜你喜欢模块 end */
+
+
+/* ? 楼层区域模块制作floor start */
+
+.floor .w {
+    /* 因为每一楼层都有上外边距，所以直接给.floor .w定义 */
+    margin-top: 30px;
+}
+
+.box_hd {
+    height: 30px;
+    border-bottom: 2px solid #c81623;
+}
+
+.box_hd h3 {
+    float: left;
+    font-size: 18px;
+    font-weight: normal;
+    color: #c81623;
+}
+
+.tab_list {
+    /* 注意这里，是先给tab_list整个盒子加上right浮动，再给每个li加上left左浮动，才能达到效果 */
+    float: right;
+    line-height: 30px;
+}
+
+.tab_list ul li {
+    float: left;
+}
+
+.tab_list ul li a {
+    /* a标签虽然是行内元素，但是左右margin/padding有效，上下margin/padding无效 */
+    margin: 0 15px;
+}
+
+
+/* 选项卡布局原理：选中哪个卡片，对应内容显示出来，其他内容隐藏。用js实现 */
+
+.box-bd {
+    height: 360px;
+}
+
+.tab_list_item>div {
+    /* >子代选择器 */
+    float: left;
+    height: 360px;
+}
+
+.col_211 {
+    width: 211px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.col_211 ul {
+    padding-left: 14px;
+}
+
+.col_211 ul li {
+    float: left;
+    width: 85px;
+    height: 34px;
+    border-bottom: 1px solid #e8e8e7;
+    text-align: center;
+    line-height: 33px;
+    margin-right: 12px;
+}
+
+.col_329 {
+    width: 329px;
+}
+
+.col_220 {
+    position: relative;
+    width: 220px;
+    border-bottom: 1px solid #e8e8e7;
+}
+
+.col_220::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 360px;
+    background-color: #e8e8e7;
+}
+
+.col_220 .bb {
+    /* 一般，a如果包含有宽度的盒子，需要转换成块级元素 */
+    display: block;
+    border-bottom: 1px solid #e8e8e7;
+}
+
+
+/* ? 楼层区域模块制作floor end */

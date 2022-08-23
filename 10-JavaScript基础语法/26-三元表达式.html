@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 表达式1 ? 表达式2 : 表达式3;
+        // 如果表达式1为 true， 则返回表达式2的值， 如果表达式1为 false， 则返回表达式3的值
+        var num = 10;
+        var str = num < 5 ? '正确' : '不正确';
+        console.log(str);
+
+        // 三元表达式-数字补0案例
+        // 0-59之间的数字，若小于10则在数字前面补0
+        var time = prompt('请输入一个0-59之间的数字');
+        time = time < 10 ? '0' + time : time;
+        alert(time);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 两层for循环：外层for循环执行一次，里层for循环执行全部
+        // 一般情况：外层循环控制行数，里层循环控制列数
+
+
+        // 1.打印n行n列星星
+        var row = prompt('输入星星行数：');
+        var col = prompt('输入星星列数：');
+        var str = '';
+        for (var i = 0; i < row; i++) {
+            for (var j = 0; j < col; j++) {
+                str += '✨';
+            }
+            // console.log(str);//如果在此处打印，五行会折叠成一行
+            // 应该在两层for循环外打印，中间\n换行
+            str += '\n'; //换行
+        }
+        console.log(str);
+
+
+        // 2.打印倒三角
+        var num = prompt('想打印几行倒三角？');
+        var str1 = '';
+        for (var i = 0; i < num; i++) {
+            for (var j = i; j < num; j++) {
+                str1 += '✨';
+            }
+            str1 += '\n';
+        }
+        console.log(str1);
+
+
+        // 3.打印九九乘法表
+        str = '';
+        for (var i = 1; i <= 9; i++) { //控制行数
+            for (var j = 1; j <= i; j++) {
+                // 每个式子后面加上制表符\t才能对齐，空格不能对齐哦！
+                str += j + 'x' + i + '=' + (i * j) + '\t';
+            }
+            str += '\n';
+        }
+        console.log(str);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

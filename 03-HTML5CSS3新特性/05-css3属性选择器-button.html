@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            /* 经过手指时，光标变小手 */
+            cursor: pointer;
+        }
+        /* 注意属性选择器标签和[]之间无空格 */
+        
+        button[disabled] {
+            /* 鼠标变默认指针 */
+            cursor: default;
+        }
+    </style>
+</head>
+
+<body>
+    <button>按钮</button>
+    <button>按钮</button>
+    <button disabled="disabled">按钮</button>
+    <button disabled="disabled">按钮</button>
+</body>
+
+</html>

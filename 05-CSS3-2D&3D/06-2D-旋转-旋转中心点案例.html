@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid pink;
+            margin: 100px auto;
+            /* 给父亲添加溢出隐藏 */
+            overflow: hidden;
+        }
+        
+        div::after {
+            content: "旋转案例";
+            /* 伪元素是行内元素，先转换成块元素，再设置宽高 */
+            display: block;
+            width: 100%;
+            height: 100%;
+            background-color: skyblue;
+            transform: rotate(90deg);
+            transform-origin: left bottom;
+            /* 过渡加给本身 */
+            transition: all 1s;
+        }
+        /* 鼠标经过盒子，蓝盒子旋转上去 */
+        
+        div:hover::after {
+            transform: rotate(0);
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

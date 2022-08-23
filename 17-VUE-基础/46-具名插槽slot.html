@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- 具名插槽就是带有name名字的插槽，可以把父组件中对应名字的标签插入对应插槽，
+         没有名字的标签插入“无名”插槽<slot></slot> -->
+
+    <div id="app">
+      <!-- <base-layout>
+        <header slot="header">标题</header>
+        <p>内容1</p>
+        <p>内容2</p>
+        <footer slot="footer">底部</footer>
+      </base-layout> -->
+
+      <base-layout>
+        <!-- template标签起临时包裹作用,在浏览器中不会渲染,可以同时把多条标签插入插槽 -->
+        <template v-slot:header>
+          <p>标题111</p>
+          <p>标题222</p>
+        </template>
+        <p>内容1</p>
+        <p>内容2</p>
+        <template v-slot:footer>
+          <p>底部111</p>
+          <p>底部222</p>
+        </template>
+      </base-layout>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+      Vue.component('base-layout', {
+        template: `
+                <div>
+                    <h1>
+                        <slot name='header'></slot>    
+                    </h1>
+                    <h3><slot></slot></h3>
+                    <h6>
+                        <slot name='footer'></slot>    
+                    </h6>
+                </div>
+            `
+      })
+
+      var vm = new Vue({
+        el: '#app',
+        data: {}
+      })
+    </script>
+  </body>
+</html>

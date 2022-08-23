@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./lib/bootstrap.css" />
+    <script src="./lib/jquery.js"></script>
+</head>
+
+<body style="padding: 15px;">
+    <!-- 添加图书的Panel面板 -->
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">添加图书</h3>
+        </div>
+        <div class="panel-body form-inline">
+
+            <div class="input-group">
+                <div class="input-group-addon">书名</div>
+                <input type="text" class="form-control" id="iptBookname" placeholder="请输入书名">
+            </div>
+            <div class="input-group">
+                <div class="input-group-addon">作者</div>
+                <input type="text" class="form-control" id="iptAuthor" placeholder="请输入作者">
+            </div>
+            <div class="input-group">
+                <div class="input-group-addon">出版社</div>
+                <input type="text" class="form-control" id="iptPublisher" placeholder="请输入出版社">
+            </div>
+            <button id="btnAdd" class="btn btn-primary">添加</button>
+
+        </div>
+    </div>
+
+
+    <!-- 图书的表格 -->
+
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>书名</th>
+                <th>作者</th>
+                <th>出版社</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id="tb"></tbody>
+    </table>
+
+
+    <script>
+        $(function() {
+            // (1)获取图书列表
+            function getBookList() {
+                $.get('http://www.liulongbin.top:3006/api/getbooks', function(res) {
+
+                    // 若获取数据失败，给出提示
+                    if (res.status !== 200) return alert('获取数据失败！请刷新重试');
+
+                    // 把要添加的tr行都写进数组中
+                    var row = [];
+                    // $("div").each(function (index, domEle) { xxx; }) 主要遍历元素
+                    // $.each() 方法遍历元素 主要用于遍历数组，对象
+                    $.each(res.data, function(i, ele) {
+                        row[row.length] = '<tr><td>' + ele.id + '</td><td>' + ele.bookname + '</td><td>' + ele.author + '</td><td>' + ele.publisher + '</td><td><a href="javascript:;" class="del" data-id="' + ele.id + '">删除</a></td></tr>';
+                    });
+                    $('#tb').empty().append(row.join('')); //把数组中元素渲染给页面，先清空再追加
+                });
+            }
+
+            getBookList();
+
+            // (2)删除图书
+            // 通过事件代理为删除链接绑定事件，可以动态删除未来添加的元素
+            $('#tb').on('click', '.del', function() {
+                var id = $(this).attr('data-id');
+                $.get('http://www.liulongbin.top:3006/api/delbook', {
+                    id: id
+                }, function(res) {
+                    if (res.status !== 200) return alert('删除图书失败!');
+                    getBookList();
+                });
+            });
+
+            // (3)添加图书
+            $('#btnAdd').on('click', function() {
+                // trim()删除字符串两端的空白字符
+                var bookname = $('#iptBookname').val().trim();
+                var author = $('#iptAuthor').val().trim();
+                var publisher = $('#iptPublisher').val().trim();
+                if (bookname.length <= 0 || author.length <= 0 || publisher.length <= 0) return alert('请输入内容哦!');
+                $.post('http://www.liulongbin.top:3006/api/addbook', {
+                    bookname: bookname,
+                    author: author,
+                    publisher: publisher
+                }, function(res) {
+                    if (res.status !== 201) return alert('添加图书失败,请重试');
+                    getBookList(); //重新获取列表一定要写进回调函数
+                    // 添加成功后把文本框内容清空
+                    $('#iptBookname').val('');
+                    $('#iptAuthor').val('');
+                    $('#iptPublisher').val('');
+                });
+            });
+        })
+    </script>
+
+</body>
+
+</html>

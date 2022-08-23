@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <video src="video/mov.mp4" muted></video>
+    <script>
+        // 1. 把已有的DOM对象转换为jQuery对象:$(DOM对象)
+        var myVideo = document.querySelector('video');
+        $(myVideo); //myVideo已经是DOM对象，不需要加''
+        // 2. 把已有的jQuery对象转换为DOM对象。
+        // jQuery没有封装play方法，只有转换成DOM对象才能使用play方法
+        // (1)$('div')[index]         index是索引号
+        $('video')[0].play();
+        // (2)$('div').get(index)     index 是索引号
+        // $('video').get(0).play();
+    </script>
+</body>
+
+</html>

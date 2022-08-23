@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* background-size: ;
+        用来设置背景图片大小，注意只能是背景图片，对插入图片无效
+        1、单位是px，background-size: 图片宽度 图片高度;
+        2、单位是%，是相对于父盒子的百分比
+        3、参数写cover，把背景图像扩展至足够大，使背景图像完全覆盖背景区域，可能有部分背景图片显示不全
+        4、参数写contain，把背景图像扩展至最大尺寸，使其宽或高铺满背景区域的宽或高，可能有部分空白区域
+        如果只写一个参数，是宽度，高度省略，会等比例缩放 */
+        
+        div {
+            width: 500px;
+            height: 500px;
+            border: 2px solid pink;
+            background: url(images/floor.png) no-repeat;
+            /* background-size: 500px; */
+            /* background-size: cover; */
+            background-size: contain;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

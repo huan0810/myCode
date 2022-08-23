@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* flex布局中，默认主轴方向就是x轴方向，水平向右;侧轴方向就是y轴方向，水平向下
+        但主轴侧轴是可以变化的，flex-direction设置谁为主轴，剩下的就为侧轴。
+        元素是跟着主轴排列的！！！ */
+        
+        div {
+            /* 给父级添加flex属性 */
+            display: flex;
+            width: 800px;
+            height: 300px;
+            background-color: pink;
+            /* flex布局默认row，沿x轴方向从左往右排列，那么y轴就是侧轴 */
+            flex-direction: row;
+            /* （了解）row-reverse把x轴翻转，从右往左排列 */
+            /* flex-direction: row-reverse; */
+            /* column把主轴设置成y轴，那么x轴就成了侧轴 */
+            /* flex-direction: column; */
+            /* （了解）column-reverse把y轴翻转，从下往上排列 */
+            /* flex-direction: column-reverse; */
+        }
+        
+        div span {
+            width: 150px;
+            height: 100px;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .father {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        padding: 50px;
+        margin: 100px;
+        border: 20px solid rgb(250, 146, 163);
+        background-color: pink;
+      }
+
+      .son {
+        /* (2)如果祖先元素有定位（相对、绝对、固定定位），
+            则以最近一级的有定位祖先元素为参考点移动位置。 */
+        position: absolute;
+        /* top、right定位到右上角 */
+        top: 10px;
+        right: 10px;
+        width: 200px;
+        height: 200px;
+        background-color: skyblue;
+      }
+
+      .son2 {
+        /* son盒子脱标啦，son2顶上去了 */
+        width: 200px;
+        height: 200px;
+        background-color: rgb(78, 100, 109);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="father">
+      <div class="son"></div>
+      <div class="son2"></div>
+    </div>
+  </body>
+</html>

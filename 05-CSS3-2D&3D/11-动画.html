@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 过渡与动画的区别：
+        过渡效果只有在鼠标经过离开时显示，而动画效果有连续自动播放等效果 */
+        /* 1、先定义动画；2、再调用动画
+        用keyframes 定义动画（类似定义类选择器）。0% 是动画的开始，100% 是动画的完成
+         */
+        /* 1、先定义动画；move是自定义的动画名称 */
+        
+        @keyframes move {
+            /* 开始 */
+            0% {
+                transform: translateX(0px);
+            }
+            /* 结束 */
+            100% {
+                transform: translateX(1000px);
+            }
+        }
+        
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* 2、再调用动画 */
+            /* 动画名称 */
+            animation-name: move;
+            /* 持续时间 */
+            animation-duration: 2s;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

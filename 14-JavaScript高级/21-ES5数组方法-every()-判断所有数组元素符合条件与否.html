@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = [{
+            id: 1,
+            state: true
+        }, {
+            id: 1,
+            state: true
+        }, {
+            id: 1,
+            state: true
+        }, {
+            id: 1,
+            state: true
+        }, ];
+
+        // 判断state属性是否全为true
+        // item表示循环的每一项
+        const result = arr.every(item => item.state);
+        // 相当于:
+        // const result = arr.every(item => item.state === true);
+        console.log(result);
+    </script>
+</body>
+
+</html>

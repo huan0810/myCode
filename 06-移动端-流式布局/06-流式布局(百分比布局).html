@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 流式布局，也称百分比布局，把盒子宽度设置成百分比，根据屏幕宽度进行伸缩 */
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        section {
+            width: 100%;
+            /* 设置盒子伸缩的最大值、最小值 */
+            max-width: 980px;
+            min-width: 320px;
+            margin: 0 auto;
+        }
+        
+        section div {
+            float: left;
+            width: 50%;
+            height: 200px;
+        }
+        
+        section div:first-child {
+            background-color: pink;
+        }
+        
+        section div:last-child {
+            background-color: rgb(109, 61, 69);
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div></div>
+        <div></div>
+    </section>
+</body>
+
+</html>

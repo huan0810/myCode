@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- (1)单独的事件中心管理组件间的通信 var eventHub = new Vue()
+
+         (2)监听事件与销毁事件,在钩子函数mounted中监听事件
+         eventHub.$on('add-todo', addTodo) //监听事件
+         eventHub.$off('add-todo') //销毁事件
+         
+         (3)触发事件，在兄弟组件的methods属性中触发事件
+         eventHub.$emit('add-todo', id) -->
+
+    <div id="app">
+        <test1></test1>
+        <test2></test2>
+        <button @click="handle">销毁事件</button>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        // (1)建立事件中心
+        var hub = new Vue();
+
+        // 注册两个兄弟组件
+        Vue.component('test1', {
+            data: function() {
+                return {
+                    count: 0,
+                }
+            },
+            template: `
+                <div>
+                    <span>test1:{{count}}</span>
+                    <button @click="handle">点击test2+2</button>    
+                </div>
+            `,
+            methods: {
+                handle: function() {
+                    // 触发兄弟组件的事件
+                    hub.$emit('test2-event', 2)
+                }
+            },
+            mounted: function() {
+                // 在钩子函数中监听事件
+                hub.$on('test1-event', (val) => {
+                    this.count += val;
+                });
+            },
+        });
+        Vue.component('test2', {
+            data: function() {
+                return {
+                    count: 0,
+                }
+            },
+            template: `
+                <div>
+                    <span>test2:{{count}}</span>
+                    <button @click="handle">点击test1+1</button>    
+                </div>
+            `,
+            methods: {
+                handle: function() {
+                    // 触发兄弟组件的事件
+                    hub.$emit('test1-event', 1)
+                }
+            },
+            mounted: function() {
+                // 在钩子函数中监听事件
+                hub.$on('test2-event', (val) => {
+                    this.count += val;
+                });
+            },
+        });
+
+        var vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                // 销毁两个点击按钮事件
+                handle: function() {
+                    hub.$off('test1-event');
+                    hub.$off('test2-event');
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

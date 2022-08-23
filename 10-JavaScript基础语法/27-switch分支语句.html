@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // switch语句是多分支语句，可以实现多选一
+        /* switch (表达式) {
+            case value1:
+                // 执行语句1 (表达式的值等于 value1 时要执行的代码)
+                break;
+            case value2:
+                // 执行语句2 (表达式的值等于 value2 时要执行的代码)
+                break;
+            default:
+                // 执行语句3 (表达式的值不等于任何一个 value 时要执行的代码)
+        } */
+        /* 注意：
+        1.表达式和value的匹配是全等匹配，必须值和数据类型都一致，'3'和3不匹配
+        2.记得加break;  如果没有break;则不会退出switch，而是继续执行下一个case。
+        只有特殊情况break才会省略
+        3.switch适合值确定的情况。分支多时用switch结构清晰，而分支少时用if else效率更高 */
+
+        switch ('3') {
+            case 3:
+                alert('这是3');
+                break;
+            case 4:
+                alert('这是4');
+                break;
+            default:
+                alert('不三不四');
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

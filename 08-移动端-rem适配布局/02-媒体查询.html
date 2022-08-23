@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 媒体查询是css3新语法，可以针对不同屏幕尺寸设置不同样式
+        重置浏览器大小过程中，页面会被重新渲染 */
+        /* 具体格式：
+        @media mediatype and|not|only (media feature) {
+            CSS-Code;
+        }*/
+        /* @media声明媒体查询
+        mediatype 媒体类型:all用于所有设备;print用于打印机和打印预览;screen用于电脑屏幕，平板电脑，智能手机等
+        关键字 and以将多个媒体特性连接到一起，相当于“且”的意思; not排除某个媒体类型,可以省略; only指定某个特定的媒体类型，可以省略
+        media feature 媒体特性 必须有小括号包含.width、min-width、max-width   */
+        /* 下面一句话的意思：在宽度<=800px的屏幕上，设置想要的样式(屏幕背景色变为pink) */
+        
+        @media screen and (max-width:800px) {
+            body {
+                background-color: pink;
+            }
+        }
+        /* 下面一句话的意思：在宽度<=600px的屏幕上，屏幕背景色变为skyblue */
+        
+        @media screen and (max-width:600px) {
+            body {
+                background-color: skyblue;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>

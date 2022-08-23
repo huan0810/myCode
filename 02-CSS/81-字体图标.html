@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 外观是图标，本质是文字。
+        字体图标适应于结构样式比较简单的图标;精灵图适用于结构样式复杂的
+        一旦文字加载出来，图标就会马上渲染出来，减少了服务器请求 */
+        /* 第一步：把解压出的fonts文件夹放在页面同一级目录下 */
+        /* 第二步：字体声明，把字体文件引入
+        复制粘贴icomoon\style.css中的第一段 */
+        
+        @font-face {
+            font-family: 'icomoon';
+            src: url('fonts/icomoon.eot?piwh5t');
+            src: url('fonts/icomoon.eot?piwh5t#iefix') format('embedded-opentype'), url('fonts/icomoon.ttf?piwh5t') format('truetype'), url('fonts/icomoon.woff?piwh5t') format('woff'), url('fonts/icomoon.svg?piwh5t#icomoon') format('svg');
+            font-weight: normal;
+            font-style: normal;
+            font-display: block;
+        }
+        
+        span {
+            /* 第四步，font-family定义字体系列，设置大小颜色等 */
+            font-family: 'icomoon';
+            font-size: 250px;
+            color: skyblue;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- 第三步：复制粘贴字体。复制icomoon\demo.html中对应字体图标后面的小框 -->
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</body>
+
+</html>

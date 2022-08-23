@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{num}}</div>
+        <!-- 1. 如果事件直接绑定函数名称handle1，那么默认会传递事件对象作为事件函数的第一个参数 -->
+        <button @click="handle1">点击1</button>
+        <!-- 2、如果事件绑定函数调用handle2()，那么事件对象必须作为最后一个参数显式传递，$event是固定写法  -->
+        <button @click="handle2(123,'zxc',$event)">点击2</button>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                num: 0
+            },
+            methods: {
+                handle1: function(event) {
+                    console.log(event);
+                    console.log(event.target.innerHTML);
+                    this.num++;
+                },
+                handle2: function(n, m, event) {
+                    console.log(event);
+                    console.log(event.target.innerHTML);
+                    this.num++;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

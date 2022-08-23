@@ -1,0 +1,24 @@
+.header {
+    width: 200px;
+    height: 200px;
+    background-color: pink;
+    // 在less的语法里，儿子a标签可以住在父亲.header家里，这就是less嵌套
+    a {
+        color: red;
+        // 若有伪类、伪元素、交集选择器，内层选择器前面加&
+        // 有&符号，被解析为父元素自身或父元素的伪类；否则被解析为父元素的后代
+        // a的伪类选择器
+        &:hover {
+            color: aqua;
+        }
+    }
+}
+.nav {
+    .logo {
+        color: red;
+    }
+    // .nav的伪元素
+    &::before {
+        content: "";
+    }
+}

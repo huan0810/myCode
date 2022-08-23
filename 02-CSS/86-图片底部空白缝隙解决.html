@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=\, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 图片有空白缝隙,是因为默认基线对齐,空白缝隙是留给文字的缝隙 */
+        
+        div {
+            border: 1px solid skyblue;
+        }
+        
+        img {
+            /* 方法1(推荐使用):给图片添加vertical-align: top|middle|bottom; */
+            vertical-align: bottom;
+            /* 方法2：把图片转换成块元素，块元素没有vertical-align属性，也没有缝隙 */
+            /* display: block; */
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="images/tudou.jpg" alt="">
+    </div>
+</body>
+
+</html>

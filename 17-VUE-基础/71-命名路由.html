@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <!-- 导入 vue 文件，为全局 window 对象挂载 Vue 构造函数 -->
+    <script src='js/vue.js'></script>
+    <!-- 导入 vue-router 文件，为全局 window 对象挂载 VueRouter 构造函数 -->
+    <script src="js/vue-router_3.0.2.js"></script>
+</head>
+
+<body>
+    <!-- name属性给路由规则起一个别名，即为命名路由 -->
+
+
+    <!-- 被vm实例所控制的区域 -->
+    <div id='app'>
+        <router-link to="/user/1">User1</router-link>
+        <router-link to="/user/2">User2</router-link>
+        <router-link to="/user/3">User3</router-link>
+        <!-- 动态绑定to属性,值为对象,name是路由别名,params对象是传递的值 -->
+        <router-link :to="{name:'user',params:{uid:4}}">User4</router-link>
+        <router-link to="/register">Register</router-link>
+        <router-view></router-view>
+    </div>
+
+    <script>
+        // 定义路由组件
+        const User = {
+            props: ['uid', 'uname', 'age'],
+            template: '<h1>User 组件, 用户id{{uid}},姓名{{uname}},年龄{{age}}</h1>'
+        }
+        const Register = {
+            template: '<h1>Register 组件</h1>'
+        }
+
+        // 创建路由实例对象
+        var router = new VueRouter({
+            routes: [{
+                path: '/',
+                redirect: '/user/1'
+            }, {
+                // 命名路由:此路由规则的别名是user
+                name: 'user',
+                path: '/user/:uid',
+                component: User,
+                props: route => ({
+                    uname: '娇娇',
+                    age: 18,
+                    uid: route.params.uid
+                })
+            }, {
+                path: '/register',
+                component: Register
+            }]
+        });
+
+        // 创建vm实例对象
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            // 'router': router
+            router
+        });
+    </script>
+</body>
+
+</html>

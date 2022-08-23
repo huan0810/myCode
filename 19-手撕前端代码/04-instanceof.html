@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // left instanceof right 检测构造函数right的原型对象 是否在该实例对象left的原型链上
+      // 1、如果left.__proto__ === right.prototype,
+      // 则构造函数right的原型对象在该实例对象left的原型链上，返回true
+      // 2、如果1没有返回true，则继续在原型链上查找，令left = left.__proto__，并继续第一步
+      // 3、直到left === null,查找结束，返回false
+      function myInstanceof(left, right) {
+        if (typeof left !== 'object' || right == null) {
+          return false
+        }
+        left = left.__proto__
+        right = right.prototype
+        while (true) {
+          if (left == null) return false
+          if (left == right) return true
+          left = left.__proto__
+        }
+      }
+    </script>
+  </body>
+</html>

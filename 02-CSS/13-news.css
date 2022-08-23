@@ -1,0 +1,36 @@
+/* 12-综合-新闻页面.html的css */
+
+h1 {
+    font: 400 32px/44px 'Microsoft yahei';
+    text-align: center;
+}
+
+.grey {
+    color: #888888;
+}
+
+a {
+    text-decoration: none;
+}
+
+.searchwidth {
+    width: 170px;
+}
+
+.search {
+    font: 700 17px 'Microsoft yahei';
+}
+
+.smallfont {
+    font-size: 12px;
+}
+
+p {
+    font: 16px/27px 'Microsoft yahei';
+    text-indent: 2em;
+}
+
+.center {
+    /* 要使图片居中对齐，必须给他的父亲p标签加水平居中 */
+    text-align: center;
+}

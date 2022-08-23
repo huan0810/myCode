@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 第一行清除内外边距 */
+        
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        body {
+            background-color: #F5F5F5;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #333;
+        }
+        
+        .box {
+            width: 298px;
+            height: 415px;
+            background-color: #fff;
+            margin: 100px auto;
+        }
+        
+        .box img {
+            width: 100%;
+        }
+        
+        .review {
+            font: 14px 'Microsoft yahei';
+            height: 70px;
+            /* 给出padding值，因为没有给宽度，所以不会撑大盒子 */
+            padding: 0 28px;
+            /* 在height上给了值，所以不用padding，会撑大盒子的 */
+            margin-top: 30px;
+        }
+        
+        .appraise {
+            font: 12px 'Microsoft yahei';
+            color: #b0b0b0;
+            padding: 0 28px;
+            margin-top: 20px;
+        }
+        
+        .info {
+            font: 14px 'Microsoft yahei';
+            margin-top: 15px;
+            padding: 0 28px;
+        }
+        /* 给这个页面的所有a链接更改样式 */
+        
+        .info h4 {
+            display: inline-block;
+            font-weight: 400;
+        }
+        
+        .info .line {
+            color: #ebe4e0;
+            margin: 0 6px 0 15px;
+        }
+        
+        .info .price {
+            color: #FF6700;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <img src="images/img.jpg" alt="图片走丢了">
+        <p class="review">
+            这是一个非常厉害的蓝牙耳机，这其实只是一个广告而已
+        </p>
+        <div class="appraise">
+            来自于 117384232 的评价
+        </div>
+        <div class="info">
+            <!-- 标题一般就用h标签了 -->
+            <h4><a href="#">红米真无线蓝牙耳机二代...</a></h4>
+            <span class="line">|</span>
+            <span class="price">99.9元</span>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 子标签可以继承父标签的某些样式。text-、font-、line-、color属性 */
+        
+        body {
+            color: pink;
+            /* font: 12px/24px 'Microsoft yahei'; */
+            /* 行高可以用倍数，以下表示行高是当前文字大小的1.5倍 */
+            font: 12px/1.5 'Microsoft yahei';
+        }
+        
+        div {
+            /* 此处div继承了body的行高1.5，但是是24px的1.5倍 */
+            font-size: 24px;
+        }
+        /* p标签没有指定行高，它会继承父标签或者父标签的父标签的文字大小及行高 */
+    </style>
+</head>
+
+<body>
+    <div>div继承body</div>
+    <p>p继承body</p>
+
+</body>
+
+</html>

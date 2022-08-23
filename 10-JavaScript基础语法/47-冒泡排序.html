@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 冒泡排序
+        var arr = [5, 4, 3, 2, 1];
+        // 外层for循环，控制冒泡的趟数
+        for (var i = 0; i < arr.length - 1; i++) {
+            // 里层for循环控制一趟交换的次数
+            for (var j = 0; j < arr.length - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    var temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        console.log('冒泡:' + arr);
+
+
+        // 冒泡排序优化：
+        // 利用fags做标记，如果在本轮有交换，则说明数列无序；如果没有交换，说明数列已然有序，直接返回。
+        var arr1 = [0, 1, 3, 2, 4, 7, 8, 56];
+        var flags;
+        for (var i = 0; i < arr1.length - 1; i++) {
+            //交换标志flags，初始为0.注意flags必须在外层for循环里面，这样每趟冒泡后才能重新置0
+            flags = 0;
+            for (var j = 0; j < arr1.length - i - 1; j++) {
+                if (arr1[j] > arr1[j + 1]) {
+                    var temp = arr1[j];
+                    arr1[j] = arr1[j + 1];
+                    arr1[j + 1] = temp;
+                    flags = 1; //有交换，则交换标志变为1
+                }
+            }
+            // 检查本趟冒泡是否有交换，若无交换，说明已有序，直接退出for循环
+            if (flags == 0) {
+                console.log('现在是第' + (i + 1) + '趟冒泡，已经有序');
+                break;
+            }
+        }
+        console.log('优化冒泡：' + arr1);
+        console.log(flags);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

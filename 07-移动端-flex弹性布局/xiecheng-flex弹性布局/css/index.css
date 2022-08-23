@@ -1,0 +1,382 @@
+body {
+    max-width: 540px;
+    min-width: 320px;
+    margin: 0 auto;
+    font: normal 14px/1.5 PingFangSC-regular, Tahoma, Lucida Grande, Verdana, Microsoft Yahei, STXihei, hei;
+    color: #000;
+    background: #f4f4f4;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-text-size-adjust: none;
+    /* -moz-：代表 firefox 浏览器私有属性 */
+    -moz-user-select: none;
+    user-select: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    /* 清除li的小圆点 */
+    list-style: none;
+    /* ul有默认的margin和padding */
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    /* 清除标签a的下划线 */
+    text-decoration: none;
+    color: #222;
+}
+
+div {
+    /* css3盒子模型 */
+    box-sizing: border-box;
+}
+
+
+/* ?搜索模块 */
+
+.search-index {
+    display: flex;
+    position: fixed;
+    top: 0;
+    /* 加了绝对定位、固定定位的盒子不能用margin: 0 auto; 因为它们脱标了.
+    所以先left50%，再沿x轴位移-50%,实现水平居中 */
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+    /* 固定定位跟父元素无关，以屏幕为准，所以必须设置宽度，最大最小伸缩范围 */
+    width: 100%;
+    min-width: 320px;
+    max-width: 540px;
+    height: 44px;
+    background-color: #F6F6F6;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.search {
+    /* 子绝父相 */
+    position: relative;
+    height: 26px;
+    /* 注意注意：因为我们用的是css3盒子模型，把padding和border值都算进去的
+    所以在有border情况下，line-height和height一样高的话，文字看起来会偏下
+    综上，line-height应该去掉边框，为24px */
+    line-height: 24px;
+    border: 1px solid #ccc;
+    /* 右侧user模块固定44px宽，剩下全部分给search模块 */
+    flex: 1;
+    font-size: 12px;
+    color: #666;
+    margin: 7px 10px;
+    padding-left: 25px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+}
+
+.search::before {
+    content: "";
+    /* 子绝父相  .search::before的父亲是.search */
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 15px;
+    height: 15px;
+    background: url(../images/sprite.png) no-repeat -59px -279px;
+    background-size: 104px auto;
+}
+
+.user {
+    width: 44px;
+    height: 44px;
+    font-size: 12px;
+    text-align: center;
+    color: #2EAAE0;
+}
+
+.user::before {
+    display: block;
+    width: 23px;
+    height: 23px;
+    content: "";
+    background: url(../images/sprite.png) no-repeat -59px -194px;
+    /* 精灵图是2倍图，缩放为原来一半（大约一半） */
+    background-size: 104px auto;
+    /* 4px顶部距离。-2px是底部距离，可使下面文字离图片近点 */
+    margin: 4px auto -2px;
+}
+
+
+/* ?焦点图模块 */
+
+.focus {
+    padding-top: 44px;
+}
+
+.focus img {
+    width: 100%;
+}
+
+
+/* ?局部导航栏 */
+
+.local-nav {
+    /* 给父级设置flex布局，li不需要浮动就可以在一行展示了 */
+    display: flex;
+    height: 64px;
+    margin: 3px 4px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+}
+
+.local-nav li {
+    flex: 1;
+}
+
+.local-nav li a {
+    display: flex;
+    /* 把主轴设置为y轴，里面的元素才会上下显示 */
+    flex-direction: column;
+    /* 把侧轴x轴设置为居中对齐，里面的span会跑到盒子中间 */
+    align-items: center;
+    font-size: 12px;
+}
+
+
+/* 此处属性选择器前面就不要加span标签了，不然权重太高，下面没法重写位置 */
+
+.local-nav li a [class^="local-nav-icon"] {
+    width: 32px;
+    height: 32px;
+    background: url(../images/localnav_bg.png) no-repeat 0 0;
+    background-size: 32px;
+    margin-top: 8px;
+}
+
+.local-nav li a .local-nav-icon2 {
+    background-position: 0 -32px;
+}
+
+.local-nav li a .local-nav-icon3 {
+    background-position: 0 -64px;
+}
+
+.local-nav li a .local-nav-icon4 {
+    background-position: 0 -96px;
+}
+
+.local-nav li a .local-nav-icon5 {
+    background-position: 0 -128px;
+}
+
+
+/* ?主导航栏 */
+
+nav {
+    /* nav不给宽度，高度也不给（用里面的三个大盒子撑开） */
+    /* 只给nav圆角，div没有圆角，所以把超出nav的部分隐藏 */
+    overflow: hidden;
+    border-radius: 8px;
+    margin: 0 4px 3px;
+}
+
+.nav-common {
+    display: flex;
+    height: 88px;
+}
+
+.nav-common:nth-child(1) {
+    /* 线性渐变必须添加浏览器私有前缀，否则无效 */
+    background: -webkit-linear-gradient(top left, #FA5A55, #FA994D);
+}
+
+.nav-common:nth-child(2) {
+    margin: 3px 0;
+    background: -webkit-linear-gradient(top left, #4B90ED, #53BCED);
+}
+
+.nav-common:nth-child(3) {
+    background: -webkit-linear-gradient(top left, #34C2A8, #6CD55A);
+}
+
+.nav-items {
+    flex: 1;
+    /* 上下不冲突 */
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* n+2是选择第2个开始到最后一个 */
+
+.nav-items:nth-child(n+2) {
+    border-left: 1px solid #fff;
+}
+
+.nav-items a {
+    flex: 1;
+    text-align: center;
+    line-height: 44px;
+    font-size: 14px;
+    color: #fff;
+    /* 添加文字阴影，水平垂直各1px */
+    text-shadow: 1px 1px rgba(0, 0, 0, .2);
+}
+
+.nav-items:nth-child(1) a {
+    background: url(../images/hotel.png) no-repeat bottom center;
+    background-size: 121px;
+}
+
+.nav-items:nth-child(n+2) a:nth-child(1) {
+    border-bottom: 1px solid #fff;
+}
+
+
+/* ?侧导航栏 */
+
+.subnav-entry {
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 8px;
+    background-color: #fff;
+    margin: 0 4px;
+    padding: 5px 0;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+}
+
+.subnav-entry li {
+    /* flex后面跟份数，可以写%，是相对于父亲的百分比 */
+    /* 每个盒子的宽度占父亲的20% */
+    flex: 20%;
+}
+
+.subnav-entry a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.subnav-entry a [class^="subnav-entry-icon"] {
+    width: 28px;
+    height: 28px;
+    background: url(../images/subnav-bg.png) no-repeat 0 0;
+    background-size: 28px;
+    margin-top: 4px;
+}
+
+.subnav-entry a .subnav-entry-icon2 {
+    background-position: 0 -29px;
+}
+
+.subnav-entry a .subnav-entry-icon3 {
+    background-position: 0 -63px;
+}
+
+.subnav-entry a .subnav-entry-icon4 {
+    background-position: 0 -98px;
+}
+
+.subnav-entry a .subnav-entry-icon5 {
+    background-position: 0 -132px;
+}
+
+.subnav-entry a .subnav-entry-icon6 {
+    background-position: 0 -163px;
+}
+
+.subnav-entry a .subnav-entry-icon7 {
+    background-position: 0 -197px;
+}
+
+.subnav-entry a .subnav-entry-icon8 {
+    background-position: 0 -232px;
+}
+
+.subnav-entry a .subnav-entry-icon9 {
+    background-position: 0 -261px;
+}
+
+.subnav-entry a .subnav-entry-icon10 {
+    background-position: 0 -291px;
+}
+
+
+/* ?销售模块 */
+
+.sales-box {
+    border-top: 1px solid #ccc;
+    background-color: #fff;
+    margin: 4px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, .2);
+}
+
+.sales-hd {
+    position: relative;
+    height: 44px;
+    border-bottom: 1px solid #ccc;
+}
+
+.sales-hd h2 {
+    position: relative;
+    /* 热门活动SEO优化 */
+    text-indent: -9999px;
+    overflow: hidden;
+}
+
+.sales-hd h2::after {
+    position: absolute;
+    top: 13px;
+    left: 20px;
+    content: "";
+    width: 79px;
+    height: 15px;
+    background: url(../images/hot.png) no-repeat 0 -20px;
+    background-size: 79px auto;
+}
+
+.sales-hd .more {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    /* 背景色渐变 */
+    background: -webkit-linear-gradient(left, #FF5170, #FF6AC2);
+    border-radius: 12px;
+    padding: 1px 20px 1px 10px;
+    color: #fff;
+}
+
+.sales-hd .more::after {
+    /* 右箭头，用css3来写 */
+    content: "";
+    position: absolute;
+    top: 7px;
+    right: 9px;
+    width: 7px;
+    height: 7px;
+    border-right: 2px solid #fff;
+    border-bottom: 2px solid #fff;
+    transform: rotate(-45deg);
+}
+
+.sales-bd .row {
+    display: flex;
+}
+
+.sales-bd .row a {
+    flex: 1;
+    border-bottom: 1px solid #eee;
+}
+
+.sales-bd .row a:first-child {
+    border-right: 1px solid #eee;
+}
+
+.sales-bd .row a img {
+    width: 100%;
+}

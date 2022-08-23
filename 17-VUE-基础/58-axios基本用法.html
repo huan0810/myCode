@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script src="js/axios.js"></script>
+    <script>
+      // axios具有以下特征：
+      // 支持浏览器和 node.js
+      // 支持 promise
+      // 能拦截请求和响应
+      // 自动转换 JSON 数据
+
+      // (1)axios基本用法
+      axios.get('http://localhost:3000/adata').then((ret) => {
+        // 注意data属性是固定的用法，属于axiosAPI的一部分，用于获取后台的实际数据
+        console.log(ret.data) //Hello axios!
+        console.log(ret) //返回一个对象
+      })
+
+      // (2.1)get传参： 查询数据,传统URL，用?传递参数
+      // axios.get('http://localhost:3000/axios?id=123').then(ret => {
+      //     console.log(ret.data); //axios get 传递参数123
+      // });
+
+      // (2.2)get传参： 查询数据,restful形式的URL,用/传递参数
+      // axios.get('http://localhost:3000/axios/123').then(ret => {
+      //     console.log(ret.data); //axios get (Restful) 传递参数123
+      // });
+
+      // (2.3)get传参： 查询数据,通过 params 选项(对象形式)传递参数
+      // 还可以在headers中定义token，
+      // 但是注意：每个需要传入 token 的请求都需要添加 headers 对象，会造成大量重复代码
+      axios
+        .get('http://localhost:3000/axios', {
+          params: {
+            id: 'params123'
+          },
+          headers: { token: 'abcd' }
+        })
+        .then((ret) => {
+          console.log(ret.data) //axios get 传递参数params123
+        })
+
+      // (3)delete传参： 删除数据。
+      // 和get一样，也可以通过传统URL、restful形式的URL、params 选项(对象形式)传递参数
+      // axios.delete('http://localhost:3000/axios', {
+      //     params: {
+      //         id: 'delateID'
+      //     }
+      // }).then(ret => {
+      //     console.log(ret.data); //axios delete 传递参数delateID
+      // });
+
+      // (4.1)post传参： 添加数据.
+      // 以对象形式传递参数（默认传递的是json格式的数据，后台需要提供JSON解析支持）
+      // axios.post('http://localhost:3000/axios', {
+      //     uname: '幻',
+      //     pwd: 666
+      // }).then(ret => {
+      //     console.log(ret.data); //axios post 传递参数幻---666
+      // });
+
+      // (4.2)post传参： 添加数据.
+      // 通过 URLSearchParams 传递参数（application/x-www-form-urlencoded）,
+      // 默认传递的是表单形式(字符串)uname=%E5%A8%87&pwd=123
+      // var params = new URLSearchParams();
+      // params.append('uname', '娇'); //追加键值对
+      // params.append('pwd', '123'); //追加键值对
+      // axios.post('http://localhost:3000/axios', params).then(ret => {
+      //     console.log(ret.data); //axios post 传递参数娇---123
+      // });
+
+      // (5)put传参： 修改数据.
+      // 和post一样，支持以对象形式、通过URLSearchParams传递参数
+      // axios.put('http://localhost:3000/axios/777', {
+      //     uname: 'put幻',
+      //     pwd: 777
+      // }).then(ret => {
+      //     console.log(ret.data); //axios put 传递参数777---put幻---777
+      // });
+
+      // (6)同时发送n个请求，用axios.all(). 实现多个请求都完成后再执行一些逻辑
+      axios.all([getUserAccount(), getUserPermissions()]).then(
+        axios.spread((res1, res2, res3) => {
+          //这里是返回的数据
+        })
+      )
+    </script>
+  </body>
+</html>

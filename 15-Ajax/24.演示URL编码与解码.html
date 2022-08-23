@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 由于浏览器会自动对 URL 地址进行编码操作，因此，大多数情况下，程序员不需要关心 URL 地址的编码与解码操作。
+
+        var str = '李小娇'
+        var str2 = encodeURI(str); //编码函数
+        console.log(str2); //%E6%9D%8E%E5%B0%8F%E5%A8%87
+
+        console.log('----------')
+        var str3 = decodeURI('%E5%A8%87'); //解码函数,三组%表示一个汉字
+        console.log(str3); //娇
+    </script>
+</body>
+
+</html>

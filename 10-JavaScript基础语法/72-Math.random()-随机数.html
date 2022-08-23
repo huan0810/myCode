@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1.Math.random() 函数返回一个随机浮点数, 返回值区间[0, 1） (左闭右开)
+        console.log(Math.random());
+
+        // 2.得到两个整数之间的随机整数，包括两个整数在内
+        function getRandom(min, max) {
+            return Math.floor(Math.random() * (max - min + 1)) + min; //含最大值，含最小值 
+        }
+        console.log(getRandom(1, 30));
+
+        // 3.随机点名
+        var arr = ['张三', '张三丰', '张三疯子', '李四', '李思思', '李小娇', '李芳芳'];
+        console.log(arr[getRandom(0, arr.length - 1)]);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

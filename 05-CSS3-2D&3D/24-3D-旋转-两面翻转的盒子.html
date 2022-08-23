@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            perspective: 400px;
+        }
+        
+        .box {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 100px auto;
+            /* 让.back盒子保留立体空间效果 */
+            transform-style: preserve-3d;
+            transition: all 1s
+        }
+        
+        .box:hover {
+            transform: rotateY(180deg);
+        }
+        /* 因为两个盒子是叠在一起的，所以用定位 */
+        
+        .front,
+        .back {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* line-height不能用% */
+            line-height: 300px;
+            text-align: center;
+            font-size: 30px;
+            color: #fff;
+            border-radius: 50%;
+        }
+        
+        .front {
+            background-color: pink;
+            /* 定位次序：z-index: 1; 
+            只有定位的盒子才会有此属性。标准流、浮动没有此属性
+            数值可以是正整数、负整数、0。默认auto。数字不能加单位
+            数值越大，盒子越靠上;若属性值相同，按书写顺序，后来居上 */
+            z-index: 1;
+        }
+        
+        .back {
+            background-color: rgb(221, 131, 131);
+            /* 先把后面的盒子旋转180度 */
+            transform: rotateY(180deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="front">这是正面</div>
+        <div class="back">这是反面</div>
+    </div>
+</body>
+
+</html>

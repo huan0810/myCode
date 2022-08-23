@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 函数柯里化的一种应用是延迟执行
+      // 定义一个函数专门用于收集参数，
+      // 当收集的参数到指定个数时，调用函数进行计算
+      // 但没有完成参数收集时，返回一个函数继续给调用者用于收集参数
+      function sum(w, x, y, z) {
+        return w + x + y + z
+      }
+      // console.log(sum.length)//4 打印的是sum函数的参数个数
+      function curry(fn) {
+        let len = fn.length
+        let _args = []
+        function argsCollector(...args) {
+          _args.push(...args)
+          if (_args.length == len) {
+            // 完成收集
+            return fn.apply(this, _args)
+          } else {
+            return argsCollector
+          }
+        }
+        return argsCollector
+      }
+
+      const currySum = curry(sum)
+      const ans = currySum(2)(3)(4, 5)
+      console.log(ans)
+    </script>
+  </body>
+</html>

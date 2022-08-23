@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Math 是一个内置对象。
+        // Math数学对象不是一个构造函数，所以不需要new来调用
+        // 直接使用Math对象里面的属性和方法即可
+
+        console.log(Math.PI); //属性：圆周率
+
+        // 方法：Math.max() 求最大值； Math.min() 求最小值
+        console.log(Math.max(1, 33, 54, 9)); //返回54
+        console.log(Math.max(1, 33, '54', 9)); //返回54
+        // 如果给定的参数中至少有一个参数无法被转换成数字，则会返回NaN
+        console.log(Math.max(1, 33, '娇', 9)); //NaN
+        // 如果没有参数，则结果为 -Infinity
+        console.log(Math.max()); //-Infinity 负无穷大
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

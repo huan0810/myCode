@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // resolve 和 reject 两个参数用于处理成功和失败两种情况，并通过 p.then 获取处理结果
+
+      // var p = new Promise(function(resolve, reject) {
+      //     // 成功时调用 resolve()
+      //     // 失败时调用 reject()
+      // });
+
+      // p.then(funciton(ret) {
+      //     // 从resolve得到正常结果
+      // }, function(ret) {
+      //     // 从reject得到错误信息
+      // });
+
+      // (1)产生Promise的实例对象
+      var p = new Promise(function (resolve, reject) {
+        setTimeout(function () {
+          var flag = false
+          if (flag) {
+            resolve('hello')
+          } else {
+            reject('出错')
+          }
+        }, 200)
+      })
+
+      // (2)resolve,reject的结果通过p.then获取
+      // p.then的两个参数分别对应resolve,reject的处理结果
+      p.then(
+        function (data) {
+          console.log(data) //hello
+        },
+        function (data) {
+          console.log(data) //出错
+        }
+      )
+    </script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字体属性</title>
+    <style>
+        /* font-family定义字体系列，一般设置在body{}里面，整页的字体都被定义了
+        若有多个字体，逗号隔开， 电脑装了第一个字体则显示第一个，否则第二个，以此类推
+        谷歌默认微软雅黑*/
+        /* font-size定义字体大小，一般设置在body{}里面
+        但标题标签比较特殊，需要单独指定大小 */
+        /* font-weight定义字体粗细,查手册看属性值 */
+        /* font-style定义文本风格，normal默认值，italic斜体
+        一般用于给<em><i>标签改为不倾斜字体 */
+        
+        h3 {
+            /* 微软雅黑推荐使用英文 */
+            /* font-family: '宋体', '微软雅黑'; */
+            font-family: '宋体', 'Microsoft yahei';
+            font-size: 16px;
+            /* 字体中normal和400等价，提倡400 */
+            font-weight: 400;
+            /* font-weight: normal; */
+        }
+        
+        p {
+            font-family: 'Times New Roman', Times, serif;
+        }
+        
+        body {
+            font-size: 16px;
+        }
+        
+        .bold {
+            /* 下面的700没有单位，和bold等价，提倡700 */
+            font-weight: 700;
+            /* font-weight: bold; */
+            font-style: italic;
+        }
+        
+        em {
+            /* 让原本倾斜的字体变正常 */
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>我的签名</h3>
+    <p>心里有方向，眼里有光</p>
+    <p>犹豫瞬间</p>
+    <p>咿咿呀呀哟</p>
+    <p class="bold">开心每一天</p>
+    <em>原本倾斜的字体</em>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- 标签名就是定义的组件名称，组件可以重用，而且每个组件的数据是独立的 -->
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        // 组件注册，其实vm实例也是组件，button-counter是子组件
+        Vue.component('button-counter', {
+            data: function() {
+                return {
+                    count: 0,
+                }
+            },
+            // 法(1)把count++直接写进模板里
+            // template: '<button @click="count++">点击了{{count}}次</button>'
+            // 法(2)把业务逻辑写进组件的方法里
+            template: '<button @click="handle">点击了{{count}}次</button>',
+            methods: {
+                handle: function() {
+                    this.count += 2;
+                }
+            },
+        });
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            }
+        });
+    </script>
+</body>
+
+</html>

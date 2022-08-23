@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 转换成字符串型三种方法：
+        // 1.变量.toString()
+        var num = 11;
+        console.log('转换前：' + typeof num);
+        num = num.toString();
+        console.log(num);
+        console.log('转换后：' + typeof num);
+
+        // 2.String(变量)
+        var num1 = 1234;
+        console.log(typeof String(num1));
+
+        // 3.（重点）利用 + 拼接字符串的方法实现转换
+        var num2 = 56778;
+        console.log(typeof(num2 + '')); //利用空字符串转换成字符串型
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

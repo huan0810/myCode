@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1、更新变量的值，以最后一次赋值为准
+        var myName = '李小娇';
+        myName = '李大娇';
+        console.log(myName);
+
+        // 2、声明多个变量，变量名之间用逗号隔开，最后使用;
+        var age = 18,
+            address = '月亮上',
+            gz = 50000;
+
+        // 3、声明变量的特殊情况
+        // 3.1 只声明不赋值，结果是undefined
+        var sex;
+        console.log(sex);
+        // 3.2 不声明不赋值， 直接使用某个变量， 报错tel is not defined
+        // console.log(tel);
+        // 3.3 不声明，直接赋值使用是可以的。但不提倡，会变成全局变量
+        qq = 1233;
+        console.log(qq);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

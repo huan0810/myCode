@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-color="msg" v-focus>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        // 全局指令的定义方式
+        // Vue.directive('color', {
+        //     bind: function(el, binding) {
+        //         el.style.backgroundColor = binding.value.color;
+        //     }
+        // });
+
+        //局部指令的自定义方式，vm实例添加directives的选项,里面可以添加多个自定义指令
+        // 局部指令只能在本组件中使用
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: {
+                    color: '#eee',
+                }
+            },
+            directives: {
+                color: {
+                    bind: function(el, binding) {
+                        el.style.backgroundColor = binding.value.color;
+                    }
+                },
+                focus: {
+                    inserted: function(el) {
+                        // el表示指令所绑定的元素,这里就是input输入框了
+                        el.focus();
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

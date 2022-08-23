@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function abc(data) {
+            console.log('拿到了Data数据：')
+            console.log(data)
+        }
+    </script>
+
+    <!-- src属性代表要请求外部的js文件 -->
+    <!-- 并把函数名字以查询字符串的方式传过去 -->
+    <script src="./38-getdata.js?callback=abc"></script>
+</body>
+
+</html>

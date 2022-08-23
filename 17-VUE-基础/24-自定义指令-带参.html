@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-color="msg">
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        // 自定义指令，带参binding,可以获取指令的参数msg
+        Vue.directive('color', {
+            bind: function(el, binding) {
+                // binding.name：指令名，不包括 v- 前缀
+                // binding.value：指令的绑定值msg
+                // console.log(binding.value.color); //red
+                // 这里可以拿到v-color指令的msg参数的color值
+                // 根据指令的参数设置背景色
+                el.style.backgroundColor = binding.value.color;
+            }
+        });
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: {
+                    color: 'pink',
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

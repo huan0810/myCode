@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 使用bootstrap框架第一步：创建文件结构 -->
+    <!-- 第二步：创建html骨架结构。主要是在以前基础上加上以下四行代码
+        解决ie9以下版本浏览器不认识html5新增标签、对css3媒体查询不识别问题 -->
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <!-- 第三步：引入Bootstrap的样式文件 -->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        /* 用我自己写的样式层叠掉bootstrap原本的样式。
+        若无效果，考虑可能是权重问题 */
+        
+        .login {
+            width: 80px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Bootstrap是通过class类定义的样式。所以以下按钮的类放在别的标签(div)里，样式也有效 -->
+    <button type="button" class="btn btn-success">Success</button>
+    <!-- 还可以在Bootstrap基础上，设置自己的样式login -->
+    <div class="btn btn-success login">登录</div>
+</body>
+
+</html>

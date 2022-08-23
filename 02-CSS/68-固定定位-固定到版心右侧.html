@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 固定在版心右侧：
+        先让盒子left:50%,移动到可视区域（版心）一半的位置、
+        再让盒子移动版心宽度一半的位置 */
+        
+        .w {
+            width: 800px;
+            height: 1400px;
+            background-color: rgb(165, 158, 158);
+            margin: 0 auto;
+        }
+        
+        .fixed {
+            position: fixed;
+            top: 50%;
+            /* 移动到可视区域的一半 */
+            left: 50%;
+            /* 移动版心宽度的一半 */
+            margin-left: 405px;
+            width: 50px;
+            height: 50px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="w">版心盒子</div>
+    <div class="fixed">固定</div>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--[if lt IE 9]>
+      <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <title>Document</title>
+    <style>
+        .row>div {
+            height: 50px;
+            background-color: pink;
+            /* 注意若是栅格系统想要盒子之间有缝隙，不能用margin。
+            因为内部原理是宽度33.3%+浮动
+            正确做法，大盒子里面嵌套小盒子，小盒子宽度100%，用大盒子padding值挤开 */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <!-- 父亲也看成12等份，孩子等分12份.
+                而且列嵌套最好加1个行row，这样可以取消父元素的padding，而且高度自动和父级一样高 -->
+                <div class="row">
+                    <div class="col-md-6">a</div>
+                    <div class="col-md-6">b</div>
+                </div>
+            </div>
+            <div class="col-md-4">2</div>
+            <div class="col-md-4">3</div>
+        </div>
+    </div>
+</body>
+
+</html>

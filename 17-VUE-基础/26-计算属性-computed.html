@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{msg}}</div>
+        <!-- 传统方法翻转Hello直接写进模板里:先分割成数组，数组翻转，再把翻转后的数组拼接成字符串 -->
+        <div>{{msg.split('').reverse().join('')}}</div>
+        <!-- 计算属性方式： -->
+        <div>{{reverseStr}}</div>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        // 在vm实例中添加computed属性，定义计算属性的函数(要带返回值),然后页面模板中直接写函数名即可
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'Hello'
+            },
+            computed: {
+                reverseStr: function() {
+                    return this.msg.split('').reverse().join('')
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

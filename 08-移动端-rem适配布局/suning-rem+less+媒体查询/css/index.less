@@ -1,0 +1,111 @@
+// 首页样式，less文件
+
+// @import 导入,是样式文件之间的导入; link是把样式文件引入html中
+// 把common.less文件导入index.less中，.less后缀名可有可无
+@import "common";
+
+body {
+    min-width: 320px;
+    /* 此处设置宽度为15rem 等价于 max-width: 750px; */
+    width: 15rem;
+    margin: 0 auto;
+    font-family: Arial,Helvetica;
+    background-color: #f2f2f2;
+}
+// ?顶部搜索框 start
+@baseFont: 50;
+.search-content {
+    display: flex;
+    // 绝对定位、固定定位脱标了，不能用margin: 0 auto;水平居中
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    // 固定定位跟父元素无关，以屏幕为准，所以必须设置宽度
+    width: 15rem;
+    // 注意88单位是rem
+    height: (88rem / @baseFont);
+    background-color: #FFC001;
+    .classify {
+        width: (44rem / @baseFont);
+        height: (70rem / @baseFont);
+        margin: (11rem / @baseFont) (25rem / @baseFont) (7rem / @baseFont) (24rem / @baseFont);
+        background: url(../images/classify.png);
+        // 因为盒子会缩放，所以背景也要缩放
+        background-size: (44rem / @baseFont) (70rem / @baseFont);
+    }
+    .search {
+        flex: 1;
+        input {
+            width: 100%;
+            height: (66rem / @baseFont);
+            border-radius: (33rem / @baseFont);
+            background-color: #FFF2CC;
+            // 把input的默认边框去掉
+            border: 0;
+            // 去掉input输入文字时的边框
+            outline: none;
+            margin-top: (12rem / @baseFont);
+            font-size: (25rem / @baseFont);
+            padding-left: (55rem / @baseFont);
+            color: #757575;
+        }
+    }
+    .login {
+        width: (75rem / @baseFont);
+        height: (70rem / @baseFont);
+        line-height: (70rem / @baseFont);
+        margin: (10rem / @baseFont);
+        font-size: (25rem / @baseFont);
+        text-align: center;
+        color: #fff;
+    }
+}
+// ?顶部搜索框 end
+
+// ?banner部分start
+.banner {
+    // banner图片也要缩放，所以给.banner一个宽高，img和父亲一样宽
+    width: (750rem / @baseFont);
+    height: (368rem / @baseFont);
+    img {
+        width: 100%;
+        height: 100%;
+    }
+}
+// ?banner部分end
+
+// ?三块广告部分start
+.ad {
+    display: flex;
+    a {
+        flex: 1;
+        img {
+            width: 100%;
+        }
+    }
+}
+// ?三块广告部分end
+
+// ?nav模块 start
+nav {
+    width: (750rem / @baseFont);
+    a {
+        float: left;
+        width: (150rem / @baseFont);
+        height: (140rem / @baseFont);
+        text-align: center;
+        img {
+            display: block;
+            width: (82rem / @baseFont);
+            height: (82rem / @baseFont);
+            margin: (10rem / @baseFont) auto 0;
+        }
+        span {
+            font-size: (25rem / @baseFont);
+            color: #333;
+        }
+    }
+}
+
+// ?nav模块 end

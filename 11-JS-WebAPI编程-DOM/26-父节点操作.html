@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>我是div</div>
+    <span>我是span</span>
+    <ul>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+    </ul>
+    <div class="demo">
+        <div class="box">
+            <span class="qrCode">×</span>
+        </div>
+    </div>
+
+    <script>
+        // 为了获取元素标签更加方便,增加了父节点,子节点的获取方法
+
+        // (重要)通过属性 parentNode 获取父节点
+        // 得到的是离元素最近的父级节点(亲爸爸) 如果找不到父节点就返回为 null
+        var qrCode = document.querySelector('.qrCode');
+        console.log(qrCode.parentNode);
+    </script>
+</body>
+
+</html>

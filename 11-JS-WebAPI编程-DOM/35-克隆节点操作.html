@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li><a href="#">链接</a></li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+
+    <script>
+        // 先克隆节点，在把节点添加到某一位置
+        // 1.浅拷贝: node.cloneNode(); 括号为空或者里面是false  只复制标签不复制里面的内容
+        // 2.深拷贝: node.cloneNode(true); 括号为true  复制标签且复制里面的内容
+
+        var ul = document.querySelector('ul');
+        var liClone = ul.children[0].cloneNode(true); //深拷贝
+        ul.appendChild(liClone);
+    </script>
+</body>
+
+</html>

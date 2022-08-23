@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 3.（重点）nth-child(n)选择某个父元素的一个或多个特定的子元素。
+        n可以是数字,关键字和公式 */
+        /* (2)n是关键字,even偶数 odd奇数 */
+        /* 把所有偶数的孩子选出来 */
+        
+        ul li:nth-child(even) {
+            background-color: #ccc;
+        }
+        /* 把奇数孩子选出来 */
+        
+        ul li:nth-child(odd) {
+            background-color: gray;
+        }
+        /* (3)添加公式,n从0开始，每次加1 */
+        
+        ol li:nth-child(-n+5) {
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>我是第1个哈子</li>
+        <li>我是第2个哈子</li>
+        <li>我是第3个哈子</li>
+        <li>我是第4个哈子</li>
+        <li>我是第5个哈子</li>
+        <li>我是第6个哈子</li>
+        <li>我是第7个哈子</li>
+        <li>我是第8个哈子</li>
+    </ul>
+    <ol>
+        <li>我是第1个哈子</li>
+        <li>我是第2个哈子</li>
+        <li>我是第3个哈子</li>
+        <li>我是第4个哈子</li>
+        <li>我是第5个哈子</li>
+        <li>我是第6个哈子</li>
+        <li>我是第7个哈子</li>
+        <li>我是第8个哈子</li>
+    </ol>
+</body>
+
+</html>

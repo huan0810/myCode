@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const arr = [{
+            id: 1,
+            price: 23,
+            state: true
+        }, {
+            id: 1,
+            price: 23,
+            state: true
+        }, {
+            id: 1,
+            price: 23,
+            state: true
+        }, {
+            id: 1,
+            price: 23,
+            state: false
+        }, ];
+
+        // 需求：数组中state为true的项，总价累加起来
+        // arr.filter(item => item.state).reduce((累加的结果，当前循环项)=>{}，初始值)
+        // 每一次循环sum得到的就是上一轮return出来的值，最后一次循环把return出来的值给result
+        // var result = arr.filter(item => item.state).reduce((sum, item) => {
+        //     return sum += item.price;
+        // }, 0);
+        // 简化代码：
+        var result = arr.filter(item => item.state).reduce((sum, item) => sum += item.price, 0);
+        console.log(result);
+    </script>
+</body>
+
+</html>

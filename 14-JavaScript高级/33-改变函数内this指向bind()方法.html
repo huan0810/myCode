@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <script>
+        // 改变函数内this指向  js提供了三种方法  call()  apply()  bind()
+
+        // 3. bind()  常用在定时器函数外面，改变定时器this指向
+        // (1)作用：不会调用原来的函数   但可以改变原来函数内部的this指向
+        // (2)返回的是原函数改变this指向之后产生的新函数
+
+        var o = {
+            name: 'andy'
+        };
+
+        function fn(a, b) {
+            console.log(this);
+            console.log(a + b);
+        };
+        var f = fn.bind(o, 1, 2); //f里面存的是原函数改变this之后产生的新函数
+        // bind()不能调用函数，所以用f()调用
+        f(); //{name: 'andy'}  3
+        fn(1, 2); //window对象 3
+
+
+        // (3)如果有的函数我们不需要立即调用,但是又想改变这个函数内部的this指向此时用bind
+        // (4)我们有一个按钮,当我们点击了之后,就禁用这个按钮,3秒钟之后开启这个按钮
+        // var btn1 = document.querySelector('button');
+        // btn1.onclick = function() {
+        //     this.disabled = true; // 这个this 指向的是 btn 这个按钮
+        //     // var that = this;
+        //     setTimeout(function() {
+        //         // that.disabled = false; // 定时器函数里面的this 指向的是window
+        //         this.disabled = false; // bind(this)绑定之后，此时定时器函数里面的this 指向的是btn
+        //     }.bind(this), 3000); // 这个this在定时器外面，在onclick事件函数里面 指向的是btn 这个对象
+        // }
+        var btns = document.querySelectorAll('button');
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function() {
+                this.disabled = true;
+                setTimeout(function() {
+                    //这里不能用btns[i].disabled，因为for立即执行，而定时器2s后执行，btns[4]不存在，所以报错
+                    this.disabled = false;
+                }.bind(this), 2000); // 这个this在定时器外面，在onclick事件函数里面 指向的是btn 这个对象
+            }
+        }
+    </script>
+</body>
+
+</html>

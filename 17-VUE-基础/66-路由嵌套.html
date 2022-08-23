@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 导入 vue 文件，为全局 window 对象挂载 Vue 构造函数 -->
+    <script src="js/vue.js"></script>
+    <!-- 导入 vue-router 文件，为全局 window 对象挂载 VueRouter 构造函数 -->
+    <script src="js/vue-router_3.0.2.js"></script>
+  </head>
+
+  <body>
+    <!-- 被vm实例所控制的区域 -->
+    <div id="app">
+      <!-- 路由链接 -->
+      <router-link to="/user">User</router-link>
+      <router-link to="/register">Register</router-link>
+
+      <!-- 路由占位符,路由组件里的template会在此渲染 -->
+      <router-view></router-view>
+    </div>
+
+    <script>
+      // 定义路由组件
+      const User = {
+        template: '<h1>User 组件</h1>',
+      }
+      const Register = {
+        template: `
+          <div>
+              <h1>Register 组件</h1>
+              <hr/>
+              <!-- 子路由链接 -->
+              <router-link to="/register">Tab1</router-link>
+              <router-link to="/register/tab2">Tab2</router-link>
+              <!-- 子路由的占位符 -->
+              <router-view/>
+          </div>
+          `,
+      }
+      const Tab1 = {
+        template: '<h3>Tab1</h3>',
+      }
+      const Tab2 = {
+        template: '<h3>Tab2</h3>',
+      }
+
+      // 创建路由实例对象
+      var router = new VueRouter({
+        routes: [
+          {
+            // redirect把原路径'/'重定向到'/user'
+            path: '/',
+            redirect: '/user',
+          },
+          {
+            path: '/user',
+            component: User,
+          },
+          {
+            path: '/register',
+            // redirect: '/register/tab1',
+            component: Register,
+            // children 数组表示子路由规则
+            children: [
+              // 如果children数组中某个路由规则的path值为空字符串,则这条路由规则叫'默认子路由',和重定向作用一样
+              // 而且to="/register"要删去/tab1
+              {
+                path: '',
+                component: Tab1,
+              },
+              {
+                path: '/register/tab2',
+                component: Tab2,
+              },
+            ],
+          },
+        ],
+      })
+
+      // 创建vm实例对象
+      var vm = new Vue({
+        el: '#app',
+        data: {},
+        // 'router': router
+        router,
+      })
+    </script>
+  </body>
+</html>

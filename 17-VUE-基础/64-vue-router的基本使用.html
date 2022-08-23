@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <!-- 导入 vue 文件，为全局 window 对象挂载 Vue 构造函数 -->
+    <script src='js/vue.js'></script>
+    <!-- 导入 vue-router 文件，为全局 window 对象挂载 VueRouter 构造函数 -->
+    <script src="js/vue-router_3.0.2.js"></script>
+</head>
+
+<body>
+    <!-- 后端路由：根据不同的用户 URL 请求，返回不同的内容
+         前端路由：根据不同的用户事件，显示不同的页面内容 -->
+
+    <!-- 路由使用步骤：
+    1. 引入相关的库文件,由于vue-router依赖于vue,所以必须先导入vue.js
+    2. 添加路由链接
+    3. 添加路由填充位(路由占位符)
+    4. 定义路由组件
+    5. 创建路由实例,配置路由规则
+    6. 把路由挂载到 Vue 根实例中 -->
+
+
+    <!-- 被vm实例所控制的区域 -->
+    <div id='app'>
+        <!-- 路由链接 -->
+        <router-link to="/user">User</router-link>
+        <router-link to="/register">Register</router-link>
+
+        <!-- 路由占位符,路由组件里的template会在此渲染 -->
+        <router-view></router-view>
+    </div>
+
+    <script>
+        // 定义路由组件
+        const User = {
+            template: '<h1>User 组件</h1>'
+        }
+        const Register = {
+            template: '<h1>Register 组件</h1>'
+        }
+
+        // 创建路由实例对象
+        var router = new VueRouter({
+            // routes 是路由规则数组
+            routes: [{
+                // path 表示当前路由规则匹配的 hash 地址
+                // component 表示当前路由规则对应要展示的组件.component只接受组件对象,不接受字符串
+                path: '/user',
+                component: User
+            }, {
+                path: '/register',
+                component: Register
+            }]
+        });
+
+        // 创建vm实例对象
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            // 把路由对象挂载到 vue 实例对象上,在ES6中,键和值一样,可以简写成一个
+            // 'router': router
+            router
+        });
+    </script>
+</body>
+
+</html>

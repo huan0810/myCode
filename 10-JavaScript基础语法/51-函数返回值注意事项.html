@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 函数返回值注意事项：
+        // 1.return是终止函数，其后面的代码不会被执行
+
+        // 2.return只能返回一个值。若有多个结果，返回最后一个值
+        function fun(num1, num2) {
+            return num1, num2;
+        }
+        console.log(fun(1, 2)); //输出2
+
+        // 3.如果需要返回多个值，则返回数组
+        // 求任意两个数 加减乘除的结果，用数组返回
+        function getResult(num1, num2) {
+            // var arr = [];
+            // arr[0] = num1 + num2;
+            // arr[1] = num1 - num2;
+            // arr[2] = num1 * num2;
+            // arr[3] = num1 / num2;
+            // return arr;
+            // 简写如下:
+            return [num1 + num2, num1 - num2, num1 * num2, num1 / num2]
+        }
+        var result = getResult(1, 2);
+        console.log(result);
+
+        // 4.若函数有return则返回后面的值，没有return则返回undefined
+        function fun1() {
+
+        }
+        console.log(fun1()); //函数返回undefined
+
+        // 5.break,continue,return区别：
+        // break,continue用于循环
+        // return可以用于循环、函数，还能返回值
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

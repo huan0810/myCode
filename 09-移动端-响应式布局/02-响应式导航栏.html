@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 布局思路:
+        1.屏幕大于等于768px,布局容器container宽度设置为750px.
+        container里面包含8个li,每个盒子的宽度为93.75px(750/8),高度30px,浮动
+        2.屏幕小于768px,布局容器container宽度设置为100%
+        8个li宽度修改为33.33%,这样一行显示3个li,剩余下行显示 */
+        
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        .container {
+            width: 750px;
+            margin: 0 auto;
+        }
+        
+        .container ul li {
+            float: left;
+            width: 93.75px;
+            height: 30px;
+            background-color: skyblue;
+            text-align: center;
+        }
+        
+        @media screen and (max-width: 767px) {
+            .container {
+                width: 100%;
+            }
+            .container ul li {
+                width: 33.33%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+            <li>导航栏</li>
+        </ul>
+    </div>
+</body>
+
+</html>

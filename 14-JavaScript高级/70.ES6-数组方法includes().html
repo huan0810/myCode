@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>includes方法</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // includes()表示某个数组是否包含给定的值，返回布尔值
+        // includes()的参数就是想要判断的元素
+        // ES6之前,indexOf(数组元素)返回该数组元素的索引号 从前面开始查找,默认只返回第一个满足条件的索引号
+
+        let ary = ["a", "b", "c"];
+
+        let result = ary.includes('a');
+        console.log(result); //true
+        result = ary.includes('e');
+        console.log(result); //false
+    </script>
+</body>
+
+</html>

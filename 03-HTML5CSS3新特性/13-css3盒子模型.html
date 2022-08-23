@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 通过 box-sizing 来指定盒模型，有2个值:content-box、border-box */
+        /* content-box表示原计算方式，border和padding值会撑大盒子 */
+        /* border-box表示新计算方法，border和padding值不改变盒子大小，
+        盒子大小就是指定的width/height大小(前提padding和border不会超过width宽度) */
+        /* 自此，初始化加上一句 */
+        /* * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        } */
+        
+        .box1 {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            border: 10px solid red;
+            padding: 10px;
+            box-sizing: content-box;
+        }
+        
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            border: 10px solid red;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1">会被撑大的盒子</div>
+    <div class="box2">不会被撑大的盒子</div>
+</body>
+
+</html>

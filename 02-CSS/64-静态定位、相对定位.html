@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 定位=定位模式+边偏移 */
+        /* 定位模式指定该元素定位方式，边偏移指定该元素最终位置 */
+        /* 1、静态定位position: static;
+        很少用。是默认定位方式，无定位的意思。按照标准流特性摆放位置，没有边偏移。 */
+        /* 2、相对定位position: relative;
+        重要应用：子绝父相
+        重要！相对定位在元素移动时，是根据它原来的位置来说的（自恋型）
+        移动位置之后，不脱标，继续保留原来位置,下面的盒子不会上移 */
+        
+        .box1 {
+            /* 给盒子1加上相对定位 */
+            position: relative;
+            top: 100px;
+            left: 100px;
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        
+        .box2 {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+</body>
+
+</html>

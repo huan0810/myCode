@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+        }
+        
+        ul li {
+            position: relative;
+            float: left;
+            width: 150px;
+            height: 200px;
+            border: 1px solid rgb(163, 160, 160);
+            /* 左浮1px，盖住一个边框。显示细线边框 */
+            margin-left: -1px;
+        }
+        /* 鼠标经过某个盒子时，盒子四个边框变色显示
+        方法：鼠标经过一个盒子时，提高盒子层级（无定位则加相对定位[不脱标]；有定位，则加z-index） */
+        /* ul li:hover {
+            情况1、无定位则加相对定位[不脱标]
+            position: relative;
+            border: 1px solid red;
+        } */
+        
+        ul li:hover {
+            /* 情况2、有定位，则加z-index */
+            z-index: 1;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 伪元素清除浮动的两种方法本质是额外标签法的升级。只是添加了after、before两个'伪'盒子 */
+        /* after伪元素，
+        步骤一：复制粘贴的代码
+        步骤二：父元素添加类class="clearfix" */
+        /* -----代码开始----- */
+        
+        .clearfix:after {
+            content: "";
+            display: block;
+            height: 0;
+            clear: both;
+            visibility: hidden;
+        }
+        
+        .clearfix {
+            /* 兼容低版本浏览器，IE6、7 专有 */
+            *zoom: 1;
+        }
+        /* -----代码结束----- */
+        /* ****************************************************** */
+        /* 双伪元素：
+        步骤一：赋值代码
+        步骤二：给父元素添加类class="clearfix" */
+        /* -----代码开始----- */
+        
+        .clearfix:before,
+        .clearfix:after {
+            content: "";
+            /* display: table;表示before、after转换成块级元素，并在一行显示 */
+            display: table;
+        }
+        
+        .clearfix:after {
+            clear: both;
+        }
+        
+        .clearfix {
+            *zoom: 1;
+        }
+        /* -----代码结束----- */
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>

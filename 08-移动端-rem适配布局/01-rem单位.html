@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            font-size: 14px;
+        }
+        
+        div {
+            font-size: 12px;
+        }
+        
+        p {
+            /* 单位em是
+            子元素字体大小的em是相对于父元素字体大小
+            元素的width/height/padding/margin用em的话是相对于该元素的font-size */
+            /* width: 10em;
+            height: 10em; */
+            /* rem(root em)是相对于 html元素的字体大小 来说的
+            整个页面只有一个html元素，rem只受html控制，
+            通过修改html里面文字大小，来控制页面中元素大小，所以html可以实现整体控制的效果 */
+            width: 10rem;
+            height: 10rem;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p></p>
+    </div>
+</body>
+
+</html>

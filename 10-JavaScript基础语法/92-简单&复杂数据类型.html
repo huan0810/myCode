@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // (1)简单数据类型，又叫基本数据类型 或 值类型
+      // 值类型在存储变量时，存储的是值本身.
+      // 五大数据类型string、number、boolean、undefined、null，都是简单数据类型
+
+      // (2)复杂类型，又叫做引用类型
+      // 通过new创建的对象，都是复杂数据类型，如Object、Array、Date等
+
+      // 特殊情况：简单数据类型null，返回的是一个空对象object
+      // 如果要定义一个对象，但暂时没想好放啥，这时候就用null
+      var timer = null
+      console.log(typeof null) //object
+
+      // 1. 简单数据类型 存放在栈里 里面直接开辟一个空间存放的是值
+      // 2. 复杂数据类型 在栈里面存放地址 十六进制表示  然后这个地址指向堆里面的数据
+
+      // 1.简单数据类型传参：当我们把一个值类型变量作为参数传给函数的形参时，
+      // 其实是把变量在栈，空间里的值复制了一份给形参，那么在方法内部对形参做任何修改，都不会影响到的外部变量
+      // 2. 当我们把引用类型变量传给形参时， 其实是把变量在栈空间里保存的堆地址复制给了形参，
+      // 形参和实参其实保存的是同一个堆地址， 所以操作的是同一个对象。内部形参的改变会影响外部变量
+
+      var a = {
+        a: 1,
+        b: 2
+      }
+      function test(x) {
+        x = 10
+        console.log(x)//10
+      }
+      test(a)
+      console.log(a)//{a: 1, b: 2}
+    </script>
+  </head>
+
+  <body></body>
+</html>

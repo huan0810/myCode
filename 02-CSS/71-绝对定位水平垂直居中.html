@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            /* 加了绝对定位、固定定位的盒子不能用margin: 0 auto; 因为它们脱标了
+            但是相对定位可以用margin: 0 auto实现水平居中，因为它不脱标 */
+            /* 水平居中 margin: 0 auto; */
+            position: absolute;
+            /* 实现水平居中：1、先移动父容器宽度的一半 */
+            left: 50%;
+            /* 2、margin 负值 往左边走 自己盒子宽度的一半 */
+            margin-left: -100px;
+            /* 实现垂直居中：1、先移动父容器高度的一半 */
+            top: 50%;
+            /* 2、margin 负值 往上边走 自己盒子高度的一半 */
+            margin-top: -100px;
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>

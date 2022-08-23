@@ -1,0 +1,10 @@
+div {
+  width: 150px;
+  height: 500px;
+  border: 8px dotted pink;
+  background-color: #dddddd;
+}
+img {
+  width: 1.64rem;
+  height: 1.64rem;
+}

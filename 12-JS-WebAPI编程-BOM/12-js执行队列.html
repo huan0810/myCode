@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // (1)异步执行，输出顺序123
+        // console.log(1);
+        // setTimeout(function() {
+        //     console.log(3);
+        // }, 2000);
+        // console.log(2);
+
+        // (2)定时器等待时间为0，执行顺序依然为123
+        // 同步任务都在主线程上执行，形成一个执行栈。
+        // 异步任务相关回调函数添加到任务队列中
+        // 一般而言，异步任务有以下三种类型:
+        // 1、普通事件，如 click、resize 等
+        // 2、资源加载，如 load、error 等
+        // 3、定时器，包括 setInterval、setTimeout 等
+        // 输出12属于同步任务，然后再执行定时器中的回调函数(输出3)
+        // console.log(1);
+        // setTimeout(function() {
+        //     console.log(3);
+        // }, 0);
+        // console.log(2);
+
+        // (3) 有多个异步任务时，若是先点击就先输出click，先到时间就先输出3
+        // 主线程不断的重复获得任务、执行任务、再获取任务、再执行，这种机制被称为事件循环(event loop)
+        console.log(1);
+        document.onclick = function() {
+            console.log('click');
+        }
+        console.log(2);
+        setTimeout(function() {
+            console.log(3)
+        }, 3000)
+    </script>
+</body>
+
+</html>

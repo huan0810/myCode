@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        .current {
+            color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 作用域插槽:在父组件中获取子组件的插槽绑定的属性数据，在父组件中对这些数据进行加工 -->
+
+    <!-- 子组件<slot :info="item">{{item.name}}</slot>中的info是自定义属性名
+         父组件中填充插槽的内容要用template标签包裹，其属性slot-scope(固定写法)可以得到子组件info属性的数据
+         然后就可以在父组件中对子组件数据进行加工 -->
+
+    <div id="app">
+        <fruit-list :list="list">
+            <template slot-scope="slotProps">
+                <!-- slotProps.info可以得到子组件的数据{ "id": 1, "name": "apple" }{ "id": 2, "name": "orange" }{ "id": 3, "name": "banana" } -->
+                <strong v-if="slotProps.info.id==2" class="current">{{slotProps.info.name}}</strong>
+                <!-- <span v-else>{{slotProps.info.name}}</span> -->
+            </template>
+        </fruit-list>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        // {{item.name}}是插槽的默认内容，父组件不传内容时就显示默认内容
+        Vue.component('fruit-list', {
+            props: ['list'],
+            template: `
+                <ul>
+                    <li :key="item.id" v-for="item in list">
+                        <slot :info="item">{{item.name}}</slot>    
+                    </li>    
+                </ul>
+            `
+        });
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                list: [{
+                    id: 1,
+                    name: 'apple'
+                }, {
+                    id: 2,
+                    name: 'orange'
+                }, {
+                    id: 3,
+                    name: 'banana'
+                }]
+            },
+        });
+    </script>
+</body>
+
+</html>

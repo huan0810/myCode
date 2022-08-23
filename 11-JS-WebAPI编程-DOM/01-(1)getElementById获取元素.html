@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="time">2022-02-23</div>
+    <div id="time">2022-02-23</div>
+    <script>
+        // 1. 因为我们文档页面从上往下加载，所以先得有标签 所以我们script写到标签的下面
+        // 2. document.getElementById(id)  通过id获得element元素，返回“单个元素”
+        // 3. 参数 id是大小写敏感的'字符串',代表了所要查找的元素的唯一ID.
+        // 4. 返回一个匹配到id的DOM Element对象。若在当前Document下没有找到，则返回null。
+
+        var timer = document.getElementById('time');
+        console.log(timer); //<div id="time">2022-02-23</div>
+        console.log(typeof timer); //object
+        // 5. console.dir() 打印我们返回的元素对象 更好的查看里面的属性和方法
+        console.dir(timer);
+    </script>
+</body>
+
+</html>

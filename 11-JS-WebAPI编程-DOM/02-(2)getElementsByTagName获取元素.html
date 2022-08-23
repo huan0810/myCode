@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>知否知否，应是等你好久1变化</li>
+        <li>知否知否，应是等你好久2变化</li>
+        <li>知否知否，应是等你好久3变化</li>
+        <li>知否知否，应是等你好久4变化</li>
+    </ul>
+
+    <ul id="nav">
+        <!-- <li>生僻字</li>
+        <li>生僻字</li>
+        <li>生僻字</li>
+        <li>生僻字</li> -->
+    </ul>
+
+    <script>
+        // 1.返回的是 获取过来元素对象的集合 以“伪数组”的形式存储的
+        var lis = document.getElementsByTagName('li');
+        console.log(lis);
+        console.log(typeof lis);
+        console.log(lis[0]);
+        // 遍历
+        for (var i = 0; i < lis.length; i++) {
+            console.log(lis[i]);
+        }
+
+        // 2.element.getElementsByTagName('标签名');  可以得到某个元素里面的某些标签，
+        // 依旧返回“伪数组”
+        var idNav = document.getElementById('nav');
+        console.log(idNav);
+        var navLis = idNav.getElementsByTagName('li');
+        console.log(navLis);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input {
+            color: #999;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" value="手机">
+    <script>
+        // 鼠标点击事件:onclick
+        // 获得焦点事件:onfocus
+        // 失去焦点事件:onblur
+
+        // 1.获取事件源
+        var input = document.querySelector('input');
+        // 2.注册事件
+        input.onfocus = function() {
+            console.log('得到了焦点');
+        }
+        input.onblur = function() {
+            console.log('失去了焦点');
+        }
+    </script>
+</body>
+
+</html>

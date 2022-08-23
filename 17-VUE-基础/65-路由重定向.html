@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <!-- 导入 vue 文件，为全局 window 对象挂载 Vue 构造函数 -->
+    <script src='js/vue.js'></script>
+    <!-- 导入 vue-router 文件，为全局 window 对象挂载 VueRouter 构造函数 -->
+    <script src="js/vue-router_3.0.2.js"></script>
+</head>
+
+<body>
+    <!--路由重定向指的是：用户在访问地址 A 的时候，强制用户跳转到地址 C ，从而展示特定的组件页面；
+        比如用户打开此页面实际访问的是/,但重定向到/user,达到打开页面默认显示User组件的效果
+
+        路由规则的 redirect 属性，指定一个新的路由地址,可以实现路由重定向 -->
+
+
+    <!-- 被vm实例所控制的区域 -->
+    <div id='app'>
+        <!-- 路由链接 -->
+        <router-link to="/user">User</router-link>
+        <router-link to="/register">Register</router-link>
+
+        <!-- 路由占位符,路由组件里的template会在此渲染 -->
+        <router-view></router-view>
+    </div>
+
+    <script>
+        // 定义路由组件
+        const User = {
+            template: '<h1>User 组件</h1>'
+        }
+        const Register = {
+            template: '<h1>Register 组件</h1>'
+        }
+
+        // 创建路由实例对象
+        var router = new VueRouter({
+            routes: [{
+                // redirect把原路径'/'重定向到'/user'
+                path: '/',
+                redirect: '/user'
+            }, {
+                path: '/user',
+                component: User
+            }, {
+                path: '/register',
+                component: Register
+            }]
+        });
+
+        // 创建vm实例对象
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            // 'router': router
+            router
+        });
+    </script>
+</body>
+
+</html>

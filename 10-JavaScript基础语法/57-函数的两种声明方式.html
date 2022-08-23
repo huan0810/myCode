@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1.利用function定义函数
+        function fun() {
+
+        }
+        fun();
+
+        // 2.函数表达式(匿名函数)，函数没有名字
+        // ！函数表达式声明函数时， 调用必须写在函数表达式的下面
+        // var 变量名 = function() {};
+        var fun = function() { //fun是变量名，不是函数名
+            console.log('函数表达式方式命名函数');
+        }
+        fun(); //调用是 变量名+();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/axios.js"></script>
+</head>
+
+<body>
+    <button id="btn1">发起GET请求</button>
+    <button id="btn2">发起POST请求</button>
+    <button id="btn3">直接使用axios发起GET请求</button>
+    <button id="btn4">直接使用axios发起POST请求</button>
+
+    <script>
+        // axios中的GET/POST 也是大小写均可
+        // (1)axios发起get请求
+        // axios.get('url', { params: { /*参数*/ } }).then(callback)
+        document.querySelector('#btn1').addEventListener('click', function() {
+            var url = 'http://www.liulongbin.top:3006/api/getbooks'
+            var paramsObj = {
+                id: 3
+            }
+            axios.get(url, {
+                // params: paramsObj
+            }).then(function(res) {
+                console.log(res); //axios包装的对象，有6个属性
+                console.log(res.data); //res.data才是服务器响应回来的真实数据
+            })
+        })
+
+        // (2)axios发起post请求
+        // axios.post('url', { /*参数*/ }).then(callback)
+        document.querySelector('#btn2').addEventListener('click', function() {
+            var url = 'http://www.liulongbin.top:3006/api/addbook'
+            var dataObj = {
+                bookname: '干嘛',
+                author: '校阿金',
+                publisher: '月球图书出版社'
+            }
+            axios.post(url, dataObj).then(function(res) {
+                console.log(res.data);
+            })
+        })
+
+
+
+        // (3)axios 也提供了类似于 jQuery 中 $.ajax() 的函数,注意GET参数用params，POST参数用data
+        // axios({
+        //     method:   '请求类型',
+        //     url:   '请求的URL地址',
+        //     data:  {  /* POST数据 */  },
+        //     params:  {  /* GET参数 */  }
+        // }).then(callback)
+
+        document.querySelector('#btn3').addEventListener('click', function() {
+            var url = 'http://www.liulongbin.top:3006/api/getbooks'
+            var paramsData = {
+                id: 2
+            }
+            axios({
+                method: 'GET',
+                url: url,
+                params: paramsData
+            }).then(function(res) {
+                console.log(res.data)
+            })
+        })
+
+        document.querySelector('#btn4').addEventListener('click', function() {
+            axios({
+                method: 'POST',
+                url: 'http://www.liulongbin.top:3006/api/addbook',
+                data: {
+                    bookname: '活着会哦在',
+                    author: '施耐庵',
+                    publisher: '天津图书出版社'
+                }
+            }).then(function(res) {
+                console.log(res.data)
+            })
+        })
+    </script>
+</body>
+
+</html>

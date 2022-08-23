@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{msg}}</div>
+        <div v-once>{{info}}</div>
+    </div>
+    <!--数据绑定：将数据填充到标签中
+        数据的响应式：数据的变化导致页面内容的变化
+        插值表达式和v-text/v-html/v-pre绑定的数据默认都是响应式的，修改vm.msg的值会改变页面内容 
+        v-once的应用场景：如果显示的信息后续不需要再修改，可以使用v-once，
+        这样可以提高性能,因为vue不需要监听该数据的变化了。 -->
+    <script src="js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: '响应式数据',
+                info: '不响应的数据'
+            }
+        })
+    </script>
+</body>
+
+</html>

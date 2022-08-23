@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>我是div</div>
+    <span>我是span</span>
+    <ul>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+    </ul>
+    <ol>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+    </ol>
+
+    <div class="demo">
+        <div class="box">
+            <span class="erweima">×</span>
+        </div>
+    </div>
+
+    <script>
+        // 法(1): 获取子节点:childNodes (一般不用)它获取了所有的子节点,包含元素节点,文本节点(换行)等等
+        // 元素节点 nodeType 为 1 (最常用)
+        // 属性节点 nodeType 为 2
+        // 文本节点 nodeType 为 3 （文本节点包含文字、空格、换行等）
+
+        var ul = document.querySelector('ul');
+        console.log(ul.childNodes); //[text, li, text, li, text, li, text, li, text]
+        // 若只想要取元素节点,可以for循环只取nodeType为1的节点,但太麻烦!用法2吧
+        console.log(ul.childNodes[1].nodeType); //元素节点的nodeType为1
+
+        // 法(2): (重要)children 获取所有的子元素节点 也是我们实际开发常用的
+        console.log(ul.children); //[li, li, li, li] 是数组
+    </script>
+</body>
+
+</html>

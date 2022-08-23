@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- @keyup.enter 绑定回车键 -->
+    <!-- @keyup.delete 绑定del删除键 -->
+    <div id="app">
+        <form action="">
+            <div>
+                用户名：
+                <input type="text" v-model="uname" @keyup.delete="clearContent">
+            </div>
+            <div>
+                密码：
+                <input type="text" v-model="pwd" @keyup.enter="handleSubmit">
+            </div>
+            <div>
+                <input type="button" @click="handleSubmit" value="提交">
+            </div>
+        </form>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                uname: '',
+                pwd: ''
+            },
+            methods: {
+                handleSubmit: function() {
+                    console.log(this.uname, this.pwd);
+                },
+                clearContent: function() {
+                    // 按del键清空用户名
+                    this.uname = "";
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

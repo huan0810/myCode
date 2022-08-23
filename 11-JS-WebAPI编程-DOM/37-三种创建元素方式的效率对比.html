@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <p>abc</p>
+    <div class="inner"></div>
+    <div class="create"></div>
+    <script>
+        // 三种创建元素方式区别 
+        // 1. document.write() 创建元素  如果页面文档流加载完毕，再调用这句话会导致页面重绘
+        // var btn = document.querySelector('button');
+        // btn.onclick = function() {
+        //     document.write('<div>123</div>');
+        // }
+
+        // 2. innerHTML 创建元素
+        var inner = document.querySelector('.inner');
+        // for (var i = 0; i <= 100; i++) {
+        //     inner.innerHTML += '<a href="#">百度</a>'
+        // }
+        // 使用以上拼接字符串的方式非常耗时，所以用以下往数组里追加元素的方式
+        var arr = [];
+        for (var i = 0; i <= 100; i++) {
+            arr.push('<a href="#">百度</a>');
+        }
+        inner.innerHTML = arr.join('');
+
+        // 3. document.createElement() 创建元素
+        var create = document.querySelector('.create');
+        for (var i = 0; i <= 100; i++) {
+            var a = document.createElement('a');
+            create.appendChild(a);
+        }
+
+        // 面试题：innerHTML和createElement()创建元素，谁的效率更高
+        // 1.innerHTML+拼接字符串，效率最低
+        // 2.innerHTML+采取数组形式拼接，效率最高，但结构稍微复杂
+        // 3.createElement() 创建多个元素效率第二，比 innerHTML+数组拼接 效率稍低一点，但是结构更清晰
+        // 总结：不同浏览器下，innerHTML(数组形式拼接) 效率要比 creatElement 高
+    </script>
+</body>
+
+</html>

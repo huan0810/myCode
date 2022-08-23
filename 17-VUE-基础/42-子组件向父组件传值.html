@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- props传递数据原则：单向数据流
+        (只允许父组件向子组件传递数据，而不允许子组件直接操作props中的数据)
+        vue提供了$emit("自定义事件名称") 用于触发自定义事件 -->
+
+    <!-- 子组件向父组件传值步骤：
+        (1)子组件触发一个自定义事件 @click='$emit("enlarge")'
+        (2)父组件监听这个自定义事件 @enlarge="handle"，
+        (3)并执行对应的动作handle，方法handle定义在父组件的methods属性里哦 -->
+
+    <div id="app">
+      <meun-item
+        :style="{fontSize: font+'px'}"
+        :pstr="fruit"
+        @enlarge="handle"
+      ></meun-item>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+      Vue.component('meun-item', {
+        props: ['pstr'],
+        template: `
+                <div>
+                    <ul>
+                        <li :key='index' v-for='(item, index) in pstr'>{{item}}</li>
+                    </ul>
+                    <button @click='pstr.push("lemon")'>click</button>(不推荐子组件直接操作props)</br>
+                    <button @click='$emit("enlarge")'>click</button>
+                </div>
+            `
+      })
+
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          fruit: ['apple', 'orange', 'banana'],
+          font: 10
+        },
+        methods: {
+          handle: function () {
+            // 自定义事件enlarge触发，字体变大
+            this.font += 5
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

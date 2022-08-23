@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+        }
+        /* 以下定义了300px的外边距，
+        但是在网页中显示时合并了，只有200px，所以尽量只给一个盒子添加外边距 */
+        /* 相邻块元素垂直外边距的合并：取两值中的较大者 */
+        
+        .xiaoxin {
+            margin-bottom: 100px;
+        }
+        
+        .daxin {
+            margin-top: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="xiaoxin">小新</div>
+    <div class="daxin">大新</div>
+</body>
+
+</html>

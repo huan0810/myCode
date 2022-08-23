@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+</head>
+
+<body>
+    <button id="btnPOST">发起POST请求</button>
+
+    <script>
+        // $.post(url, [data], [callback])
+        // url  提交数据的地址
+        // data  要提交的数据
+        // callback  数据提交成功时的回调函数
+
+        $(function() {
+            $('#btnPOST').on('click', function() {
+                $.post('http://www.liulongbin.top:3006/api/addbook', {
+                    bookname: "乌合之众",
+                    author: "某人",
+                    publisher: "火星图书出版社"
+                }, function(res) {
+                    console.log(res);
+                    console.log(typeof res); //object
+                });
+            });
+        })
+    </script>
+</body>
+
+</html>

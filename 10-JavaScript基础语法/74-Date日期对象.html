@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // Date()日期对象，是一个构造函数，必须用 new 调用
+        // 1.使用Date。若没有参数，则返回系统当前时间
+        var date = new Date();
+        console.log(date); //输出当前时间Thu Feb 24 2022 14:56:43 GMT+0800 (中国标准时间)
+
+        // 2.带参数返回参数的时间。带参数的常用写法：2022, 02, 02 或 '2022-02-02 8:8:8'
+        var date1 = new Date(2022, 02, 02);
+        var date2 = new Date('2022-02-02 8:8:8')
+        console.log(date1);
+        console.log(date2);
+
+        // 3.获取当前 年 月 日
+        var date = new Date();
+        console.log(date.getFullYear()); //返回当前年
+        // getMonth()获取当前月 0-11
+        console.log(date.getMonth() + 1); //返回当前月
+        console.log(date.getDate()); //返回当前日
+        // getDay() 周一-周六返回1-6，周日返回0
+        console.log(date.getDay()); //返回星期几
+
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var dates = date.getDate();
+        var day = date.getDay();
+        // 因为0表示星期日，所以'星期日'放在数组的第一个位置
+        var arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六', ];
+        console.log('今天是' + year + '年' + month + '月' + dates + '日 ' + arr[day]);
+
+        // 4.获取 时 分 秒
+        console.log(date.getHours());
+        console.log(date.getMinutes());
+        console.log(date.getSeconds());
+
+        // 封装一个函数返回当前时分秒，08:08:08
+        function getTimer() {
+            var time = new Date();
+            var h = time.getHours();
+            h = h < 10 ? '0' + h : h;
+            var m = time.getMinutes();
+            m = m < 10 ? '0' + m : m;
+            var s = time.getSeconds();
+            s = s < 10 ? '0' + s : s;
+
+            return h + ':' + m + ':' + s;
+        }
+        console.log(getTimer());
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

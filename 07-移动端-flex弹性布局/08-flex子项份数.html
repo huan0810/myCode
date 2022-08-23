@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        section {
+            display: flex;
+            width: 60%;
+            height: 150px;
+            background-color: pink;
+            margin: 0 auto;
+        }
+        
+        section div:nth-child(1) {
+            width: 100px;
+            height: 150px;
+            background-color: skyblue;
+        }
+        
+        section div:nth-child(2) {
+            /* flex 属性定义子项目分配剩余空间，用flex来表示占多少份数。
+            flex后面跟份数，单位也可以写%，是相对于父亲的百分比
+            注意flex分配的是主轴上的空间 */
+            flex: 1;
+            background-color: rgb(109, 159, 179);
+        }
+        
+        section div:nth-child(3) {
+            width: 100px;
+            height: 150px;
+            background-color: skyblue;
+        }
+        
+        p {
+            display: flex;
+            width: 60%;
+            height: 150px;
+            background-color: pink;
+            margin: 100px auto;
+        }
+        
+        p span {
+            /* 三个span标签各占一份，相对于把p平分成三等份了 */
+            flex: 1;
+        }
+        
+        p span:last-child {
+            /* 把p一共分为4份，最后一个span独占2份 */
+            flex: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <div></div>
+        <div></div>
+        <div></div>
+    </section>
+    <p>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+    </p>
+</body>
+
+</html>

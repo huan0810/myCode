@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let map = new Map([
+            ["one", 1],
+            ["two", 2],
+        ]);
+        map.set("one", 11);
+        map.set("two2", 2);
+        map.set("three", 3); // 添加或者更新Map键值对
+
+        console.log(map); //{'one' => 11, 'two' => 2, 'two2' => 2, 'three' => 3}
+        console.log(typeof map); //object
+        console.log(map.size); //4
+        console.log(map.get("one")); //11
+        console.log(map.has("one")); //true
+        console.log(map.keys()); //object {'one', 'two', 'two2', 'three'}
+        console.log([...map.keys()].length); //4 返回哈希map的长度
+        console.log(map.size); //4 size 是可访问属性，用于返回 一个Map 对象的成员数量
+        console.log(map.length); //undefined map没有length属性
+        for (let key of map.keys()) {
+            console.log(key); //one two two2 three
+        }
+        for (let value of map.values()) {
+            console.log(value); //11 2 2 3
+        }
+        for (let [key, value] of map) {
+            console.log(key + "-" + value); //one-11 two-2 two2-2 three-3
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+    <style>
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        #angel {
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="./images/angel.gif" alt="" id="angel" />
+
+    <script>
+        // 节流阀：
+        // 节流阀为空， 表示可以执行下次操作； 不为空， 表示不能执行下次操作。
+        // 当前操作执行完， 必须将节流阀重置为空， 表示可以执行下次操作了。
+        // 每次执行操作前， 必须先判断节流阀是否为空。
+
+        $(function() {
+            // 使用节流阀优化鼠标跟随效果
+            // (1)定义一个timer节流阀
+            var timer = null;
+            $(document).on('mousemove', function(e) {
+                // (2)每次执行操作前先判断节流阀是否为空,不为空说明上一个定时器还没结束，直接return
+                if (timer) return;
+                timer = setTimeout(function() {
+                    // console.log($('#angel')[0].offsetHeight);//把jquery对象转换成DOM对象，才能使用offsetHeight
+                    var y = e.pageY - $('#angel')[0].offsetHeight / 2 + 'px'
+                    var x = e.pageX - $('#angel')[0].offsetWidth / 2 + 'px'
+                    console.log('ok');
+                    $('#angel').css('top', y).css('left', x);
+                    timer = null; //本次间隔16ms的鼠标移动完成后,节流阀置为空
+                }, 16);
+            })
+        })
+    </script>
+</body>
+
+</html>

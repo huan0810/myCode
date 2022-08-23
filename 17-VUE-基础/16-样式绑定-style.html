@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div v-bind:style="{border: borderStyle, width: widthStyle, height: heightStyle}"></div>
+        <!-- style的简化写法(1) 用对象 -->
+        <div v-bind:style="objStyles"></div>
+        <!-- style的简化写法(2) 数组包含对象，后面的对象覆盖前面对象的样式 -->
+        <div v-bind:style="[objStyles, overrideStyles]"></div>
+
+        <button @click="handle">切换</button>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                borderStyle: '1px solid blue',
+                widthStyle: '100px',
+                heightStyle: '200px',
+                objStyles: {
+                    border: '1px solid green',
+                    width: '200px',
+                    height: '100px'
+                },
+                overrideStyles: {
+                    border: '5px solid orange',
+                    backgroundColor: '#eee'
+                }
+            },
+            methods: {
+                handle: function() {
+                    this.heightStyle = '100px';
+                    this.objStyles.width = '100px';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

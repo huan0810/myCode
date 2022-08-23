@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 防抖函数debounce
+      // 从第一次触发开始计时，在规定时间内再次触发了，就重新计时。
+      // 如果规定时间没再触发，则计时结束后执行事件
+      function debounce(fn, delay = 500) {
+        let timer = null //初始化定时器
+        return function (...args) {
+          if (timer) clearTimeout(timer) //每次触发防抖函数，就清空之前的定时器
+          // 重新计时
+          timer = setTimeout(() => {
+            fn.apply(this, args)
+            timer = null
+          }, delay)
+        }
+      }
+
+      // 节流函数throttle
+      // 在规定时间内，对一件事情只做一次
+      function throttle(fn, delay = 500) {
+        let timer = null
+        return function (...args) {
+          // 如果定时器存在，说明还未到时间，直接返回
+          if (timer) return
+          // 如果定时器不存在，则设置定时任务，到时间后执行fn，并重置定时器为null
+          timer = setTimeout(() => {
+            fn.apply(this, args)
+            timer = null
+          }, delay)
+        }
+      }
+    </script>
+  </body>
+</html>

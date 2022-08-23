@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // method: HTTP请求方法， 默认为GET(GET、 POST、 PUT、 DELETE)
+        // body(String): HTTP的请求参数,POST、PUT请求要用body传递数据
+        // headers(Object): HTTP的请求头， 默认为 {}
+
+        // (查询数据)GET参数传递-传统URL(用?传参)
+        // fetch('http://localhost:3000/books?id=123', {
+        //     method: 'GET'
+        // }).then(function(data) {
+        //     return data.text();
+        // }).then(function(data) {
+        //     console.log(data); //传统的URL传递参数!123
+        // });
+
+        // GET参数传递-restful形式的URL(用/传参)
+        // fetch('http://localhost:3000/books/123', {
+        //     method: 'GET'
+        // }).then(function(data) {
+        //     return data.text();
+        // }).then(function(data) {
+        //     console.log(data); //Restful形式的URL传递参数!123
+        // });
+
+        // (删除数据)DELETE请求方式参数传递
+        // fetch('http://localhost:3000/books/789', {
+        //     method: 'delete'
+        // }).then(function(data) {
+        //     return data.text();
+        // }).then(function(data) {
+        //     console.log(data); //DELETE请求传递参数!789
+        // });
+
+        // (添加数据)POST请求传参(传统参数), 需设置body， headers属性
+        // fetch('http://localhost:3000/books', {
+        //     method: 'POST',
+        //     body: 'uname=李小娇&pwd=123',
+        //     headers: {
+        //         'Content-Type': 'application/x-www-form-urlencoded'
+        //     }
+        // }).then(function(data) {
+        //     return data.text();
+        // }).then(function(data) {
+        //     console.log(data); //POST请求传递参数!李小娇---123
+        // });
+
+        // POST请求传参(JSON格式参数),需设置body，headers属性
+        // fetch('http://localhost:3000/books', {
+        //     method: 'POST',
+        //     body: JSON.stringify({
+        //         uname: "幻",
+        //         pwd: "12345"
+        //     }),
+        //     headers: {
+        //         'Content-Type': 'application/json'
+        //     },
+        // }).then(function(data) {
+        //     return data.text();
+        // }).then(function(data) {
+        //     console.log(data); //POST请求传递参数!幻---12345
+        // });
+
+        // (修改数据)PUT请求传参，需设置body，headers属性,666表示要修改数据的id
+        // PUT和POST一样，支持传统参数,JSON格式参数
+        fetch('http://localhost:3000/books/666', {
+            method: 'PUT',
+            body: JSON.stringify({
+                uname: "改数据",
+                pwd: "000000"
+            }),
+            headers: {
+                'Content-Type': 'application/json'
+            },
+        }).then(function(data) {
+            return data.text();
+        }).then(function(data) {
+            console.log(data); //PUT请求传递参数!666---改数据---000000
+        });
+    </script>
+</body>
+
+</html>

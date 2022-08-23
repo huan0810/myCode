@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文本属性</title>
+    <style>
+        /* color定义文本颜色 */
+        /* text-align定义文本对齐方式,默认左对齐 */
+        /* text-decoration装饰文本,none默认\underline下划线\overline上划线\line-through删除线 */
+        /* text-indent段落首行缩进 */
+        /* line-height定义行间距 */
+        
+        div {
+            /* 颜色的表示方式-预定义的颜色 */
+            /* color: deeppink; */
+            /* 颜色的表示方式-十六进制,开发中常用
+            两两相同可简写，#666666简写成#666，#ff00ff简写成#f0f */
+            color: #ad7205;
+            /* 颜色的表示方式-rgb代码rgb(255, 0, 0)或rgb(100%, 0%, 0%) */
+            /* color: rgb(255, 0, 255); */
+        }
+        
+        h2 {
+            text-align: center;
+            text-decoration: underline;
+        }
+        
+        a {
+            /* none可以给链接去掉下划线 */
+            text-decoration: none;
+        }
+        
+        p {
+            /* 40px是像素距离 */
+            /* text-indent: 20px; */
+            /* 2em表示缩进当前文字两个大小的距离 */
+            /* 下面两个p段落字体大小不一致,但依旧缩进各自的两个字的距离 */
+            text-indent: 2em;
+            line-height: 35px;
+        }
+        
+        .size {
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>变色了</div>
+
+    <h2>居中对齐的标题</h2>
+
+    <a href="#">此链接没有下划线</a>
+
+    <p>中国天气网气象分析师王伟跃介绍，明天（4日），华北、黄淮地区35℃以上的高温天气还将继续升级，并进入鼎盛阶段，高温强度和范围都将发展到最强。 明天，北京南部、天津大部、河北中部和南部、山东中部和西部、山西南部局地、河南北部、东北部分地区的最高气温都将达到或超过35℃。</p>
+    <p class="size">不过，专家提醒，济南被雨水天气完美绕开，因此未来一周，当地的高温还会天天上岗。在此提醒当地居民注意防暑降温，防范持续高温带来的各种不利影响。（文/张慧 数据支持/王伟跃 胡啸 审核/刘文静 张方丽）</p>
+
+
+</body>
+
+</html>

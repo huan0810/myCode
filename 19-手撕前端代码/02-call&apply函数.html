@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // call()
+      // 思路：拿到新的this指向对象thisArg，被调用的函数fn
+      // 在对象thisArg中新增一个属性fn，通过thisArg[fn]的方式将fn的this指向对象thisArg
+      Function.prototype.myCall = function (thisArg, ...args) {
+        if (thisArg == null) {
+          thisArg = window || global
+        }
+        const fn = this
+        if (typeof fn !== 'function') {
+          throw new TypeError('error')
+        }
+        thisArg[fn] = fn
+        let res = thisArg[fn](...args)
+        delete thisArg[fn]
+        return res
+      }
+
+      // apply()
+      // 和call实现方法一样，但第二个参数是一个伪数组
+      Function.prototype.myApply = function (thisArg, args) {
+        if (thisArg == null) {
+          thisArg = window || global
+        }
+        const fn = this
+        if (typeof fn !== 'function') {
+          throw new TypeError('error')
+        }
+        thisArg[fn] = fn
+        args = args || []
+        let res = thisArg[fn](...args)
+        delete thisArg[fn]
+        return res
+      }
+    </script>
+  </body>
+</html>

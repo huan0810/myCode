@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        /* 因为div浮动起来了，所以margin: 0 auto;不起作用，
+        margin-right: 100px;起作用
+        但是div的孩子h4没有浮动，可以在父盒子div中实现水平居中 */
+        
+        div {
+            float: right;
+            width: 500px;
+            height: 200px;
+            background-color: blue;
+            margin: 0 auto;
+            margin-right: 100px;
+        }
+        
+        h4 {
+            width: 20px;
+            height: 50px;
+            background-color: #fff;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h4></h4>
+    </div>
+</body>
+
+</html>

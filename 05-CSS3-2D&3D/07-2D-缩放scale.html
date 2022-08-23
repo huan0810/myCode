@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 缩放scale的优势：
+        1、默认以盒子中心为原点来进行缩放。直接修改盒子宽高的方法来缩放，盒子上边界会保持不变
+        2、还可以改变缩放源点
+        3、无论缩还是放，都不会影响其他盒子 */
+        
+        div {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: pink;
+            margin: 100px auto;
+            transition: all 1s;
+            /* 改变缩放源点 */
+            transform-origin: left bottom;
+        }
+        
+        div:hover {
+            /* 里面的数字不跟单位，是倍数的意思,1就是1倍 */
+            /* transform: scale(.5, .5); */
+            /* 等比例缩放（同时修改宽高），只写一个数字即可 */
+            /* transform: scale(2); */
+            /* 自制:旋转、缩放复合写法 */
+            transform: scale(2) rotate(360deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    123
+</body>
+
+</html>

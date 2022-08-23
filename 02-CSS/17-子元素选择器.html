@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>复合选择器-子元素选择器</title>
+    <style>
+        /* 子元素选择器只能选出它的亲儿子，格式：
+        元素1>元素2 {样式声明} */
+        /* 表示选出元素1里面所有直接后代元素2 */
+        
+        .nav>a {
+            color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <a href="">我是儿子</a>
+        <p>
+            <a href="">我是孙子</a>
+        </p>
+    </div>
+</body>
+
+</html>

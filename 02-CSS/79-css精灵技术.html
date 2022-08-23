@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* css精灵图：有效减少服务器接收、发送请求的次数，提高页面加载速度。
+        其实就是把网页中许多小背景图片整合到一张大图片上，只需要请求服务器一次。
+        这张大图片称为sprites/精灵图/雪碧图 */
+        /* 把精灵图设置成背景图片，调整背景图片位置，精灵图一般往上往左走，都是负值
+        需要精确测量每个小背景图片的大小和位置 */
+        
+        .box {
+            width: 60px;
+            height: 60px;
+            margin: 100px auto;
+            background: url(images/sprites.png) no-repeat -183px 0;
+        }
+        
+        .money {
+            width: 21px;
+            height: 17px;
+            margin: 0px auto;
+            background: url(images/sprites.png) no-repeat -252px -86px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <div class="money"></div>
+</body>
+
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function() {
+            // $.extend([deep], target, object1, [objectN]) 
+            // 1. deep: 如果设为true 为深拷贝， 默认为false 浅拷贝
+            // 2. target: 要拷贝的目标对象
+            // 3. object1: 待拷贝到第一个对象的对象。被拷贝对象1
+            // 4. objectN: 待拷贝到第N个对象的对象。被拷贝对象N
+            // 5. 浅拷贝目标对象引用的被拷贝的对象地址， 修改目标对象会影响被拷贝对象。
+            // 6. 深拷贝， 前面加true， 完全克隆， 修改目标对象不会影响被拷贝对象。
+
+            // // (1)
+            // var targetObj = {};
+            // var obj = {
+            //     id: 1,
+            //     name: "andy"
+            // };
+            // $.extend(targetObj, obj);//把obj的内容拷贝给targetObj，targetObj无内容
+            // console.log(targetObj)
+
+
+            // (2)
+            console.log(targetObj);
+            var targetObj = {
+                id: 0
+            };
+            var obj = {
+                id2: 1,
+                name: "andy"
+            };
+            $.extend(targetObj, obj);
+            // targetObj有内容。且key值不重复，targetObj 里面原来的数据保留
+            console.log(targetObj); // {id: 0, id2: 1, name: 'andy'}
+            
+
+            // (3)
+            // var targetObj = {
+            //     id: 0,
+            //     msg: {
+            //         sex: '男'
+            //     }
+            // };
+            // var obj = {
+            //     id: 1,
+            //     name: "andy",
+            //     msg: {
+            //         age: 18
+            //     }
+            // };
+            // $.extend(targetObj, obj);
+            // //会覆盖targetObj 里面原来的数据
+            // console.log(targetObj); //id: 1  msg: {age: 18}  name: "andy"
+
+
+            // 1. 浅拷贝把原来对象里面的复杂数据类型地址拷贝给目标对象
+            // targetObj.msg.age = 20;
+            // console.log(targetObj);
+            // console.log(obj);//被拷贝对象的age也变成20
+
+            // 2. 深拷贝把里面的数据完全复制一份给目标对象 如果里面有不冲突的属性,会合并到一起 
+            // $.extend(true, targetObj, obj);
+            // // console.log(targetObj); // 会覆盖targetObj 里面原来的数据
+            // targetObj.msg.age = 20;
+            // console.log(targetObj); // msg :{sex: "男", age: 20} 深拷贝中sex: "男"保留
+            // console.log(obj);
+
+
+
+
+        })
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

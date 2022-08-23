@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 视口标签添加三个属性 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>Document</title>
+
+    <!-- 引入移动端初始化样式 -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- 引入首页样式 -->
+    <link rel="stylesheet" href="css/index.css">
+    <!-- 需要进入flexible.js文件 -->
+    <script src="js/flexible.js"></script>
+    <!-- flexible.js+rem 是较第一种更加便捷高效的方案
+    原理是把当前设备划分为10等份
+    比如当前设计稿是 750px， 那么我们只需要把html文字大小设置为75px
+    即在setting.json中把cssrem.rootFontSize改为75
+    里面页面元素rem值:页面元素的px 值 / 75,通过cssrem插件自动换算
+    剩余的样式缩放，交给引入的flexible.js -->
+</head>
+
+<body>
+    <div class="search-content">
+        <a href="#" class="classify"></a>
+        <div class="search">
+            <form action="">
+                <input type="search" value="搜搜看">
+            </form>
+        </div>
+        <a href="#" class="login">登录</a>
+    </div>
+</body>
+
+</html>

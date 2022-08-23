@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 年份是4的倍数，且不是100的倍数，为普通闰年。公历年份是整百数，且必须是400的倍数才是世纪闰年
+        var year = prompt('请输入年份：');
+        if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+            alert('您输入的年份是闰年哦！');
+        } else {
+            alert('平年');
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

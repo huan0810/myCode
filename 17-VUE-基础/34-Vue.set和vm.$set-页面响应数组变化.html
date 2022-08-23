@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="item in list">{{item}}</li>
+            <li v-for="item in info">{{item}}</li>
+        </ul>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        // 用索引修改的数组不是响应式的，vue提供了用索引操作数组(用key操作对象)的方法，如下两种效果一样
+        // Vue.set(vm.items, indexOfItem, newValue)
+        // vm.$set(vm.items, indexOfItem, newValue)
+        // vm.items表示要处理的数组名称
+        // indexOfItem表示要处理的数组的索引
+        // newValue表示要处理的数组的值
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                list: ['apple', 'banana', 'lemon'],
+                info: {
+                    name: 'wew',
+                }
+            },
+        });
+        vm.list[0] = '苹果'; //页面不会响应此项修改，因为用索引修改的数组不是响应式的
+        // Vue.set(vm.list, 0, '果儿'); //页面响应
+        vm.$set(vm.list, 3, '果儿'); //页面响应,(顺带连vm.list[3] = '苹果';也响应)
+
+        // 这两种方法也可以处理对象的值，并且是响应式的
+        // vm.info.age = 90; //控制台输入vm.info.age=2，页面不会响应
+        vm.$set(vm.info, 'age', 77);
+    </script>
+</body>
+
+</html>

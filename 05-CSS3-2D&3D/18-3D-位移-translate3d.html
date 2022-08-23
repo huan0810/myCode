@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 3D坐标轴:
+        x轴:右正左负
+        y轴:下正上负
+        z轴,垂直于屏幕,屏幕外面是正值,屏幕里面是负值 */
+        
+        body {
+            /* 透视:
+            透视/视距:就是人的眼睛到屏幕的距离.
+            近大远小原理:透视距离越近,在屏幕上成像越大,越远成像越小
+            Z轴上的位移,透视 都有近大远小原理
+            透视属性写到被观察元素的父(祖父)盒子上面,单位px */
+            perspective: 200px;
+        }
+        /* Z轴上的位移:
+        translform: translateZ(100px);
+        仅仅是在Z轴上移动（注意：translateZ只能跟px单位,XY轴可以用%单位）*/
+        
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px auto;
+            transition: all 2s;
+        }
+        
+        div:hover {
+            /* 3个坐标轴可以用以下复合写法,空格隔开.translateZ(100px)看不出效果,需要借助透视 */
+            /* transform: translateX(100px) translateY(100px) translateZ(100px); */
+            /* 3个坐标轴简写:逗号,隔开
+            xyz值不能省略,如果没有就0代替 */
+            transform: translate3d(0, 0, 200px);
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

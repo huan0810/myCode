@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* rotate(360deg)表示顺时针旋转360度，单位是deg(度)
+            正值顺时针旋转，负值逆时针旋转 */
+        /* 需求：鼠标放在图片上，旋转360度，有过渡效果 */
+        
+        img {
+            width: 150px;
+            border: 3px solid pink;
+            border-radius: 50%;
+            /* 过渡写到本身上，谁做动画给谁加 */
+            transition: transform 3s;
+        }
+        
+        img:hover {
+            /* 注意此处，旋转360度还是原样，不加过渡是看不出旋转效果的 */
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+
+<body>
+    <img src="media/pic.jpg" alt="">
+</body>
+
+</html>

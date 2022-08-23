@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // for (1初始化变量; 2条件表达式; 4操作表达式) {
+        //     3循环体
+        // }
+        // 条件表达式：决定每一次循环是否执行，就是终止的条件
+        // 操作表达式：对计数器变量进行更新，递增或递减
+        // 执行顺序： 第一次循环1234， 之后的循环234
+
+        // 1.简单的for循环
+        for (var i = 0; i < 100; i++) {
+            console.log('开心过自己！');
+        }
+
+        // 2.输出不重复的语句
+        console.log('-----第2题-----');
+        for (var i = 0; i <= 100; i++) {
+            if (i == 0) {
+                console.log('她出生了');
+            } else if (i == 100) {
+                console.log('她走了');
+            } else {
+                console.log('今年她' + i + '岁了');
+            }
+        }
+
+        // 3.求1-100之间所有整数的和
+        var sum = 0;
+        for (var i = 1; i <= 100; i++) {
+            // sum = sum + i;
+            // 简写如下：
+            sum += i;
+        }
+        console.log('-----第3题-----');
+        console.log('sum=' + sum);
+
+        // 4.求1-100之间所有整数的平均值
+        var sum1 = 0;
+        for (var i = 1; i <= 100; i++) {
+            sum1 += i;
+        }
+        avg = sum1 / 100;
+        console.log('-----第4题-----');
+        console.log(avg);
+
+        // 5.求1-100之间所有偶数和奇数的和
+        var sumEven = 0; //偶数求和变量
+        var sumOdd = 0; //奇数求和变量
+        for (var i = 1; i <= 100; i++) {
+            if (i % 2 == 0) {
+                sumEven += i;
+            } else {
+                sumOdd += i;
+            }
+        }
+        console.log('-----第5题-----');
+        console.log('偶数之和为' + sumEven);
+        console.log('奇数之和为' + sumOdd);
+
+        // 6.求1-100之间所有能被3整除的数字之和
+        var sum3 = 0;
+        for (var i = 1; i <= 100; i++) {
+            if (i % 3 == 0) {
+                sum3 += i;
+            }
+        }
+        console.log('-----第6题-----');
+        console.log('能被3整除的数字之和' + sum3);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 网页元素本身会带有默认的内外边距，且在不同的浏览器里默认值也不一样，
+        因此在网页布局前，要清除一下网页元素的内外边距 */
+        /* 用*通配符,把所有元素选出来 */
+        /* 以下这句话也是css的第一行代码 */
+        
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        /* 为了照顾兼容性，行内元素尽量只设置左右内外边距，不设置上下。
+        但是转换成块元素、行内块元素就可以了 */
+    </style>
+</head>
+
+<body>
+    123
+    <ul>
+        <li>abc</li>
+    </ul>
+</body>
+
+</html>

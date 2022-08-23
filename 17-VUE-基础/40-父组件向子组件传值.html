@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{pmsg}}</div>
+        <!-- 父组件通过属性将值ptitle传递给子组件，有以下两种方式：静态传值 or 动态绑定 -->
+        <menu-item test-title="静态绑定"></menu-item>
+        <menu-item :test-title="ptitle" content="hello"></menu-item>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        // 定义vm的子组件 (第二层组件)
+        // 父组件通过属性test-title等传值给子组件，子组件通过props接收
+        Vue.component('menu-item', {
+            // props属性名规则: 在props中使用驼峰形式，
+            // html模板中需要使用短横线的形式,字符串形式的模板template中没有这个限制
+            props: ['testTitle', 'content'],
+            data: function() {
+                return {
+                    msg: '子组件本身的内容',
+                }
+            },
+            // template里面的属性名可以驼峰 thirdTitle
+            template: '<div>{{msg +"---"+ testTitle +"---"+ content}}<third-com thirdTitle="hello"></third-com></div>'
+        });
+
+        // (第三层组件)
+        Vue.component('third-com', {
+            props: ['thirdTitle'],
+            template: '<div>{{thirdTitle}}</div>'
+        })
+
+        // vm实例对象本身就是一个组件，根组件
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                pmsg: '父组件中的内容',
+                ptitle: '动态绑定的属性'
+            }
+        })
+    </script>
+</body>
+
+</html>

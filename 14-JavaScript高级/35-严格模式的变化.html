@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <script>
+        'use strict';
+        // 1. 我们的变量名必须声明了才能使用，只要有声明就行，严格模式也会变量提升哦
+        num = 10;
+        console.log(num); //非严格模式输出10. 严格模式报错num is not defined
+
+        // 2.我们不能随意删除已经声明好的变量
+        // delete num;
+
+        // 3. 严格模式下全局作用域中普通函数、立即执行函数中的 this指向undefined。非严格模式下指向window
+        // function fn() {
+        //     console.log(this); // undefined。
+        // }
+        // fn();
+
+        // (function() {
+        //     console.log(this); //undefined
+        // })()
+
+        // 4. 严格模式下,如果 构造函数不加new调用, this 指向的是undefined 如果给他赋值则会报错.
+        function Star() {
+            this.sex = '男';
+        }
+        // Star(); //非严格模式下，构造函数可以不加new当普通函数调用
+        // 非严格模式下，当普通函数调用，所以window有一个sex属性，值为男
+        // 严格模式下，报错Cannot set properties of undefined (setting 'sex')
+        // console.log(window.sex); //男  
+        var ldh = new Star();
+        console.log(ldh.sex); //严格模式，正常用new实例化，this指向实例化对象ldh
+
+        // 5. 定时器 this 还是指向 window 
+        setTimeout(function() {
+            console.log(this); //指向window
+        }, 2000);
+
+        // 6.绑定事件函数、对象里的函数： this仍然指向的是函数的调用者 
+        var btn = document.querySelector('button');
+        btn.onclick = function() {
+            console.log(this); //<button>点击</button> this指向btn这个按钮对象
+        };
+
+        // 7. 严格模式下函数里面的参数不允许有重名
+        // function fn(a, a) {
+        //     console.log(a + a);
+        // };
+        // fn(1, 2); //非严格模式下输出4，严格模式下报错
+
+        // 8.函数必须声明在顶层.新版本的 JavaScript 会引入“块级作用域”（ ES6 中已引入）。
+        // 为了与新版本接轨，不允许在非函数的代码块内声明函数。
+        function fn() {} //合法
+
+        if (true) {
+            function f() {
+                console.log(111);
+            } // !!! 语法错误
+            f();
+        }
+
+        for (var i = 0; i < 5; i++) {
+            function f2() {
+                console.log(222);
+            } // !!! 语法错误
+            f2();
+        }
+
+        function baz() { // 合法
+            function eit() {
+                console.log(333);
+            } // 同样合法
+            eit();
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bar {
+            width: 150px;
+            height: 15px;
+            border: 1px solid red;
+            border-radius: 7px;
+            padding: 1px;
+        }
+        
+        .bar_in {
+            width: 50%;
+            height: 100%;
+            background-color: red;
+            transition: all .7s;
+        }
+        /* 下面.bar_in:hover这种写法是错误的，这是鼠标经过子盒子bar_in时，进度条才会变化
+        .bar_in:hover {
+            width: 100%;
+        } */
+        /* 正确写法:鼠标经过父盒子，进度条变化 */
+        
+        .bar:hover .bar_in {
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bar">
+        <div class="bar_in"></div>
+    </div>
+</body>
+
+</html>

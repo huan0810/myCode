@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Fetch响应结果的数据格式：如果后台传过来的是JSON字符串，可以用json()会自动解析JSON为对象
+        // 否则用text()返回的数据是JSON格式，还要自行解析
+        fetch('http://localhost:3000/json').then(function(data) {
+            // return data.text();
+            return data.json();
+        }).then(function(data) {
+            // console.log(data); //text()返回JSON字符串{"uname":"lisi","age":13,"gender":"male"}
+            console.log(data); //json()直接返回对象
+            console.log(data.uname, data.age, data.gender); //lisi 13 male
+        });
+    </script>
+</body>
+
+</html>

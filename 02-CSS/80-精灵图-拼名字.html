@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 先把span转换成行内块元素 */
+        
+        span {
+            display: inline-block;
+            /* 默认background-position是0 0 */
+            background: url(images/abcd.jpg) no-repeat;
+        }
+        
+        .j {
+            width: 104px;
+            height: 107px;
+            /* 层叠background-position属性 */
+            background-position: -388px -143px;
+        }
+        
+        .i {
+            width: 65px;
+            height: 107px;
+            background-position: -323px -143px;
+        }
+        
+        .a {
+            width: 108px;
+            height: 114px;
+            background-position: 0px -7px;
+        }
+        
+        .o {
+            width: 110px;
+            height: 109px;
+            background-position: -371px -277px;
+        }
+    </style>
+</head>
+
+<body>
+    <span class="j"></span>
+    <span class="i"></span>
+    <span class="a"></span>
+    <span class="o"></span>
+</body>
+
+</html>

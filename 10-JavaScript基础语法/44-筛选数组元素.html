@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 将数组中大于等于10的元素筛选出来，放入新数组
+
+        // 方法1
+        // var arr = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+        // var newArr = [];
+        // var j = 0; //数组newArr的下标
+        // for (var i = 0; i < arr.length; i++) {
+        //     if (arr[i] >= 10) {
+        //         newArr[j++] = arr[i];
+        //     }
+        // }
+        // console.log('原数组' + arr);
+        // console.log('新数组' + newArr);
+
+        // 方法2  利用newArr.length
+        var arr = [2, 0, 6, 1, 77, 0, 52, 0, 25, 7];
+        var newArr = [];
+        // newArr初始为空，newArr.length=0
+        for (var i = 0; i < arr.length; i++) {
+            if (arr[i] >= 10) {
+                newArr[newArr.length] = arr[i];
+            }
+        }
+        console.log('原数组' + arr);
+        console.log('新数组' + newArr);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

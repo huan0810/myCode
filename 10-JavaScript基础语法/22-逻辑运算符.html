@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 逻辑与比逻辑或的优先级高，表达式里先算&& 后算||
+        // 1.逻辑与 &&, 相当于and。两个都为真，结果才真
+        // 2.逻辑或 ||, 相当于or。两个都为假，结果才假
+        // 3.逻辑非 !, 相当于not。对布尔值取反
+        console.log(!true); //false
+
+        // 短路运算：左边的表达式值可以确定结果时,就不再继续运算右边的表达式的值
+        // 1.逻辑与de短路运算：
+        // 语法： 表达式1 && 表达式2
+        // 如果第一个表达式的值为真， 则返回表达式2
+        // 如果第一个表达式的值为假， 则返回表达式1，后面的表达式不再执行！！！
+        console.log(123 && 345); //345
+        console.log(0 && 345); //0
+        console.log('' && 345); //返回空
+        console.log(NaN && 345); //NaN
+        console.log(null && 345); //null
+        console.log(undefined && 345); //undefined
+        console.log(123 && 345 && 567); //567
+        // 代表空、否定的值会被转换成false，如 '', 0, NaN, null, undefined
+
+        // 2.逻辑或de短路运算：
+        // 语法： 表达式1 || 表达式2
+        // 如果第一个表达式的值为真， 则返回表达式1，后面的表达式不执行！！！
+        // 如果第一个表达式的值为假， 则返回表达式2
+        console.log(123 || 345); //123
+        console.log(0 || 123); //123
+        console.log(0 || 123 || 345); //123
+
+        var num = 0;
+        console.log(123 || num++);
+        console.log(num); //123为真，直接返回123，后面表达式不执行！所以num为0
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

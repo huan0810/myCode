@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 先用标准流父元素排列上下位置，内部子元素用浮动排列左右位置，符合网页布局第一准则 */
+        
+        .box {
+            width: 1200px;
+            height: 460px;
+            background-color: pink;
+            margin: 0 auto;
+        }
+        
+        .left {
+            width: 230px;
+            height: 460px;
+            float: left;
+            background-color: skyblue;
+        }
+        
+        .right {
+            width: 970px;
+            height: 460px;
+            float: left;
+            background-color: peru;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+</body>
+
+</html>

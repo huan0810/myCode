@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 权重叠加，但不进位.a:hover的权重是0,0,0,1+0,0,1,0=0,0,1,1 */
+        /* li的权重是0,0,0,1    
+        ul li的权重是0,0,0,1+0,0,0,1=0,0,0,2
+        .nav li的权重是0,0,1,0+0,0,0,1=0,0,1,1
+        所以.nav li的优先级更高 */
+        
+        li {
+            color: blue;
+        }
+        
+        ul li {
+            color: brown;
+        }
+        
+        .nav li {
+            color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="nav">
+        <li>权重的叠加</li>
+    </ul>
+</body>
+
+</html>

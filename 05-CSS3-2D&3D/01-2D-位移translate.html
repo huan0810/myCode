@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* translate的特点：
+        1、最大优点：不会影响其他元素的位置
+        2、对行内标签没有效果
+        3、translate中的参数单位是%时，是相对于盒子自身宽高的百分比。translate:(50%,50%);*/
+        
+        div:first-child {
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            /* x，y代表x轴，y轴上移动位置  transform: translate(x, y); */
+            transform: translate(100px, 100px);
+            /* 只移动x轴的位置，有以下两种写法； */
+            /* 第一种，y值为0 */
+            /* transform: translate(100px, 0); */
+            /* 第二种，用translateX() */
+            /* transform: translateX(200px); */
+        }
+        
+        div:last-child {
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <div></div>
+</body>
+
+</html>

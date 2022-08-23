@@ -1,0 +1,208 @@
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #666;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+body {
+    background-color: #f5f5f5;
+}
+
+.container {
+    background-color: #fff;
+}
+
+
+/* 由于bootstrap中的布局容器.container最大宽度是1170px，而设计稿是1280px
+根据设计稿来走的,对于大于1280px的屏幕，把.container宽度设置为1280px */
+
+@media screen and (min-width: 1280px) {
+    .container {
+        width: 1280px;
+    }
+}
+
+
+/* ?header */
+
+header {
+    /* 把左侧默认的padding值去掉，注意要比原来类的权重10大，才能层叠掉原来的padding值 */
+    padding-left: 0!important;
+}
+
+.logo {
+    background-color: #429AD9;
+}
+
+.logo img {
+    /* 块级元素才能用margin: 0 auto; */
+    display: block;
+    /* logo图片不需要缩放，在盒子里水平居中，大小屏才能都正常显示 */
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+
+/* 1、如果进入超小屏幕，logo图片隐藏，而是使用文字代替
+2、准备一个放logo文字的盒子，在超小屏幕时显示 */
+
+.logo span {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    color: #fff;
+    /* span里面的文字水平居中 */
+    text-align: center;
+}
+
+.nav {
+    background-color: #eee;
+    border-bottom: 1px solid #ccc;
+}
+
+.nav a {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 30px;
+    font-size: 16px;
+}
+
+.nav a:hover {
+    background-color: #fff;
+    color: #333;
+}
+
+.nav a::before {
+    /* 调整字体图标的位置，默认内部结构是用::before写的 */
+    vertical-align: middle;
+    padding-right: 5px;
+}
+
+@media screen and (max-width: 991px) {
+    /* 小屏幕、超小屏幕时，nav里面的li浮动起来，并且宽度为20% */
+    .nav li {
+        float: left;
+        width: 20%;
+    }
+    /* 小屏幕、超小屏幕时，header和article之间有间距 */
+    article {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    /* 超小屏幕时，nav里面的li里面的文字变小，变成14px */
+    .nav li a {
+        font-size: 14px;
+        padding-left: 3px;
+    }
+    /* 超小屏幕时，第一个li宽度为100%，剩下的小li各占50%.注意权重！ */
+    .news li:nth-child(1) {
+        width: 100%!important;
+    }
+    .news li {
+        width: 50%!important;
+    }
+    .publish h3 {
+        font-size: 14px;
+    }
+}
+
+
+/* ?article */
+
+.news li {
+    float: left;
+    width: 25%;
+    height: 128px;
+    padding-right: 10px;
+    margin-bottom: 10px;
+}
+
+.news li:nth-child(1) {
+    width: 50%;
+    height: 266px;
+}
+
+.news li a {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.news li a img {
+    width: 100%;
+    height: 100%;
+}
+
+.news li a p {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 41px;
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, .5);
+    font-size: 12px;
+    color: #fff;
+    /* 把p默认的外边距去掉 */
+    margin: 0;
+}
+
+.news li:nth-child(1) p {
+    line-height: 41px;
+    font-size: 20px;
+    padding: 0 10px;
+}
+
+.publish {
+    border-top: 1px solid #ccc;
+}
+
+.publish .row {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.pic {
+    margin-top: 10px;
+}
+
+.pic img {
+    width: 100%;
+}
+
+
+/* ?aside */
+
+.banner img {
+    width: 100%;
+}
+
+.hot {
+    display: block;
+    margin-top: 20px;
+    padding: 0 20px 20px;
+    border: 1px solid #ccc;
+}
+
+.hot span {
+    border-radius: 0;
+    margin-bottom: 20px;
+}
+
+.hot p {
+    font-size: 12px;
+}

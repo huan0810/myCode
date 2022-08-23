@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1.JavaScript作用域：就是代码名字（变量）在某个范围内起作用和效果
+        // 作用域的目的：减少命名冲突、提高程序的可靠性
+
+        // 2. 全局作用域： 整个script标签、 一个单独的js文件
+        // 局部作用域（函数作用域）：在函数内部，这个代码的名字只在函数内部起作用和效果
+
+        // 3.现阶段js中没有块级作用域，js在es6的时候新增的块级作用域
+        // 块级作用域是{}  if{}  for{}
+        var num = 1;
+        console.log(num);
+
+        function getNum() {
+            var num = 2;
+            console.log(num);
+        }
+        getNum();
+
+
+        // 大多数语言都有块级作用域，但是JavaScript（ES5）中没有块级作用域。
+        // 在if语句中定义的变量会被添加到当前执行环境，即仍然可以在if外部访问到color。
+        // for循环也是这样，由for语句创建的变量i即使在for循环结束后，在循环外部的执行环境中仍然存在。
+        // 但在ES6中可以使用let，let所声明的变量只在let命令所在代码块内有效。
+
+        if (true) {
+            var color = "blue";
+        }
+        console.log(color); //blue
+
+        // for循环里的变量也是全局变量
+        console.log('-------------------');
+        for (var i = 0; i < 6; i++) {
+            console.log(i);
+            var a = 10;
+            console.log(a);
+        }
+        for (var i = 0; i < 3; i++) {
+            console.log(i);
+            console.log(a);
+        }
+        console.log(a);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

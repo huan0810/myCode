@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 1.选择ul中的第一个li。
+        方法一：ul :first-child中间必须有空格
+        方法二：ul li:first-child */
+        
+        ul li:first-child {
+            color: purple;
+        }
+        /* 2.选择ul中的最后一个li */
+        
+        ul li:last-child {
+            background-color: pink;
+        }
+        /* 3.（重点）nth-child(n)选择某个父元素的一个或多个特定的子元素。
+        n可以是数字,关键字和公式 */
+        /* （1）n是数字，选出第二个孩子 */
+        
+        ul li:nth-child(2) {
+            /* 权重：(标签)0001+(标签)0001+伪类选择器0010=0012 */
+            background-color: skyblue;
+        }
+        
+        ul :nth-child(2) {
+            /* 权重：(标签)0001+伪类选择器0010=0011 */
+            background-color: rgb(247, 114, 6);
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>我是第1个孩子</li>
+        <li>我是第2个孩子</li>
+        <li>我是第3个孩子</li>
+        <li>我是第4个孩子</li>
+        <li>我是第5个孩子</li>
+        <li>我是第6个孩子</li>
+        <li>我是第7个孩子</li>
+        <li>我是第8个孩子</li>
+    </ul>
+</body>
+
+</html>

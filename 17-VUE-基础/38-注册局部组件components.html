@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <hello-world></hello-world>
+      <hello-amy></hello-amy>
+      <hello-tom></hello-tom>
+      <test-com></test-com>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+      // 局部组件的注册
+      // 注意，先注册像HelloWorld这样的局部组件，再在全局组件中调用
+      var HelloWorld = {
+        data: function () {
+          return {
+            msg: 'helloworld',
+          }
+        },
+        template: '<div>{{msg}}</div>',
+      }
+      var HelloAmy = {
+        data: function () {
+          return {
+            msg: 'helloamy',
+          }
+        },
+        template: '<div>{{msg}}</div>',
+      }
+      var HelloTom = {
+        // data: function() {
+        data() {
+          return {
+            msg: 'hellotom',
+          }
+        },
+        template: '<div>{{msg}}</div>',
+      }
+
+      // 局部组件只能在注册他的父组件中使用
+      // 局部组件hello-world不能在全局组件test-com中使用
+      Vue.component('test-com', {
+        template: '<div>Test<hello-world></hello-world></div>',
+      })
+
+      var vm = new Vue({
+        el: '#app',
+        data: {},
+        components: {
+          'hello-world': HelloWorld,
+          'hello-amy': HelloAmy,
+          'hello-tom': HelloTom,
+        },
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <script>
+        // JSON.stringify() 把数据封装成json字符串
+        // JSON.parse() 把json字符串解析为正常数据
+        var todolist = [{
+            title: '我今天吃八个馒头',
+            done: false
+        }, {
+            title: '我今天学习jq',
+            done: false
+        }, ];
+        // localStorage.setItem("todo", todolist); //[object Object],[object Object]
+        // 1. 本地存储里面只能存储字符串的数据格式 因此把数组对象转换为字符串格式 JSON.stringify()
+        localStorage.setItem("todo", JSON.stringify(todolist));
+        var data = localStorage.getItem("todo");
+        console.log(typeof data); //string
+        console.log(data); //[{"title":"我今天吃八个馒头","done":false},{"title":"我今天学习jq","done":false}]
+        console.log(data[0].title); //undefined 取出来的数据是字符串，没有title属性
+
+        // 2. 获取本地存储的数据 我们需要把里面的字符串数据转换为 对象格式 JSON.parse()
+        data = JSON.parse(data);
+        console.log(data); //输出数组格式[{…}, {…}]
+        console.log(data[0].title); //我今天吃八个馒头
+    </script>
+</body>
+
+</html>

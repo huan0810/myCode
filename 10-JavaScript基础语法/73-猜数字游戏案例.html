@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 程序随机生成1~10之间的数字，用户猜数字
+        // 若大于生成数字，提示：数字大了，继续猜
+        // 若小于生成数字，提示：数字小了，继续猜
+        // 若等于生成数字，提示：猜对了，结束程序
+
+        // 取两整数之间的随机数，包括两个整数
+        function getRandom(min, max) {
+            // 默认min、max都是整数了
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        var num = getRandom(1, 10);
+        console.log(num);
+        // 方法一：
+        // var userNum = prompt('猜数字：输入1-10之间的整数');
+        // while (userNum != num) {
+        //     if (userNum < num) {
+        //         userNum = prompt('数字小了，继续猜：');
+        //     } else {
+        //         userNum = prompt('数字大了，继续猜：');
+        //     }
+        // }
+        // alert('猜对了，结束程序！')
+
+        // 方法二：
+        while (true) { //死循环，记得写退出条件
+            var userNum = prompt('猜数字：输入1-10之间的整数');
+            if (userNum < num) {
+                alert('猜小了');
+            } else if (userNum > num) {
+                alert('猜大了');
+            } else {
+                alert('猜对了！');
+                break; //退出整个循环
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

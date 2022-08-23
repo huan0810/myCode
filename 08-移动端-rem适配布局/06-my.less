@@ -1,0 +1,23 @@
+// less是CSS预处理语言，使用步骤：
+// 1、先如下编写less文件内容
+// 2、再ctrl+s保存，插件Easy LESS会自动生成css文件
+// 3、在html里面引入css文件即可
+
+// less变量：
+// @变量名:值;
+
+// 变量命名规范：
+// 必须有@为前缀，不能包含特殊字符，不能以数字开头，大小写敏感(@color和@Color是两个不同的变量)
+
+// 定义一个粉色的变量:
+@mycolor: pink;
+// 定义一个字体为14px的变量
+@font14: 14px;
+// 现在可以使用上面定义的变量了
+body {
+    background-color: @mycolor;
+}
+div {
+    color: @mycolor;
+    font-size: @font14;
+}

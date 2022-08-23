@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 设置旋转中心点：transform-origin: x y;
+        注意x、y之间是空格
+        默认旋转中心点是元素的中心点 50% 50%
+        还可以给xy设置 像素、方位名词（top bottom left right center）
+         */
+        
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px auto;
+            transition: all 1s;
+            transform-origin: left bottom;
+            /* transform-origin: 50px 50px; */
+        }
+        /* 鼠标经过，有旋转效果 */
+        
+        div:hover {
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

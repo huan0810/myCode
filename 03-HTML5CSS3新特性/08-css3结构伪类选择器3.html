@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* :first-of-type\last-of-type\nth-of-type(n) 使用方法和child一模一样*/
+      /* 选出第一个li标签 */
+
+      ul li:first-of-type {
+        background-color: pink;
+      }
+      /* 选出最后一个li标签 */
+
+      ul li:last-of-type {
+        background-color: pink;
+      }
+      /* 选出所有偶数行 */
+
+      ul li:nth-of-type(2n) {
+        background-color: #ccc;
+      }
+      /* child和type的区别 */
+      /* :nth-child()会把所有的孩子都排列序号 */
+
+      section div:nth-child(n) {
+        /* 此段代码选中了section中所有div  */
+        color: rgb(52, 190, 75);
+      }
+      section div:nth-of-type(n) {
+        /* 此段代码选中了section中所有div */
+        background-color: peru;
+      }
+
+      section p:last-child {
+        /* 此段代码一个元素都没选中，因为最后一个元素不是p */
+        color: skyblue;
+      }
+      section p:last-of-type {
+        /* 选中了section的最后一个p标签 */
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <ul>
+      <li>我是第1个孩子</li>
+      <li>我是第2个孩子</li>
+      <li>我是第3个孩子</li>
+      <li>我是第4个孩子</li>
+      <li>我是第5个孩子</li>
+      <li>我是第6个孩子</li>
+      <li>我是第7个孩子</li>
+      <li>我是第8个孩子</li>
+    </ul>
+    <section>
+      <p>光头强</p>
+      <div>
+        熊大
+        <div>夹缝</div>
+      </div>
+      <div>熊二</div>
+    </section>
+  </body>
+</html>

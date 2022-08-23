@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>箭头函数</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 箭头函数是用来简化函数定义语法的。通常把箭头函数赋值给一个变量
+        const fn = () => {
+            console.log(123)
+        };
+        // 调用箭头函数
+        fn(); //123
+
+        // 如果箭头函数体中只有一句代码 并且代码的执行结果就是函数的返回值 函数体大括号和return可以省略
+        const sum = (n1, n2) => n1 + n2;
+        // 相当于
+        // const sum = (n1, n2) => {
+        //     return n1 + n2;
+        // };
+        // 也相当于
+        // function sum(num1, num2) {
+        //     return num1 + num2;
+        // }
+        const result = sum(10, 20);
+        console.log(result); //30
+
+        // 在箭头函数中 如果形参只有一个 形参外侧的小括号也是可以省略的
+        const fn1 = v => {
+            alert(v);
+        }
+        fn1(20);
+
+        // 箭头函数不绑定this 箭头函数没有自己的this关键字 如果在箭头函数中使用this this关键字将指向箭头函数定义位置中的this
+        // 也就是箭头函数的this指向，和箭头函数所在作用域中的this指向一样。注意对象是不能产生作用域的
+
+        function fn2() {
+            console.log(this);
+            // 这里的箭头函数被定义在fn()函数中，所以箭头函数中的this和fn()中的this指向一样，都是obj对象
+            return () => {
+                console.log(this)
+            }
+        }
+
+        const obj = {
+            name: 'zhangsan'
+        };
+
+        const resFn = fn2.call(obj); //{name: 'zhangsan'}
+
+        resFn(); //{name: 'zhangsan'}
+    </script>
+</body>
+
+</html>

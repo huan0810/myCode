@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>剩余参数</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // ES6之前,通常用arguments对象取到所有实参
+        // 所有函数都内置了一个arguments对象，arguments对象中存储了传递的所有实参
+        // 当不知道函数调用者传递几个实参时，就用arguments，不用写形参了
+
+        // 但在ES6中的箭头函数中, 不能使用arguments对象
+        // 箭头函数中使用剩余参数,即在形参前面加上...
+        // 当函数实参个数大于形参个数，可以将剩余的实参放在一个数组中
+
+        // (1)给传入的所有实参求和
+        const sum = (...args) => {
+            let total = 0;
+            args.forEach(item => total += item); //forEach 迭代(遍历) 数组
+            return total;
+        };
+        console.log(sum(10, 20));
+        console.log(sum(10, 20, 30));
+
+        // (2)剩余参数和数组解构的配合使用
+        let ary1 = ['张三', '李四', '王五'];
+        let [s1, ...s2] = ary1;
+        console.log(s1); //张三
+        console.log(s2); //['李四', '王五']
+
+        // (3)剩余参数和对象解构的配合使用
+        let person = {
+            name: 'lisi',
+            age: 30,
+            sex: '男'
+        };
+        let {
+            name,
+            ...age
+        } = person;
+        console.log(name); //lisi
+        console.log(age); //{age: 30, sex: '男'}
+        console.log(typeof(age)); //object
+    </script>
+</body>
+
+</html>

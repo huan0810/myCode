@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            height: 3000px;
+        }
+        
+        .box {
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+            margin: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+    <script>
+        // 核心思想：注册鼠标移动事件。用 鼠标在页面的坐标-盒子距body的距离 得到鼠标在盒子内的坐标
+        var box = document.querySelector('.box');
+        box.addEventListener('mousemove', function(e) {
+            var x = e.pageX - this.offsetLeft;
+            var y = e.pageY - this.offsetTop;
+            this.innerHTML = 'x坐标是' + x + ' y坐标是' + y;
+        })
+    </script>
+</body>
+
+</html>

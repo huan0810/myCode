@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img:nth-child(2) {
+            /* 把100*100px的图片手动缩小为50*50px的，
+            放进手机里又会被放大成100*100(视网膜屏幕)，可以看到清晰的图片 */
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 电脑端（pc端）1px=一个物理像素; -->
+    <!-- 但移动端不尽相同，1px能显示的物理像素个数，称为物理像素比/屏幕像素比 -->
+    <!-- 视网膜屏幕技术，可以把更多物理像素点压缩在一块屏幕里。 
+    比如50*50px(css像素)图片在手机上会被放大，所以用2/3/4倍图(我们准备的图片比实际需要大2倍，然后手动把这个图片缩小为原来的一半) -->
+    <!-- 正常图片 -->
+    <img src="images/apple50(1).jpg" alt="">
+    <!-- 2倍图 -->
+    <img src="images/apple100.jpg" alt="">
+</body>
+
+</html>

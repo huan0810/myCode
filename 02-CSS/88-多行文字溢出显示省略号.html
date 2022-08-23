@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 了解，有兼容性问题。适合webkit浏览器或移动端
+        推荐让后端人员做多行文字省略号问题 */
+        
+        div {
+            width: 150px;
+            /* 调试行高，使其刚好显示两行 */
+            height: 55px;
+            background-color: skyblue;
+            margin: 0 auto;
+            /* 复制以下代码 */
+            overflow: hidden;
+            text-overflow: ellipsis;
+            /* 弹性伸缩盒子模型显示 */
+            display: -webkit-box;
+            /* 限制在一个块元素显示的文本的行数 */
+            -webkit-line-clamp: 2;
+            /* 设置或检索伸缩盒对象的子元素的排列方式 */
+            -webkit-box-orient: vertical;
+            /* 复制以上代码 */
+        }
+    </style>
+</head>
+
+<body>
+    <div>此处省略一万字此处省略一万字此处省略一万字</div>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function compose(...funs) {
+        const composeFn = (index) => {
+          let fn = funs[index]
+          if (!fn) return function () {}
+          return fn.bind(null, composeFn(index + 1))
+        }
+        return composeFn(0)
+      }
+
+      // ***test***
+      function f(next) {
+        console.log(1)
+        next()
+        console.log(2)
+      }
+
+      function h(next) {
+        console.log(3)
+        next()
+        console.log(4)
+      }
+
+      function g(next) {
+        console.log(5)
+        next()
+        console.log(6)
+      }
+
+      const fn = compose(f, h, g)
+      fn() // 1,3,5,6,4,2
+    </script>
+  </body>
+</html>

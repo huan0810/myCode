@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var str = 'abcdefg';
+        for (let k of str) {
+            console.log(k); //输出a b c d e f g
+        }
+        console.log('-----------');
+        for (let k in str) {
+            console.log(k); //输出0 1 2 3 4 5 6
+            console.log(str[k]); //输出a b c d e f g
+        }
+    </script>
+</body>
+
+</html>

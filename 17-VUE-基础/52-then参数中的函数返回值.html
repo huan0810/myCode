@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 基于Promise发送Ajax请求
+        function queryData(url) {
+            return new Promise(function(resolve, reject) {
+                var xhr = new XMLHttpRequest();
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState != 4) return;
+                    if (xhr.readyState == 4 && xhr.status == 200) {
+                        // 处理正常的情况
+                        resolve(xhr.responseText);
+                    } else {
+                        // 处理异常情况
+                        reject('服务器错误');
+                    }
+                };
+                xhr.open('get', url);
+                xhr.send(null);
+            });
+        }
+
+        // 发送多个ajax请求并且保证顺序，下一个then调用的就是上一个return返回的Promise实例对象
+        queryData('http://localhost:3000/data')
+            .then(function(data) { //then中只有一个函数，只考虑正常情况
+                console.log(data); //Hello World!
+                return queryData('http://localhost:3000/data1');
+            })
+            .then(function(data) {
+                console.log(data); //Hello TOM!
+                return new Promise(function(resolve, reject) {
+                    setTimeout(function() {
+                        resolve(123456);
+                    }, 1000);
+                });
+            })
+            .then(function(data) {
+                console.log(data); //123456
+                return 'hello';
+                // 返回的普通值会直接传递给下一个then，通过then参数中函数的参数接收该值
+                // 而且如果返回的是普通值，那then会产生一个默认的Promise实例对象，调用下一个then，保证链式操作不断
+            })
+            .then(function(data) {
+                console.log(data); //hello
+            })
+    </script>
+</body>
+
+</html>

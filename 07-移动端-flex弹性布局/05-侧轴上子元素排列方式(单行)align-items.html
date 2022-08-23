@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        display: flex;
+        width: 800px;
+        height: 400px;
+        background-color: pink;
+        /* 设置主轴，默认row x轴 */
+        /* flex-direction: row; */
+        /* 设置主轴，column y轴 */
+        flex-direction: column;
+        /* 主轴侧轴均居中排列，即可实现span盒子在父盒子中，同时水平垂直居中
+            但是若x轴是主轴，先水平居中再垂直居中；否则先垂直居中再水平居中。不一样的哦！ */
+        /* 主轴上排列方式：居中 */
+        justify-content: center;
+        /* 侧轴上排列方式：center居中 */
+        /* align-items: center; */
+        /* 侧轴上排列方式：默认值flex-start，从头开始排列 */
+        /* align-items: flex-start; */
+        /* 侧轴上排列方式：flex-end，从尾部开始排列 */
+        align-items: flex-end;
+        /* 侧轴上排列方式：stretch，拉伸到和父盒子一样宽/高(拉伸时不要给子元素设置宽或高) */
+        /* align-items: stretch; */
+      }
+
+      div span {
+        width: 150px;
+        height: 100px;
+        background-color: purple;
+        color: #fff;
+        margin: 10px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <span>1</span>
+      <span>2</span>
+      <span>3</span>
+    </div>
+  </body>
+</html>

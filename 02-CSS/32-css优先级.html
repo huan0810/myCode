@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 重复定义样式的情况：
+        如果选择器相同，则执行层叠性
+        如果选择器不同，则根据选择器优先级执行 */
+        /* 继承、* < 标签选择器1 < 类、伪类选择器10 < id选择器100 < 行内样式style=""1000<!important重要的(无穷大) */
+        /* 注意继承的优先级是0.不管父元素的权重多高,子元素继承的权重都是0 */
+        /* a链接,浏览器会默认指定样式,蓝色且有下划线,优先级大于继承 */
+        
+        .test {
+            color: red;
+        }
+        
+        #demo {
+            color: sienna;
+        }
+        
+        div {
+            color: palevioletred!important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="test" id="demo" style="color: purple;">
+        选择器优先级
+        <a href="">链接</a>
+    </div>
+</body>
+
+</html>

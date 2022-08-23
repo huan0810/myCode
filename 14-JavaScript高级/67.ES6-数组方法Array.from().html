@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Array.from方法</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // Array.from() 将伪数组或可遍历对象转换为真正的数组
+
+
+        // var arrayLike = {
+        //     "0": "张三",
+        //     "1": "李四",
+        //     "2": "王五",
+        //     "length": 3
+        // }
+        // console.log(typeof(arrayLike)); //object
+        // var ary = Array.from(arrayLike);
+        // console.log(ary); //['张三', '李四', '王五']
+
+
+        var arrayLike = {
+            "0": "1",
+            "1": "2",
+            "length": 2
+        };
+        // Array.from()的第二个参数是一个函数,用于对数组中元素加工处理
+        var ary = Array.from(arrayLike, item => item * 2)
+        console.log(ary); //[2, 4]
+    </script>
+</body>
+
+</html>

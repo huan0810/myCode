@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [1111, 2222, 3333];
+        for (var k of arr) {
+            console.log(k); //for...of  k输出数据1111 2222 3333
+        }
+
+        // for...in不推荐遍历数组哦！
+        for (var k in arr) {
+            console.log(k); //for...in k输出索引0 1 2
+            console.log(arr[k]); //输出数据1111 2222 3333
+        }
+    </script>
+</body>
+
+</html>

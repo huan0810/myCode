@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 3、translate中的参数单位是%时，是相对于盒子自身宽高的百分比
+        借助以上特性，也可以实现盒子的垂直、水平居中，而且不需要像以前一样计算盒子一半的宽高 */
+        
+        div {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+            transform: translate(-50%, -50%);
+        }
+        
+        p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            /* 盒子往上、往左走自己高度、宽度的一半 */
+            transform: translate(-50%, -50%);
+        }
+        
+        span {
+            /* 2、对行内标签没有效果 */
+            display: block;
+            transform: translate(200px, 200px);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p></p>
+    </div>
+    <span>123</span>
+</body>
+
+</html>

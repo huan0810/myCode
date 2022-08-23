@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // arguments中译：参数
+        // 所有函数都内置了一个arguments对象，arguments对象中存储了传递的所有实参。
+        // arguments是一个伪数组，因此可以进行遍历。伪数组具有以下特点：
+        // (1)具有 length 属性
+        // (2)按索引方式储存数据
+        // (3)不具有数组的 push, pop等方法
+
+        // 什么时候用arguments？
+        // 当不知道函数调用者传递几个实参时，就用arguments，不用写形参了
+
+        // 1.代码验证
+        function fun() {
+            console.log(arguments); //arguments里存储了传递过来的所有实参
+            console.log(arguments.length);
+            console.log(arguments[1]);
+            // 遍历arguments
+            console.log('-----遍历-----');
+            for (var i = 0; i < arguments.length; i++) {
+                console.log(arguments[i]);
+            }
+        }
+        fun(1, 2, 3);
+
+        // 2.利用函数求任意个数的最大值，利用arguments
+        function getMax() {
+            var max = arguments[0];
+            for (var i = 1; i < arguments.length; i++) {
+                if (arguments[i] > max) {
+                    max = arguments[i];
+                }
+            }
+            return max;
+        }
+        var re1 = getMax(1, 2, 3);
+        var re2 = getMax(33, 44, 212, 6767, 12);
+        console.log('-----求任意个数最大值-----');
+        console.log(re1);
+        console.log(re2);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

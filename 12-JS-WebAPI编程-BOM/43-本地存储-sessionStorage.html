@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text">
+    <button class="set">存储数据</button>
+    <button class="get">获取数据</button>
+    <button class="remove">删除数据</button>
+    <button class="del">清空所有数据</button>
+
+    <script>
+        // sessionStorage
+        // 生命周期为关闭浏览器窗口
+        // 在同一个窗口(页面) 下数据可以共享
+        // 以键值对的形式存储使用
+
+        // sessionStorage.setItem(key, value)  存储数据
+        // sessionStorage.getItem(key)  获取数据
+        // sessionStorage.removeItem(key)  删除数据
+        // sessionStorage.clear()  删除所有数据(不推荐使用哦)
+        var input = document.querySelector('input');
+        var set = document.querySelector('.set');
+        var get = document.querySelector('.get');
+        var remove = document.querySelector('.remove');
+        var del = document.querySelector('.del');
+
+        // 点击后,把表单里的数据存储起来
+        set.addEventListener('click', function() {
+            var val = input.value;
+            sessionStorage.setItem('uname', val);
+            sessionStorage.setItem('age', val);
+        })
+        get.addEventListener('click', function() {
+            console.log(sessionStorage.getItem('uname'));
+        })
+        remove.addEventListener('click', function() {
+            sessionStorage.removeItem('uname');
+        })
+        del.addEventListener('click', function() {
+            sessionStorage.clear();
+        })
+    </script>
+</body>
+
+</html>

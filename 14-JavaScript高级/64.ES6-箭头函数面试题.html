@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>箭头函数面试题</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 注意对象是不能产生作用域的
+        var age = 100;
+
+        var obj = {
+            age: 20,
+            // obj对象不能产生作用域，所以箭头函数是被定义在全局作用域下，this指向window
+            say: () => {
+                alert(this.age)
+            }
+        }
+
+        obj.say(); //100，因为window对象的age属性值为100
+    </script>
+</body>
+
+</html>

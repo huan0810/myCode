@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1.翻转数组,并存入原数组
+        var arr = ['red', 'green', 'blue', 'pink', 'purple', 'hotpink'];
+        console.log('1.翻转前：' + arr);
+        for (var i = 0; i <= arr.length / 2 - 1; i++) {
+            var temp = arr[i];
+            arr[i] = arr[arr.length - i - 1];
+            arr[arr.length - i - 1] = temp;
+        }
+        console.log('1.翻转后：' + arr);
+
+
+        // 2.翻转数组，并存入新数组
+        var arr1 = ['red', 'green', 'blue', 'pink', 'purple', 'hotpink'];
+        console.log('2.翻转前：' + arr1);
+        var newArr = [];
+        for (var i = arr1.length - 1; i >= 0; i--) {
+            newArr[newArr.length] = arr1[i];
+        }
+        console.log('2.翻转后：' + newArr);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>我是div</div>
+    <span>我是span</span>
+
+    <script>
+        var div = document.querySelector('div');
+        // 1.(不用)nextSibling:下一个兄弟节点  previousSibling:上一个兄弟节点
+        // 得到的节点包含元素节点或者 文本节点等等
+        console.log(div.nextSibling);
+        console.log(div.previousSibling);
+        // 2.(常用)nextElementSibling 得到下一个兄弟元素节点  ie9以上才兼容
+        // previousElementSibling 得到上一个兄弟元素节点  ie9以上才兼容
+        console.log(div.nextElementSibling);
+        console.log(div.previousElementSibling);
+
+        // 3. 想要解决nextElementSibling\previousElementSibling兼容性问题,只好自己封装一个函数了
+        // 一般兄弟节点用的少
+        function getNextElementSibling(element) {
+            var el = element;
+            while (el = el.nextSibling) {
+                if (el.nodeType === 1) {
+                    return el;
+                }
+            }
+            return null;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 函数的返回值格式：
+        // function 函数名() {
+        //     return 需要返回的结果;
+        // }
+        // 只要函数遇到return，就把结果返回给函数的调用者，相当于函数名() = return后面的结果;
+
+        // 1.代码验证
+        function getResult() {
+            return 666;
+        }
+        getResult();
+        console.log(getResult());
+
+        // 2.求任意两个数的和
+        function getSum(num1, num2) {
+            return num1 + num2;
+        }
+        console.log('两数之和：' + getSum(1, 2));
+
+        // 3.(法一)利用函数求两个数的最大值
+        function getMax(num1, num2) {
+            if (num1 >= num2) {
+                return num1;
+            } else {
+                return num2;
+            }
+        }
+        console.log('最大值：' + getMax(3.00001, 3));
+
+        // (法二)利用函数求两个数的最大值
+        function getMax1(num1, num2) {
+            return num1 >= num2 ? num1 : num2;
+        }
+        console.log('最大值：' + getMax1(3.00001, 3.00006));
+
+        // 4.利用函数，求数组中最大值
+        function getArrayMax(array) { //array接收一个数组
+            var max = array[0];
+            for (var i = 1; i < array.length; i++) {
+                if (array[i] > max) {
+                    max = array[i];
+                }
+            }
+            return max;
+        }
+        var arr = [5, 2, 99, 101, 67, 779];
+        var result = getArrayMax(arr); //开发里，经常用一个变量接收 函数的返回结果
+        console.log('数组最大值：' + result);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

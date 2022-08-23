@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/jquery.js"></script>
+</head>
+
+<body>
+
+    <input type="file" id="file1" />
+    <button id="btnUpload">上传文件</button>
+
+    <br />
+    <img src="./images/loading.gif" alt="" style="display: none;" id="loading" />
+
+    <script>
+        $(function() {
+            // 自jQuery版本1.8起，ajaxStart() ajaxStop()只能被附加到$(document)上。
+            // ajaxStart() ajaxStop()函数会监听当前文档内所有的 Ajax 请求。
+
+
+            // 监听到Ajax请求被发起了.
+            // Ajax 请求开始时，执行 ajaxStart 函数。可以在 ajaxStart 的 callback 中显示 loading 效果
+            $(document).ajaxStart(function() {
+                $('#loading').show()
+            })
+
+            // 监听到 Ajax 完成的事件
+            // Ajax 请求结束时，执行 ajaxStop 函数。可以在 ajaxStop 的 callback 中隐藏 loading 效果
+            $(document).ajaxStop(function() {
+                $('#loading').hide()
+            })
+
+            $('#btnUpload').on('click', function() {
+                // $('#file1')[0]是把jQuery对象转换成DOM对象，DOM对象才能访问files属性
+                // files属性就是用户选中的文件列表
+                var files = $('#file1')[0].files
+                if (files.length <= 0) {
+                    return alert('请选择文件后再上传！')
+                }
+
+                var fd = new FormData();
+                // 把文件列表里第一个元素添加给fd
+                fd.append('avatar', files[0])
+
+                // 只有$.ajax()能上传文件，get和post都不行。而且method只能是'POST'
+                $.ajax({
+                    method: 'POST',
+                    url: 'http://www.liulongbin.top:3006/api/upload/avatar',
+                    data: fd,
+                    // 不对 FormData 中的数据进行 url 编码，而是将 FormData 数据原样发送到服务器
+                    processData: false,
+                    // 不修改 Content-Type 属性，使用 FormData 默认的 Content-Type 值
+                    contentType: false,
+                    success: function(res) {
+                        console.log(res)
+                    }
+                })
+            })
+        })
+    </script>
+
+</body>
+
+</html>

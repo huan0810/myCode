@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>Document</title>
+    <!-- 导入 vue 文件，为全局 window 对象挂载 Vue 构造函数 -->
+    <script src='js/vue.js'></script>
+    <!-- 导入 vue-router 文件，为全局 window 对象挂载 VueRouter 构造函数 -->
+    <script src="js/vue-router_3.0.2.js"></script>
+</head>
+
+<body>
+    <!-- $route.params与对应路由形成高度耦合，不够灵活
+         以下使用props将组件和路由解耦
+         props的值为对象,路由path后面的uid就不会被传递了,而是只传递props对象中的值 -->
+
+
+    <!-- 被vm实例所控制的区域 -->
+    <div id='app'>
+        <router-link to="/user/1">User1</router-link>
+        <router-link to="/user/2">User2</router-link>
+        <router-link to="/user/3">User3</router-link>
+        <router-link to="/user/4">User4</router-link>
+        <router-link to="/register">Register</router-link>
+        <router-view></router-view>
+    </div>
+
+    <script>
+        // 定义路由组件
+        const User = {
+            props: ['uid', 'uname', 'age'],
+            template: '<h1>User 组件, 用户id{{uid}},姓名{{uname}},年龄{{age}}</h1>'
+                // User 组件, 用户id,姓名李小娇,年龄18
+        }
+        const Register = {
+            template: '<h1>Register 组件</h1>'
+        }
+
+        // 创建路由实例对象
+        var router = new VueRouter({
+            routes: [{
+                path: '/',
+                redirect: '/user/1'
+            }, {
+                path: '/user/:uid', //动态路径参数 以冒号开头
+                component: User,
+                props: { //props 被设置为对象,uid就不会被传递了
+                    uname: '李小娇',
+                    age: 18,
+                }
+            }, {
+                path: '/register',
+                component: Register
+            }]
+        });
+
+        // 创建vm实例对象
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+            // 'router': router
+            router
+        });
+    </script>
+</body>
+
+</html>

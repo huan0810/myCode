@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div>前后端交互</div>
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript">
+      /*
+        前后端交互-异步编程与Promise概述
+        */
+      // var ret = '---';
+      // $.ajax({
+      //   url: 'http://localhost:3000/data',
+      //   success: function(data) {
+      //     ret = data;
+      //     console.log(ret)
+      //   }
+      // });
+      // console.log(ret)
+
+      // ----------------------------
+      // 以下三个ajax请求是异步处理的，打印结果的顺序不可预知
+      // $.ajax({
+      //   url: 'http://localhost:3000/data',
+      //   success: function(data) {
+      //     console.log(data)
+      //   }
+      // });
+      // $.ajax({
+      //   url: 'http://localhost:3000/data1',
+      //   success: function(data) {
+      //     console.log(data)
+      //   }
+      // });
+      // $.ajax({
+      //   url: 'http://localhost:3000/data2',
+      //   success: function(data) {
+      //     console.log(data)
+      //   }
+      // });
+      // -----------------------------------
+      // 如果想要一个固定的输出顺序，三个ajax请求要嵌套起来,代码可读性差
+
+      $.ajax({
+        url: 'http://localhost:3000/data',
+        success: function (data) {
+          console.log(data)
+          $.ajax({
+            url: 'http://localhost:3000/data1',
+            success: function (data) {
+              console.log(data)
+              $.ajax({
+                url: 'http://localhost:3000/data2',
+                success: function (data) {
+                  console.log(data)
+                }
+              })
+            }
+          })
+        }
+      })
+
+      // Promise 是异步编程的一种解决方案，使得异步代码可以同步执行.优势：
+      // (1)可以避免多层异步调用嵌套问题(回调地狱)
+      // (2)Promise 对象提供了简洁的API， 使得控制异步操作更加容易
+    </script>
+  </body>
+</html>

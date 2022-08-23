@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      var age = prompt('请输入您的年龄：')
+      console.log('转换前：' + typeof age)
+      // 1.（重点）parseInt()将字符串转换成整数
+      console.log('转换后：' + typeof parseInt(age)) //输入小数也会转换成整数,小数点后面直接舍弃
+      console.log(parseInt(age))
+      console.log(parseInt('120px')) //单位px会被去掉，输出120
+      console.log(parseInt('rem120')) //输出NaN，因为第一位是字母
+
+      // 2.（重点）parseFloat()将字符串转换成浮点数
+      console.log(parseFloat('3.14'))
+      console.log(parseFloat('120px')) //单位px会被去掉，输出120
+      console.log(parseFloat('rem120')) //输出NaN，因为第一位是字母
+
+      // 3.Number()强制转换函数，将字符串转换成数值型
+      var str = '12345.6'
+      console.log(Number(str))
+      console.log(typeof Number(str))
+
+      // 4.直接算数运算 - * / 隐式转换，字符串就会转换成数字型运算
+      console.log('12' - 0)
+      console.log('123' - '122') //输出1
+      console.log('100' * 3)
+
+      // 5.高端写法
+      let a = '0'
+      console.log(typeof +a) // number
+    </script>
+  </head>
+
+  <body></body>
+</html>

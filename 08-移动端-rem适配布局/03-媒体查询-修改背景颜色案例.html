@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 媒体查询一般按照从大到小 或 从小到大的顺序
+        因为运用层叠性，可以使代码更简洁 */
+        /* screen和and不能省略，数字后面的px不能省略 */
+        /* 1、小于540px，背景浅蓝 */
+        
+        @media screen and (max-width:539px) {
+            body {
+                background-color: rgb(161, 221, 245);
+            }
+        }
+        /* 2、540px<=x<=969px,背景深蓝 */
+        /* @media screen and (min-width:540px) and (max-width:969px) {
+            body {
+                background-color: rgb(90, 203, 248);
+            }
+        } */
+        /* 简化写法： */
+        
+        @media screen and (min-width:540px) {
+            body {
+                background-color: rgb(90, 203, 248);
+            }
+        }
+        /* 3、大于等于970px，背景更深蓝 */
+        
+        @media screen and (min-width:970px) {
+            body {
+                background-color: rgb(10, 181, 248);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+</body>
+
+</html>

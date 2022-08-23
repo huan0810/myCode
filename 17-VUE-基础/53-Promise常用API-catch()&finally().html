@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // (1) p.catch()  获取异常信息,等价于p.then()参数中的第二个函数
+        // (2) p.finally() 成功与否都会执行(尚且不是正式标准)
+        // 无论异步任务成功失败，都会触发finally(),可以在这里给出提示信息或销毁资源
+
+        function fun() {
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    // resolve(123456);
+                    reject('出错');
+                }, 100);
+            });
+        }
+
+        fun()
+            .then(function(data) {
+                console.log(data);
+            })
+            .catch(function(data) {
+                console.log(data);
+            })
+            .finally(function(data) {
+                console.log('finished');
+            });
+
+        // --------------------------
+        // // 两种写法是等效的
+        // fun()
+        //     .then(function(data) {
+        //         console.log(data);
+        //     }, function(data) {
+        //         console.log(data);
+        //     })
+        //     .finally(function(data) {
+        //         console.log('finished');
+        //     });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 外边距的典型应用-块级元素水平居中 */
+      /* 块级元素：盒子必须指定宽度width，盒子左右的外边距都设置为auto */
+      /* 行内元素、行内块元素：给其父元素添加text-align:center即可 */
+
+      div {
+        width: 700px;
+        height: 300px;
+        background-color: pink;
+        margin: 0 auto;
+        /* 给父元素加text-align: center;可以使span水平居中 */
+        text-align: center;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div>
+      <span>里面的行内元素span</span>
+    </div>
+  </body>
+</html>

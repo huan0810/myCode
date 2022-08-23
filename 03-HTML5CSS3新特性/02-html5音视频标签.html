@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* <video src=""></video>标签尽量使用mp4格式，兼容性好 */
+        
+        video {
+            width: 800px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 以下属性都可以简写，只写等号前面的单词 
+         autoplay="autoplay"打开网页自动播放，但是谷歌禁用了此属性
+         controls="controls"完整写法，表示显示播放控件
+         loop="loop"循环播放
+         poster="media/mi9.jpg"加载等待时显示的图片 -->
+
+    <!-- ?音频 普通写法 -->
+    <!-- <audio src="media/music.mp3" autoplay="autoplay" controls="controls"></audio> -->
+    <!-- 因为不同浏览器支持不同格式，所以为音频准备多个格式，用以下格式
+    若支持MP3格式则播放MP3，不支持MP3往下播放ogg，还不支持ogg则显示文字,
+    若两种格式都支持则只播放第一个 -->
+    <!-- ?音频 兼容性写法 -->
+    <audio controls="controls">
+        <source src="media/snow.mp3" type="audio/mpeg">
+        <source src="media/snow.ogg" type="audio/ogg">
+        您的浏览器太low，不支持音频播放
+    </audio>
+
+    <!-- ?视频 普通写法 -->
+    <!-- 谷歌把自动播放禁用了，但可以给视频加静音属性muted="muted"，以达到静音自动播放的目的 -->
+    <!-- <video src="media/mi.mp4" autoplay="autoplay" muted="muted" controls="controls" loop="loop" poster="media/mi9.jpg"></video> -->
+    <!-- ?视频 普通写法 -->
+    <video autoplay="autoplay" muted loop controls>
+        <source src="media/mi.mp4" type="video/mp4">
+        <source src="media/mi.ogg" type="video/ogg">
+        您的浏览器太low，不支持视频播放
+    </video>
+</body>
+
+</html>

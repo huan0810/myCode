@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>使用const关键字声明常量</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // 使用const关键字声明的常量具有块级作用域，常量就是内存地址不能变化的量。
+        // if (true) {
+        //     const a = 10;
+        //     if (true) {
+        //         const a = 20;
+        //         console.log(a); //20
+        //     }
+        //     console.log(a); //10
+        // }
+        // console.log(a); //报错 a is not defined
+
+        // 使用const关键字声明的常量必须赋初始值
+        // const PI; //Missing initializer in const declaration
+
+        // 常量声明后值不可更改 
+        // (1)简单数据类型，不可更改
+        // const PI = 3.14;
+        // PI = 100;//Assignment to constant variable.
+
+        const ary = [100, 107, 200];
+        //(2)复杂数据类型 对于常量数组，可以通过下标更改数组里面的数据，因为数组本身的内存地址没有被更改
+        ary[0] = 123;
+        console.log(ary); //[123, 107, 200]
+        // 但是重新给数组赋值，会改变数组在内存的地址，报错
+        ary = [1, 2]
+        console.log(ary); //报错 Assignment to constant variable
+    </script>
+</body>
+
+</html>

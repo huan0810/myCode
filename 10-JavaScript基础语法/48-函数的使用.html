@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1.函数的使用步骤:(1)声明函数、(2)调用函数
+        // (1)声明函数，函数名一般是动词
+        // function 函数名(){
+        //     函数体
+        // }
+        function sayHi() {
+            alert('Hi~~');
+        }
+        // (2)调用函数：函数名();
+        sayHi();
+
+
+        // 2.带参函数
+        // (1)声明函数
+        // function 函数名(形参1, 形参2, ...) {
+        //     函数体
+        // }
+        // (2)调用函数
+        // 函数名(实参1, 实参2, ...);
+
+
+        // 3.函数形参、实参个数匹配问题(写代码时，尽量个数匹配哦！)
+        function getSum(num1, num2) {
+            console.log(num1 + num2);
+        }
+        // (1)实参个数=形参个数，正常输出结果
+        getSum(1, 2);
+        // (2)实参个数>形参个数，取实参的前n个（形参的个数为n）
+        getSum(1, 2, 3);
+        // (3)实参个数<形参个数，多余的形参被定义为undefined，最后输出NaN
+        // 形参可以看作是不用声明的变量，num2是一个变量但没有赋值，结果就是undefined
+        getSum(1);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

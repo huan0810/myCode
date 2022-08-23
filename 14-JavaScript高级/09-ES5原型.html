@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. 构造函数的问题. 存在浪费内存的问题
+        function Star(uname, age) {
+            this.uname = uname;
+            this.age = age;
+            // this.sing = function() {
+            //     console.log('我会唱歌');
+
+            // }
+        }
+        // 2. 一般情况下,公共属性定义到构造函数里面, 公共的方法放到原型对象身上
+        // 每一个构造函数都有一个 prototype 原型对象。作用：共享方法
+        // 公共的方法放到原型对象身上，这样所有对象的实例就可以共享这些方法，节约内存资源
+        Star.prototype.sing = function() {
+            console.log('我会唱歌');
+        }
+        var ldh = new Star('刘德华', 18);
+        var zxy = new Star('张学友', 19);
+        // 用构造函数创建sing方法，ldh.sing === zxy.sing返回false，因为比较的是两个函数的地址
+        console.log(ldh.sing === zxy.sing);
+        // console.dir(Star);
+        ldh.sing();
+        zxy.sing();
+    </script>
+</body>
+
+</html>

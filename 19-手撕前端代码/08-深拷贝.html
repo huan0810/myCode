@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 对象的深拷贝
+      function deepClone(obj) {
+        if (typeof obj !== 'object') return obj
+        let newObj = {}
+        for (let k in obj) {
+          let item = obj[k]
+          // 一定要先判断Array，因为数组也属于Object！！
+          if (item instanceof Array) {
+            newObj[k] = [...item] //数组深拷贝的方法
+          } else if (item instanceof Object) {
+            newObj[k] = deepClone(item)
+          } else {
+            newObj[k] = item
+          }
+        }
+        return newObj
+      }
+
+      // ***test***
+      var obj = {
+        id: 1,
+        name: 'andy',
+        msg: {
+          age: 18,
+          family: {
+            sister: 'amy'
+          }
+        },
+        color: ['pink', 'red', ['blue', ['green']]]
+      }
+      let o = deepClone(obj)
+      console.log(o)
+    </script>
+  </body>
+</html>

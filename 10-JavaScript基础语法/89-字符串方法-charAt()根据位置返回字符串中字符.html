@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      // 根据位置返回字符
+      // 法1. charAt(index) 根据位置返回字符
+      var str = 'huan'
+      console.log(str.charAt(3))
+
+      // 遍历字符串
+      for (var i = 0; i < str.length; i++) {
+        console.log(str.charAt(i)) //遍历出来单个字符的类型也是string
+      }
+
+      // 法2. charCodeAt(index)  返回相应索引号的字符ASCII值
+      // 目的： 判断用户按下了那个键
+      console.log(str.charCodeAt(3))
+
+      // 根据数字输出ASCII码表中对应字符(两种方法)
+      console.log(String.fromCharCode(65))
+      console.log(String.fromCodePoint(65))
+
+      // 法3. str[index]  H5新增的要考虑兼容
+      console.log(str[3]) //和访问数组元素一样
+    </script>
+  </head>
+
+  <body></body>
+</html>

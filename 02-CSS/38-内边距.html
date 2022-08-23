@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        /* 边框、内边距会撑大盒子 */
+        /* 但是如果p没有指定宽度，继承了div的宽度，则p的宽度边距不会在宽度上撑大盒子 */
+        /* padding设置盒子的内边距，就是内容和盒子边框的距离 */
+        /* 可以分别定义上下左右内边距
+        padding-left
+        padding-right
+        padding-top
+        padding-bottom */
+        
+        div {
+            width: 500px;
+            height: 500px;
+            border: 20px solid pink;
+            padding-left: 10px;
+            padding-top: 10px;
+        }
+        
+        a,
+        span {
+            /* a,span标签虽然是行内元素，但是左右margin/padding有效，上下margin/padding无效 */
+            padding: 50px 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>这是盒子里的content这是盒子里的content这是盒子里的content这是盒子里的content</div>
+    <a href="#">a标签可以设置内边距吗</a>
+    <span>span标签可以设置内边距吗</span>
+    <div></div>
+</body>
+
+</html>

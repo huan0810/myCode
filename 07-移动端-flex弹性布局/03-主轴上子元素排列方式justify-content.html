@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            /* 父级设置flex布局 */
+            display: flex;
+            width: 800px;
+            height: 300px;
+            background-color: pink;
+            /* 默认x轴为主轴 */
+            flex-direction: row;
+            /* justify-content: ;是设置主轴上子元素的排列方式 */
+            /* 默认值flex-start，从头开始。若x轴为主轴，则从左往右 */
+            /* justify-content: flex-start; */
+            /* flex-end，让子元素贴着主轴尾部开始排列，但是子元素中间的顺序不变 */
+            justify-content: flex-end;
+            /* center，让子元素在主轴上居中对齐。x轴就水平居中，y轴就垂直居中 */
+            /* justify-content: center; */
+            /* space-around，让子元素平分父盒子的剩余空间 */
+            /* justify-content: space-around; */
+            /* （！重要）space-between，先两边贴边，再平分剩余空间 */
+            /* justify-content: space-between; */
+        }
+
+        div span {
+            width: 150px;
+            height: 100px;
+            background-color: purple;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span>1</span>
+        <span>2</span>
+        <span>3</span>
+        <span>4</span>
+    </div>
+</body>
+
+</html>

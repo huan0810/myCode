@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Document</title>
+<!-- <script src="../dist/main.js"></script> -->
+<!-- <script src="../dist/bundle.js"></script> -->
+<!-- 配置项目自动打包之后，bundle.js被自动生成到项目根目录中了，存在内存，因为内存快，磁盘反复读写影响寿命。 -->
+<!-- http://localhost:8080/bundle.js可以访问，script标签要写成/bundle.js -->
+<!-- <script src="/bundle.js"></script> -->
+
+<!-- html-webpack-plugin插件会在加载页面时自动帮我们加上下面一句代码，不需要我们自己引入script标签了 -->
+<!-- <script defer src="bundle.js"></script> -->
+</head>
+
+<body>
+    <input type="text" placeholder="test">
+    <ul>
+        <li>这是第1个li</li>
+        <li>这是第2个li</li>
+        <li>这是第3个li</li>
+        <li>这是第4个li</li>
+        <li>这是第5个li</li>
+        <li>这是第6个li</li>
+        <li>这是第7个li</li>
+        <li>这是第8个li</li>
+        <li>这是第9个li</li>
+    </ul>
+
+    <img src="" alt="" class="box">
+
+    <hr/>
+    <!-- 将来要被vue控制的区域 -->
+    <div class="app"></div>
+</body>
+
+</html>

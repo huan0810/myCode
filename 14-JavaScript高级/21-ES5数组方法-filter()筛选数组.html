@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // filter 筛选数组,注意它直接返回一个新数组，不影响原数组
+        // 遍历数组，把所有满足条件的元素以数组形式返回，记得加return
+        // array.filter(function(currentValue, index, arr))
+        // currentValue: 数组当前项的值、index：数组当前项的索引、arr：数组对象本身
+
+        var arr = [12, 66, 4, 88, 3, 7];
+        var newArr = arr.filter(function(value, index) {
+            return value >= 80;
+            // return value % 2 === 0;
+        });
+        console.log(newArr); //[88]
+    </script>
+</body>
+
+</html>

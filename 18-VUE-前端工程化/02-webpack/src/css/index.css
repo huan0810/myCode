@@ -1,0 +1,28 @@
+html,
+body,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+html li,
+body li,
+ul li {
+    line-height: 30px;
+    font-size: 22px;
+}
+
+::placeholder {
+    color: red;
+}
+
+
+/* 现在在css中直接写url('../images/1.jpg'),不需要loader */
+
+
+/* .box {
+    width: 580px;
+    height: 340px;
+    background-color: #eee;
+    background: url('../images/1.jpg');
+} */

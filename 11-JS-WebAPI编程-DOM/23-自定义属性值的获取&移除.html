@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo" index="1" class="nav"></div>
+    <script>
+        var div = document.querySelector('div');
+        // 1.获取元素属性的两种方法
+        // (1)element.属性  不能获取程序员自定义的属性，主要获取内置属性
+        console.log(div.id);
+        console.log(div.index); //undefined
+        // (2)element.getAttribute('属性') 可以获取程序员自定义的属性 如index
+        console.log(div.getAttribute('id'));
+        console.log(div.getAttribute('index')); //1
+
+        // 2. 设置元素属性值 两种方法
+        // (1) element.属性= '值'  主要设置内置属性
+        div.id = 'test';
+        div.className = '111';
+        // (2) element.setAttribute('属性', '值');  主要针对于自定义属性
+        div.setAttribute('index', '01');
+        div.setAttribute('class', '222');
+
+        // 3 移除属性 removeAttribute(属性)
+        div.removeAttribute('index'); //移除自定义属性
+        div.removeAttribute('id'); //移除内置属性
+    </script>
+</body>
+
+</html>

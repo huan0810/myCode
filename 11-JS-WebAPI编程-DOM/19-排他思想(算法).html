@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮1</button>
+    <button>按钮2</button>
+    <button>按钮3</button>
+    <button>按钮4</button>
+    <button>按钮5</button>
+
+    <script>
+        // 首先先排除其他人，然后才设置自己的样式 这种排除其他人的思想我们称为排他思想
+
+        // 案例：利用for循环给所有按钮绑定事件，点击一个按钮，背景颜色变为pink
+        var btns = document.getElementsByTagName('button');
+        for (var i = 0; i < btns.length; i++) {
+            btns[i].onclick = function() {
+                // (1)先把其他按钮的背景色清空  干掉所有人
+                for (var j = 0; j < btns.length; j++) {
+                    btns[j].style.backgroundColor = '';
+                }
+                // (2) 然后才让当前的元素背景颜色为pink 留下我自己
+                // this指向当前函数的调用者
+                this.style.backgroundColor = 'pink';
+            }
+        }
+    </script>
+</body>
+
+</html>

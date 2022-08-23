@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- v-model双向数据绑定
+        1、从页面到数据,修改input表单中的值，vm.msg跟着变化
+        2、从数据到页面，vm.msg值变化，页面显示内容跟着变化 -->
+    <div id="app">
+        <div>{{msg}}</div>
+        <input type="text" v-model="msg">
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'yiyiyi'
+            }
+        })
+    </script>
+</body>
+
+</html>

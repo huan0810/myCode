@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //返回文字
+        function isRunYear(year) {
+            if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+                return year + '是闰年';
+            } else {
+                return year + '是平年';
+            }
+        }
+        console.log(isRunYear(1990));
+        console.log(isRunYear(1991));
+        console.log(isRunYear(2000));
+
+        // 返回true or false,
+        function isRunYear2(year) {
+            var flags = false;
+            if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) {
+                flags = true;
+            }
+            return flags;
+        }
+        console.log(isRunYear2(1990));
+        console.log(isRunYear2(1991));
+        console.log(isRunYear2(2000));
+
+        // 用户输入年份，输出2月份的天数，调用以上判断闰年的函数
+        function backDay() {
+            var year = prompt('请输入年份：');
+            if (isRunYear2(year)) { //直接在判断条件里调用函数
+                alert('您输入的是闰年，2月份28天');
+            } else {
+                alert('您输入的是平年，2月份29天');
+            }
+        }
+        backDay();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

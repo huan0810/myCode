@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- <div v-for='(value, key, index) in object'></div> -->
+    <!-- value, key, index顺序固定，名字自定义 -->
+
+    <div id="app">
+        <div v-for="(v,k,i) in obj">{{v+'---'+k+'---'+i}}</div>
+        <div>-----------</div>
+        <!-- v-if v-for结合使用:满足if条件的才会遍历出来 -->
+        <div v-if="v==18" v-for="(v,k,i) in obj">{{v+'---'+k+'---'+i}}</div>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                obj: {
+                    uname: 'huan',
+                    age: 18,
+                    gender: '女'
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

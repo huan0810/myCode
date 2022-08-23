@@ -1,0 +1,284 @@
+body {
+    /* 因为手机页面一般是铺满整个屏幕,所以直接给body指定100%宽度 */
+    width: 100%;
+    /* 最大最小缩放宽度 */
+    max-width: 640px;
+    min-width: 320px;
+    margin: 0 auto;
+    font-size: 14px;
+    font-family: -apple-system, Helvetica, sans-serif;
+    color: #666;
+    line-height: 1.5;
+}
+
+* {
+    /*清除所有元素的点击高亮显示，设置为transparent透明*/
+    -webkit-tap-highlight-color: transparent;
+}
+
+input {
+    /*清除ios系统中按钮和输入框的默认样式，方便之后我们自定义样式*/
+    -webkit-appearance: none;
+}
+
+img,
+a {
+    /*禁用长按页面时的弹出菜单*/
+    -webkit-touch-callout: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    /* 去除li前面小圆点 */
+    list-style: none;
+}
+
+img {
+    /* 去除图片底部的空白缝隙 */
+    vertical-align: middle;
+}
+
+a {
+    /* 取消下划线 */
+    text-decoration: none;
+}
+
+
+/* 清除浮动 */
+
+.clearfix:after {
+    content: "";
+    display: block;
+    line-height: 0;
+    visibility: hidden;
+    height: 0;
+    clear: both;
+}
+
+
+/* ?顶部 start */
+
+.app {
+    height: 45px;
+}
+
+.app ul li {
+    float: left;
+    height: 45px;
+    line-height: 45px;
+    background-color: #232326;
+    text-align: center;
+    color: #fff;
+}
+
+.app ul li:nth-child(1) {
+    width: 8%;
+}
+
+.app ul li:nth-child(1) img {
+    width: 16px;
+}
+
+.app ul li:nth-child(2) {
+    width: 10%;
+}
+
+.app ul li:nth-child(2) img {
+    width: 35px;
+    /* 默认的是图片和文字基线对齐,下面一行代码让图片和文字中线对齐 */
+    vertical-align: middle;
+}
+
+.app ul li:nth-child(3) {
+    width: 57%;
+}
+
+.app ul li:nth-child(4) {
+    width: 25%;
+    background-color: #CD2525;
+}
+
+
+/* ?顶部 end */
+
+
+/* ?搜索 start */
+
+.search-wrap {
+    /* 因为搜索栏不会压住下面的盒子(脱标),所以用固定定位
+    静态定位/相对定位/粘性定位 不脱标
+    绝对定位/固定定位 脱标 */
+    position: fixed;
+    width: 100%;
+    height: 44px;
+    overflow: hidden;
+    min-width: 320px;
+    max-width: 640px;
+}
+
+.search-btn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40px;
+    height: 44px;
+}
+
+.search-btn::before {
+    content: "";
+    /* 伪元素都属于行内元素 */
+    display: block;
+    width: 20px;
+    height: 18px;
+    background: url(../images/s-btn.png);
+    background-size: 20px 18px;
+    margin: 14px 0 0 15px;
+}
+
+.search-login {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 44px;
+    font-size: 16px;
+    color: #fff;
+    line-height: 44px;
+}
+
+
+/* 此处页面缩放时,搜索模块只有搜索框变短,两边的盒子宽度不变
+所以两边盒子.search-btn和.search-login固定宽度40px,绝对定位(脱标).
+搜索框不给宽度(继承宽度100%),两边加上外边距,空出两个盒子的距离 */
+
+.search {
+    position: relative;
+    height: 30px;
+    background-color: #fff;
+    /* 上外边距导致外边距塌陷了,给父盒子.search-wrap添加overflow: hidden; */
+    margin: 7px 50px 0;
+    border-radius: 15px;
+}
+
+.jd-icon {
+    position: absolute;
+    top: 8px;
+    left: 13px;
+    width: 20px;
+    height: 15px;
+    background: url(../images/jd.png) no-repeat;
+    background-size: 20px 15px;
+}
+
+.jd-icon::after {
+    /* 必须写content,可以为空 */
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -8px;
+    /* 虽然伪元素是行内元素,但是加上绝对定位之后可以直接设置宽高 */
+    width: 1px;
+    height: 15px;
+    background-color: #ccc;
+}
+
+.sou {
+    position: absolute;
+    top: 8px;
+    left: 50px;
+    width: 18px;
+    height: 15px;
+    /* !精灵图作为背景图片的缩放 */
+    background: url(../images/jd-sprites.png) no-repeat -81px 0;
+    background-size: 200px;
+}
+
+
+/* ?搜索 end */
+
+
+/* ?主体内容部分 start */
+
+
+/* *滑动焦点图：图片底部有空白缝隙，所以给所有图片加上vertical-align: top; */
+
+.slider img {
+    width: 100%;
+}
+
+
+/* *年货节 */
+
+.brand {
+    /* 圆角改变的是.brand盒子，但是图片还是直角的，所以盒子要溢出隐藏，切掉超出的图片部分 */
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+}
+
+.brand div {
+    float: left;
+    width: 24%;
+}
+
+.brand div:nth-child(2) {
+    width: 52%;
+}
+
+.brand div img {
+    width: 100%;
+}
+
+
+/* *nav导航栏 */
+
+nav a {
+    /* 不管原先是什么模式的元素，添加浮动、绝对定位、固定定位后都有行内块元素相似特性。
+    所以a浮动之后，可以直接设置宽高 */
+    float: left;
+    width: 20%;
+    text-align: center;
+    color: #666;
+}
+
+nav a img {
+    margin: 10px;
+    width: 41.59px;
+}
+
+nav a span {
+    /* 直接转换成块级元素，就会换下一行，不需要写换行符<br> */
+    display: block;
+    margin-top: 6px;
+    font-size: 12px;
+}
+
+
+/* *新闻快报模块 */
+
+.news {
+    margin-top: 15px;
+}
+
+.news a {
+    float: left;
+    box-sizing: border-box;
+}
+
+.news a:nth-child(1) {
+    width: 50%;
+}
+
+.news a:nth-child(n+2) {
+    /* 选出第二个a至最后一个a */
+    width: 25%;
+    /* 小竖线 */
+    border-left: 1px solid #ccc;
+}
+
+.news a img {
+    width: 100%;
+}
+
+
+/* ?主体内容部分 end */

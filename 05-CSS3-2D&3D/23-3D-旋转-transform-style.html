@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        /* 透视加给祖父也可，只要是父级元素就行 */
+        perspective: 500px;
+      }
+      /* .box中放两个div */
+
+      .box {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        margin: 100px auto;
+        transition: all 1s;
+        /* transform-style: flat;代码写给父级，但影响的是子盒子
+            默认是flat平面，preserve-3d表示保持3D立体空间 */
+        /* 让子元素保持3D立体空间 */
+        transform-style: preserve-3d;
+      }
+
+      .box:hover {
+        transform: rotateY(60deg);
+      }
+
+      .box div {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: palevioletred;
+      }
+
+      .box div:last-child {
+        background-color: rgb(143, 81, 114);
+        transform: rotateX(60deg);
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">
+      <div></div>
+      <div></div>
+    </div>
+  </body>
+</html>

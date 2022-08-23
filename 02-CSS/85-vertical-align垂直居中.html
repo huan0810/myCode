@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 图片+文字的对齐方式 */
+      /* vertical-align只针对行内元素、行内块元素有效
+        如果是块元素,先display转换 */
+      /* vertical-align有四个属性:baseline\top\middle\bottom */
+
+      img {
+        /* 默认基线对齐 */
+        vertical-align: baseline;
+        /* 顶线对齐 */
+        /* vertical-align: top; */
+        /* 中线对齐:让文字和图片垂直居中 */
+        /* vertical-align: middle; */
+        /* 底线对齐 */
+        /* vertical-align: bottom; */
+      }
+
+      textarea {
+        vertical-align: middle;
+        outline: none;
+        resize: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <img src="images/tudou.jpg" alt="" />pppp对齐
+    <br />
+    <textarea name="" id="" cols="30" rows="10"></textarea>请你留言
+  </body>
+</html>

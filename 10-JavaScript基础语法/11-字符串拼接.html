@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1.获取字符串长度 length
+        var str = 'my name';
+        console.log(str.length);
+
+        // 2.字符串拼接：字符串+任何类型=拼接之后是新的字符串！
+        // 拼接前会把任何类型转换成字符串，再拼接成一个新的字符串
+        console.log('沙漠' + 'shamo');
+        console.log('李小娇' + 18 + '了');
+        console.log('anny' + true); // true也被看成是字符串了，而不是关键字
+        console.log(12 + 12); //都是数字型，没有字符串，结果输出24
+        console.log('12' + 12); //'12'是字符串，结果输出1212
+        // +口诀：数值相加，字符相连
+
+        // 3.字符串 + 变量
+        var age = 18;
+        console.log('我今年' + age + '岁了');
+
+        // 4.用户输入年龄，然后显示出来
+        var yourName = prompt('请输入您的名字');
+        alert(yourName + '，你好哇！');
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

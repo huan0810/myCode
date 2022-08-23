@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            overflow: hidden;
+            font-size: 20px;
+            width: 0;
+            height: 30px;
+            background-color: pink;
+            /* 让文字强制一行内显示 */
+            /* white-space: nowrap; */
+            /* steps()属于速度曲线,表示分几步完成动画 */
+            animation: w 2.5s steps(8) forwards;
+        }
+        
+        @keyframes w {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 160px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div>键盘敲烂工资过万</div>
+</body>
+
+</html>

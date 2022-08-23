@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- v-bind 动态处理所绑定的属性的值 -->
+    <div id="app">
+        <a v-bind:href="url">百度</a>
+        <!-- v-bind:简写: <a :href='url'>百度</a> -->
+        <button @click="handle">切换</button>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                url: 'http://www.baidu.com'
+            },
+            methods: {
+                handle: function() {
+                    this.url = 'http://www.bilibili.com';
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

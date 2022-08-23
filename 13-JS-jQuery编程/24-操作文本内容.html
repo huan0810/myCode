@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+
+<body>
+    <div>
+        <span>我是内容</span>
+    </div>
+    <input type="text" value="请输入内容">
+
+    <script>
+        // 1. 获取设置元素内容html()   相当于innerHTML 获取html标签
+        console.log($("div").html()); //获取值  <span>我是内容</span>
+        $("div").html("123abc"); //修改值  
+        // 2. 获取设置元素文本内容 text()   相当于innerText 不会获取html标签
+        console.log($("div").text()); //获取值  123abc
+
+        // 3.获取表单内容用val()
+        // val(''内容'') // 设置表单的值
+        console.log($("input").val());
+        $("input").val("123112233");
+    </script>
+</body>
+
+</html>

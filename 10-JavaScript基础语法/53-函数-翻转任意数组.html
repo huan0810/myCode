@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1.利用函数翻转任意数组,并存入原数组
+        function reverse() {
+            // 伪数组arguments中，存放了函数调用者传递过来的所有实参
+            for (var i = 0; i <= arguments.length / 2 - 1; i++) {
+                var temp = arguments[i];
+                arguments[i] = arguments[arguments.length - i - 1];
+                arguments[arguments.length - i - 1] = temp;
+            }
+            return arguments;
+        }
+        var re1 = reverse(0, 1, 2, 3, 4, 5);
+        var re2 = reverse(0, 1, 2, 3, 4);
+        console.log(re1);
+        console.log(re2);
+
+        // 2.利用函数翻转任意数组,并存入新数组
+        function reverse2() {
+            var newArr = [];
+            for (var i = arguments.length - 1; i >= 0; i--) {
+                newArr[newArr.length] = arguments[i];
+            }
+            return newArr;
+        }
+        var re3 = reverse2(1, 2, 3, 4, 5);
+        var re4 = reverse2(1, 2, 3, 4);
+        console.log(re3);
+        console.log(re4);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

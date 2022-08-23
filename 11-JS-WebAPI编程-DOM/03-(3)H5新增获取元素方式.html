@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box">盒子1</div>
+    <div class="box">盒子2</div>
+    <div id="nav">
+        <ul>
+            <li>首页</li>
+            <li>产品</li>
+        </ul>
+    </div>
+
+    <script>
+        // h5新增，要考虑兼容问题
+        // 1.getElementsByClassName 根据类名获得某些元素集合，返回“伪数组”
+        var boxs = document.getElementsByClassName('box');
+        console.log(boxs);
+        // 2.querySelector 返回指定选择器的第一个元素对象，“单个元素”,切记里面的选择器需要加符号.box #nav
+        var firstBox = document.querySelector('.box');
+        console.log(firstBox); //返回第一个盒子
+        var li = document.querySelector('li');
+        console.log(li); //返回第一个li
+        // 3.querySelectorAll() 返回指定选择器的所有元素对象集合，“伪数组”,切记里面的选择器需要加符号.box #nav
+        var allBox = document.querySelectorAll('.box');
+        console.log(allBox);
+    </script>
+</body>
+
+</html>

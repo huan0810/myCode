@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function sort(arr) {
+            var flags; //是否发生交换的标志
+            for (var i = 0; i < arr.length - 1; i++) {
+                flags = 0;
+                for (var j = 0; j < arr.length - i - 1; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        var temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
+                        flags = 1;
+                    }
+                }
+                if (flags == 0) {
+                    console.log('第' + (i + 1) + '次交换，交换结束');
+                    return arr;
+                }
+            }
+            console.log('完整冒泡！交换了' + i + '次');
+            return arr;
+        }
+
+        var re = sort([5, 4, 3, 2, 1]);
+        var re1 = sort([1, 5, 3, 2, 4]);
+        console.log(re);
+        console.log(re1);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

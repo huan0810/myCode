@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>知否知否，点我应有弹框在手！</li>
+        <li>知否知否，点我应有弹框在手！</li>
+        <li>知否知否，点我应有弹框在手！</li>
+        <li>知否知否，点我应有弹框在手！</li>
+        <li>知否知否，点我应有弹框在手！</li>
+    </ul>
+
+    <script>
+        // 点击每个 li 都会弹出对话框，以前需要给每个 li 注册事件，是非常辛苦的，
+        // 而且访问 DOM 的次数越多，这就会延长整个页面的交互就绪时间
+        // (面试常考!!!)事件委托的原理:
+        // 不要给每个子节点单独设置事件监听器,而是把事件监听器设置在父节点上,利用冒泡阶段影响每个子节点
+        // 事件委托的好处:只操作一次dom,提高了程序的性能
+
+        // 这个案例的原理:只给ul注册一个点击事件,而点击li,会冒泡到ul上,ul会触发自己的事件监听器
+        // 可以用e.target返回当前鼠标点击的li
+        var ul = document.querySelector('ul');
+        ul.addEventListener('click', function(e) {
+            alert('lalala');
+            e.target.style.backgroundColor = 'pink';
+        })
+    </script>
+</body>
+
+</html>

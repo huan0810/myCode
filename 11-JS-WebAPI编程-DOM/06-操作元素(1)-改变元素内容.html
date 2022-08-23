@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div,
+        p {
+            width: 300px;
+            height: 30px;
+            line-height: 30px;
+            color: #fff;
+            background-color: skyblue;
+        }
+    </style>
+</head>
+
+<body>
+    <button>显示当前系统时间</button>
+    <div>某个时间</div>
+    <p>1123</p>
+
+    <script>
+        // 注意以下都是属性,都是用来改变标签的内容
+        // 只能改变普通盒子中的内容，比如div。不能改变input表单的内容
+        // element.innerText
+        // element.innerHTML
+
+        // 案例(1):当我们点击了按钮,div里面的文字会发生变化
+        // 1.获取事件源:有两个
+        var btn = document.querySelector('button');
+        var div = document.querySelector('div');
+        // 2.注册事件:事件类型+事件处理程序
+        btn.onclick = function() {
+            // div.innerText = '2022-02-23' //div.innerText是属性,所以是赋值
+            div.innerText = getDate();
+        }
+
+        function getDate() {
+            // 获取当前时间
+            var date = new Date();
+            var year = date.getFullYear();
+            var month = date.getMonth() + 1;
+            var dates = date.getDate();
+            var day = date.getDay();
+            // 因为0表示星期日，所以'星期日'放在数组的第一个位置
+            var arr = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六', ];
+            return '今天是' + year + '年' + month + '月' + dates + '日 ' + arr[day];
+        }
+
+        // 案例(2):不用点击按钮,直接刷新页面就可以显示时间
+        var p = document.querySelector('p');
+        p.innerText = getDate(); //页面加载,直接显示当前时间
+    </script>
+</body>
+
+</html>

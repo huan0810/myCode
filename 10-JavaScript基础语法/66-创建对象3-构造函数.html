@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 前两种方法一次只能创建一个对象，用构造函数可以批量创建多个对象
+        // 构造函数：就是把对象里面相同的属性和方法，抽象出来封装到函数里面
+        // 构造函数 泛指 某一大类，类似于java里面的类class。对象是 特指 一个具体的事物
+        // 构造函数的语法格式：
+        // (1)声明构造函数
+        // function 构造函数名() {
+        //     this.属性 = 值;
+        //     this.方法 = function() {}
+        // }
+        // (2)调用构造函数
+        // new 构造函数名();
+
+        // 1.构造函数名首字母大写
+        // 2.构造函数不需要return就可以返回结果，返回的数据类型是object
+
+        // 利用构造函数创建对象：
+        // 创建四大天王的对象  相同的属性： 名字 年龄 性别  相同的方法： 唱歌
+        function Star(uname, age, sex) {
+            this.name = uname;
+            this.age = age;
+            this.sex = sex;
+            this.sing = function(sang) {
+                console.log(sang);
+            }
+        }
+        // 我们利用构造函数创建对象的过程我们也称为对象的实例化
+        var ldh = new Star('刘德华', 18, '男');
+        var zxy = new Star('张学友', 19, '女');
+        console.log(typeof ldh); //返回的数据类型是object
+        console.log(ldh);
+        console.log(ldh.name);
+        console.log(ldh.age);
+        console.log(ldh['sex']);
+        ldh.sing('冰雨'); //'冰雨'传递给function的形参，然后在函数里被打印出来
+        zxy.sing('李香兰');
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

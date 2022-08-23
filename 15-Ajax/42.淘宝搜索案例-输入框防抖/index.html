@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <!-- 导入页面的基本样式 -->
+    <link rel="stylesheet" href="./css/search.css" />
+    <!-- 导入 jQuery -->
+    <script src="./lib/jquery.js"></script>
+    <!-- 导入模板引擎 -->
+    <script src="./lib/template-web.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <!-- Logo -->
+        <img src="./images/taobao_logo.png" alt="" class="logo" />
+
+        <div class="box">
+            <!-- tab 栏 -->
+            <div class="tabs">
+                <div class="tab-active">宝贝</div>
+                <div>店铺</div>
+            </div>
+            <!-- 搜索区域（搜索框和搜索按钮） -->
+            <div class="search-box">
+                <input id="ipt" type="text" class="ipt" placeholder="请输入要搜索的内容" /><button class="btnSearch">
+          搜索
+        </button>
+            </div>
+            <!-- 搜索建议列表 -->
+            <div id="suggest-list"></div>
+        </div>
+    </div>
+
+    <!-- 模板结构 -->
+    <script type="text/html" id="tpl-suggestlist">
+        {{each result}}
+        <!-- result是数组，其中的每一项$value也是数组，$value数组中第一项就是搜索建议项 -->
+        <div class="suggest-item">{{$value[0]}}</div>
+        {{/each}}
+    </script>
+
+    <script>
+        $(function() {
+            // 定义全局缓存对象
+            var cacheObj = {};
+            // 输入框防抖
+            // (1) 初始化一个定时器
+            var timer = null;
+            // (2)定义防抖函数
+            function debounceSearch(kw) {
+                timer = setTimeout(function() {
+                    getSuggestList(kw)
+                }, 500);
+            }
+
+            // 监听键盘弹起事件
+            $('#ipt').on('keyup', function() {
+                // (3)有新的键盘抬起事件，就清空之前的定时器
+                clearTimeout(timer);
+                var keywords = $(this).val().trim();
+                if (keywords.length <= 0) {
+                    // 关键词为空时，要清空列表并隐藏  
+                    return $('#suggest-list').empty().hide();
+                }
+                // 先检查全局缓存对象里有无数据，有数据就不需要发送jsonp请求了
+                if (cacheObj[keywords]) {
+                    return renderSuggestList(cacheObj[keywords]);
+                }
+                // 展示提示列表
+                console.log(keywords);
+                debounceSearch(keywords); //调用防抖函数
+            });
+
+            // 将获取搜索建议列表的代码，封装到 getSuggestList 函数中
+            function getSuggestList(kw) {
+                $.ajax({
+                    url: 'https://suggest.taobao.com/sug?q=' + kw,
+                    dataType: 'jsonp',
+                    success: function(res) {
+                        console.log(res);
+                        renderSuggestList(res);
+                    }
+                });
+            }
+
+            // 定义渲染建议列表的函数，
+            function renderSuggestList(res) {
+                // res.result有数据就渲染，无数据就隐藏
+                if (res.result.length <= 0) return $('#suggest-list').empty().hide();
+                var htmlStr = template('tpl-suggestlist', res);
+                $('#suggest-list').html(htmlStr).show();
+                // 把获取到的某关键字的建议列表，以键值对形式存储在全局缓存对象里
+                var k = $('#ipt').val().trim();
+                cacheObj[k] = res;
+            }
+
+        })
+    </script>
+</body>
+
+</html>

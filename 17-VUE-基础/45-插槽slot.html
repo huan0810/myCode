@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 组件插槽：父组件向子组件传递内容，子组件预留一个插槽<slot></slot>来接收
+    如果子组件中没有插槽<slot></slot>，那么传递的内容都会被抛弃 -->
+
+    <!-- 这是父组件vm的模板 -->
+    <div id="app">
+        <son>插入插槽：有bug</son>
+        <son>插入插槽：警告警告</son>
+        <!-- 如果没有向子组件插槽中传递内容，就显示插槽默认内容 -->
+        <son></son>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        // 定义一个子组件
+        Vue.component('son', {
+            template: `
+        <div>
+            <strong>ERROR:</strong>
+            <slot>默认</slot>
+        </div>   `
+        })
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            }
+        });
+    </script>
+</body>
+
+</html>

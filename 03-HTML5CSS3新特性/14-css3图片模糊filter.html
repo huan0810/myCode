@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* filter: blur(5px); blur模糊处理,数值越大越模糊,加单位
+        filter是属性值，blur()是函数 */
+        
+        img {
+            filter: blur(3px);
+            /* img、input、td(定义表格的单元格)是行内块元素，宽高可以直接设置 */
+            width: 100px;
+            height: 100px;
+        }
+        /* 鼠标经过，图像变清晰 */
+        
+        img:hover {
+            filter: blur(0);
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/pig.jpg" alt="">猜我是谁
+</body>
+
+</html>

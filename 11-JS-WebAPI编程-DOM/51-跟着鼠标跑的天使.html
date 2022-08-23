@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            /* 图片移动位置(不能固定定位了),而且图片不占原有位置(脱标),只能用绝对定位 */
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/angel.gif" alt="">
+    <script>
+        // 核心原理:每次移动鼠标都会触发mousemove事件,获取最新鼠标坐标,把坐标赋值给图片的top和left
+        // mousemove只要鼠标移动1px 就会触发这个事件
+        var img = document.querySelector('img');
+        document.addEventListener('mousemove', function(e) {
+            var x = e.pageX;
+            var y = e.pageY;
+            // 不要忘了给top left加单位
+            img.style.left = x - 30 + 'px';
+            img.style.top = y - 40 + 'px';
+        })
+    </script>
+</body>
+
+</html>

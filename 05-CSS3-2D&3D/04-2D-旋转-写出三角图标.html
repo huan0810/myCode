@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: relative;
+            width: 249px;
+            height: 35px;
+            border: 1px solid #000;
+        }
+        
+        div::after {
+            position: absolute;
+            content: "";
+            top: 8px;
+            right: 13px;
+            /* 伪元素属于行内元素。行内元素添加绝对或者固定定位，可以直接设置高度和宽度。 */
+            width: 10px;
+            height: 10px;
+            /* 右边框+下边框，顺时针旋转45度。得到向下三角图标 */
+            border-right: 1px solid #000;
+            border-bottom: 1px solid #000;
+            transform: rotate(45deg);
+            transition: all .2s;
+        }
+        /* 鼠标经过div盒子，三角旋转 */
+        
+        div:hover::after {
+            transform: rotate(225deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+</body>
+
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 数组有两种创建方式：
+        // 1. 利用new创建数组  var 数组名 = new Array() ；
+        var arr = new Array(); //创建了一个空的数组
+        // 2. (常用)利用数组字面量创建数组，[]就是数组的字面量
+        var arr1 = [];
+        console.log(typeof arr1); //数组[]是object类型
+        // 在数组里可以放任意的数据类型,数组里的数据称为数组元素，数组元素之间用逗号分隔
+        var arr2 = [1, 2, '李小娇', true, false];
+
+        // 获取数组元素
+        console.log(arr2); //获取数组全部元素
+        // 数组的索引(下标):从0开始。数组名[索引] 来获取数组中的元素
+        console.log(arr2[2] + '\t' + typeof arr2[2]); //李小娇string
+        console.log(arr2[0] + '\t' + typeof arr2[0]); //1number
+        console.log(arr2[3] + '\t' + typeof arr2[3]); //trueboolean
+        console.log(arr[5]); //超出数组下标：输出undefined
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

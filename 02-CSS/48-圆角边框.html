@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* 属性border-radius设置圆角，单位：px或者百分比
+        border-radius: 50px;                表示四个圆角均为50px
+        border-radius: 10px 50px;           表示正对角线10px，副对角线50px.对角线关系
+        border-radius: 10px 30px 50px;      表示左上角10px，副对角线30px，右下角50px
+        border-radius: 10px 20px 30px 40px; 分别代表左上角、右上角、右下角、左下角。顺时针 */
+      /* 还可以把四个角分开来写：
+        border-top-left-radius:;
+        border-top-right-radius:;
+        border-bottom-right-radius:;
+        border-bottom-left-radius:; */
+
+      .demo {
+        width: 300px;
+        height: 150px;
+        background-color: pink;
+        /* 设置圆角边框属性，单位：px或者百分比 */
+        border-radius: 50px;
+      }
+
+      .one {
+        width: 300px;
+        height: 300px;
+        background-color: skyblue;
+        /* 50%是长度和宽度的一半 */
+        border-radius: 50%;
+      }
+
+      .two {
+        width: 300px;
+        height: 200px;
+        background-color: blue;
+        /* 圆角矩形做法：设置为高度的一半 */
+        border-radius: 100px;
+      }
+
+      .three {
+        width: 300px;
+        height: 200px;
+        background-color: palevioletred;
+        /* 2个数值 */
+        border-radius: 10px 50%;
+        /* 跟3个数值 */
+        /* border-radius: 10px 30px 70px; */
+        /* 还可以跟4个值，分别代表左上角、右上角、右下角、左下角。顺时针 */
+        /* border-radius: 10px 20px 30px 50%; */
+      }
+
+      .four {
+        width: 300px;
+        height: 100px;
+        background-color: yellowgreen;
+        /* 50%表示长宽各自的一半 */
+        border-radius: 50%;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box"></div>
+    <div class="demo">圆角边框</div>
+    <div class="one">正方形盒子->圆</div>
+    <div class="two">长方形盒子->圆角矩形</div>
+    <div class="three">设置四个不同的角</div>
+    <div class="four">矩形->椭圆</div>
+  </body>
+</html>

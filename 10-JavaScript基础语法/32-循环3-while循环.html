@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // while(条件表达式){
+        //     循环体
+        // }
+        // 执行思路：当条件表达式为true，再执行循环体；否则退出循环
+        var num = 1; //1初始化变量
+        while (num <= 100) { //2条件表达式
+            console.log('hello'); //3循环体
+            num++; //4操作表达式。while循环里面也要更新计数器num,防止死循环
+        }
+
+        // 以上while循环相当于以下for循环
+
+        // for (var num = 1; num <= 100; num++) {
+        //     console.log('hello');
+        // }
+
+        // 1.打印一个人的一生
+        var i = 0;
+        while (i <= 100) {
+            if (i == 0) {
+                console.log('她出生了');
+            } else if (i == 100) {
+                console.log('她走了');
+            } else {
+                console.log('她今年' + i + '岁了');
+            }
+            i++;
+        }
+
+        // 2.1-100整数求和
+        var num1 = 1;
+        var sum = 0;
+        while (num1 <= 100) {
+            sum += num1;
+            num1++;
+        }
+        console.log('-----第2题-----');
+        console.log(sum);
+
+        // 3.for和while的区别：for注重计数;while注重条件判断,可以做复杂的条件判断
+        // 弹出一个提示框：你爱我吗？如果输入我爱你，就提示结束；否则一直循环。适合whil循环
+        var str = prompt('你爱我吗？');
+        while (str !== '我爱你') {
+            str = prompt('你爱我吗？');
+        }
+        alert('我也爱你啊！')
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

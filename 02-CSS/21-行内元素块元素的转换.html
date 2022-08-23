@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>行内元素块元素的转换</title>
+    <style>
+        a {
+            width: 100px;
+            height: 60px;
+            background-color: pink;
+            /* 把行内元素a转换成块元素： */
+            display: block;
+        }
+        
+        div {
+            width: 300px;
+            height: 200px;
+            background-color: saddlebrown;
+            /* 把块元素div转换成行内元素：一行放多个，不能设置宽高 */
+            display: inline;
+        }
+        
+        span {
+            width: 300px;
+            height: 200px;
+            background-color: pink;
+            /* 把行内元素span转换成行内块元素：一行放多个，可以设置宽高 */
+            display: inline-block;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="http://www.baidu.com">百度</a>
+    <div>我是div哦</div>
+    <div>我是div哦</div>
+    <span>我是行内元素span</span>
+    <span>我是行内元素span</span>
+</body>
+
+</html>

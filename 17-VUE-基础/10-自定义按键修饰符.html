@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-model='info' @keyup.a="handle">
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+        // 自定义按键修饰符，把a的keyCode值65赋值给Vue.config.keyCodes.a,
+        // 然后直接定义@keyup.a的a键弹起事件.
+        // 其实不定义也可以，只是 @keyup.65 不直观
+
+        // 规则：自定义按键修饰符名字是自定义的，但是对应的值必须是按键对应event.keyCode值
+
+
+        Vue.config.keyCodes.a = 65;
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                info: ''
+            },
+            methods: {
+                handle: function(event) {
+                    console.log(event.keyCode);
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

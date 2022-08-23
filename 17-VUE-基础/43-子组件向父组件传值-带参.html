@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <!-- props传递数据原则：单向数据流
+        (只允许父组件向子组件传递数，而不允许子组件直接操作props中的数据)
+        vue提供了$emit("自定义事件名称") 用于触发自定义事件 -->
+
+    <!-- 子组件向父组件传值步骤：
+        (1)子组件触发一个自定义事件 @click='$emit("enlarge", 5)' enlarge是自定义事件名称，第二个参数5就是子组件传递给父组件的值
+        (2)父组件监听这个自定义事件 @enlarge="handle($event)，$event是固定写法，接收子组件传过来的参数，就是子组件中的第二个参数5
+        按官网方法，此处也可以直接写@enlarge="handle",在下面调用方法时再传入参数
+        (3)并执行对应的动作handle，方法handle定义在父组件的methods属性里哦，function(val)中的val就是传过来的$event -->
+
+    <div id="app">
+      <meun-item
+        :style="{fontSize: font+'px'}"
+        :pstr="fruit"
+        @enlarge="handle($event)"
+      ></meun-item>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+      Vue.component('meun-item', {
+        props: ['pstr'],
+        template: `
+                <div>
+                    <ul>
+                        <li :key='index' v-for='(item, index) in pstr'>{{item}}</li>
+                    </ul>
+                    <button @click='pstr.push("lemon")'>click</button>(不推荐子组件直接操作props)</br>
+                    <button @click='$emit("enlarge", 5)'>click</button>
+                    <button @click='$emit("enlarge", 10)'>click</button>
+                </div>
+            `
+      })
+
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          fruit: ['apple', 'orange', 'banana'],
+          font: 10
+        },
+        methods: {
+          handle: function (val) {
+            // 自定义事件enlarge触发，字体变大
+            this.font += val
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

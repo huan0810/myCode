@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图像标签</title>
+</head>
+
+<body>
+    <h4>鬼怪来了</h4>
+    <img src="images/002.jpg" width="800">
+
+    <!-- 图片的width和height只需要修改一个，另外一个自动等比例缩放 -->
+    <!-- 图片各个属性没有先后顺序，只需要空一格，格式 属性="属性值" -->
+    <!-- 关于图片相对路径，下一级：src="images/002.jpg";上一级：src="../images/005.jpg" -->
+    <!-- 相对路径用斜杠/，绝对路径用反斜杠\ -->
+
+    <h4>alt替换文本，图片无法显示时用以替换的文字</h4>
+    <img src="images/2.jpg" alt="啊偶，图片走丢了" width="800" />
+
+    <h4>title提示文本，鼠标放在图片上，显示的文字</h4>
+    <img src="images/005.jpg" title="鬼怪夫妇来了" width="800" />
+
+    <h4>border：给图像设置边框</h4>
+    <img src="images/003.jpg" title="鬼怪夫妇来了" width="800" border="6" />
+</body>
+
+</html>

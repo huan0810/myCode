@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div data-index="1" data-list-name="andy"></div>
+    <script>
+        var div = document.querySelector('div');
+        // 为了方便区分内置属性和自定义属性,自定义属性的名字加上前缀data-
+        div.setAttribute('data-time', 20);
+        // (1)依旧可以使用 div.getAttribute()获取自定义属性.无兼容性问题
+        console.log(div.getAttribute('data-index'));
+
+        // (2)h5新增获取自定义属性的方法  它只能获取data-开头的.ie11以上才兼容
+        // dataset 是一个集合,里面存放了所有以data开头的自定义属性
+        console.log(div.dataset); //{index: '1', listName: 'andy', time: '20'} object类型
+        // dataset的数据类型是object,获取对象属性有以下两种方法
+        // 法1：对象名.属性名   法2：对象名['属性名']
+        console.log(div.dataset.index); //不用加data-
+        console.log(div.dataset['index']); //不用加data-
+        // 如果自定义属性里面有多个-链接的单词，我们获取的时候采取 驼峰命名法
+        console.log(div.dataset.listName);
+        console.log(div.dataset['listName']);
+
+        // 移除属性 removeAttribute(属性)
+    </script>
+</body>
+
+</html>

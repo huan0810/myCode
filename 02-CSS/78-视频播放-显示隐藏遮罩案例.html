@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 分析：鼠标放上去后，遮罩的半透明盒子不占有位置，用绝对定位和display显示隐藏 */
+        
+        .box {
+            /* 子绝父相 */
+            position: relative;
+            width: 444px;
+            height: 320px;
+            background-color: #fff;
+            /* 注意：此处相邻块级元素的上下外边距合并了，60px合并成了30px */
+            margin: 30px auto;
+        }
+        /* 把图片大小改成和父盒子一样大 */
+        
+        .box img {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .box .mask {
+            /* 先隐藏遮罩层 */
+            display: none;
+            /* 绝对定位脱标，不占有原位置 */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .4) url(images/arr.png) no-repeat center;
+        }
+        /* 当鼠标经过box盒子，box里面的遮罩层mask显示 */
+        
+        .box:hover .mask {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <!-- 遮罩层 -->
+        <div class="mask"></div>
+        <img src="images/tudou.jpg" alt="">
+    </div>
+    <div class="box">
+        <!-- 遮罩层 -->
+        <div class="mask"></div>
+        <img src="images/tudou.jpg" alt="">
+    </div>
+    <div class="box">
+        <!-- 遮罩层 -->
+        <div class="mask"></div>
+        <img src="images/tudou.jpg" alt="">
+    </div>
+</body>
+
+</html>

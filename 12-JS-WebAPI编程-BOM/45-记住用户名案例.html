@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="username">
+    <input type="checkbox" id="remember"> 记住用户名
+    <script>
+        //需求:如果勾选记住用户名,下次用户打开浏览器,就在文本框里面自动显示上次登录的用户名
+        // 思路:
+        // 打开页面,先判断是否有这个用户名,如果有,就在表单里面显示用户名,并且勾选复选框
+        // 当复选框发生改变的时候 change事件
+        // 如果勾选,就存储. 否则就移除
+        var username = document.querySelector('#username');
+        var remember = document.querySelector('#remember');
+        if (localStorage.getItem('username')) {
+            username.value = localStorage.getItem('username');
+            // MDN将checked属性阐述为布尔型类型,最好用true
+            // remember.checked = 'checked';//也正确
+            remember.checked = true;
+        }
+        remember.addEventListener('change', function() {
+            if (this.checked) {
+                localStorage.setItem('username', username.value);
+            } else {
+                localStorage.removeItem('username');
+            }
+        });
+    </script>
+</body>
+
+</html>

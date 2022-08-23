@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- :pnum11="12" :pbool="true" 动态绑定时: 12是number类型,true是boolean类型 -->
+      <!-- pnum11="12"  pbool="true"  静态绑定时: 12和true都是string类型 -->
+      <menu-item
+        :pstr11="pstr"
+        :pnum11="12"
+        :pbool="true"
+        :parr11="parr"
+        :pobj11="pobj"
+      ></menu-item>
+    </div>
+
+    <script src="js/vue.js"></script>
+    <script>
+      Vue.component('menu-item', {
+        props: ['pstr11', 'pnum11', 'pbool', 'parr11', 'pobj11'],
+        template: `
+                <div>
+                    <div>{{pstr11}}</div>
+                    <div>{{typeof pnum11}}</div>    
+                    <div>{{typeof pbool}}</div>    
+                    <ul>
+                        <li :key='index' v-for='(item, index) in parr11'>{{item}}</li>    
+                    </ul> 
+                    <ul>
+                        <li :key='i' v-for='(val, key, i) in pobj11'>{{key +'--'+ val}}</li>
+                    </ul>   
+                </div>
+            `
+      })
+
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          pstr: 'hello',
+          parr: ['apple', 'orange', 'banana'],
+          pobj: {
+            name: 'lisi',
+            age: 12
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

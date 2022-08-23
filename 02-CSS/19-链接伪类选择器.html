@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>链接伪类选择器</title>
+    <style>
+        /* a:link      选择所有未被访问的链接 */
+        /* a:visited   选择所有已被访问的链接 */
+        /* a:hover     选择鼠标指针位于其上的链接 */
+        /* a:active    选择活动链接（鼠标按下未弹起的链接） */
+        /* 以上四种要按lvha顺序写 */
+        
+        a:link {
+            color: #333;
+            text-decoration: none;
+        }
+        
+        a:visited {
+            color: orange;
+        }
+        
+        a:hover {
+            color: skyblue;
+        }
+        
+        a:active {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#">这是一个链接</a><br>
+    <a href="#">这是一个链接</a><br>
+    <a href="#">这是一个链接</a><br>
+    <a href="http://www.baidu.com">百度</a>
+</body>
+
+</html>

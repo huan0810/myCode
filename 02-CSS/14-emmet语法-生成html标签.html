@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>emmet语法-生成html标签</title>
+</head>
+
+<body>
+    <!-- 输入div，按tab键、enter键 -->
+    <div></div>
+
+    <!-- 输入div*5,按tab键、enter键 -->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <!-- 对于有父子级关系的标签,用> -->
+    <!-- 输入ul>li -->
+    <ul>
+        <li></li>
+    </ul>
+    <!-- 输入div>span -->
+    <div><span></span></div>
+    <!-- 输入h1>p,当然一般不这么输 -->
+    <h1>
+        <p></p>
+    </h1>
+
+    <!-- 对于有兄弟关系的标签,用+ -->
+    <!-- 输入div+p -->
+    <div></div>
+    <p></p>
+
+    <!-- 生成div且带有类名、id名字的，直接写.demo或#demo,按tab键或enter键 -->
+    <!-- 输入.center，默认生成div标签 -->
+    <div class="center"></div>
+    <!-- 输入#demo，默认生成div标签 -->
+    <div id="demo"></div>
+
+    <!-- 输入p.demo,指定生成p标签 -->
+    <p class="demo"></p>
+    <!-- 输入span#gray,指定生成span标签 -->
+    <span id="gray"></span>
+    <!-- 输入ul>li#demo -->
+    <ul>
+        <li id="demo"></li>
+    </ul>
+
+    <!-- 生成的div类名是有序的，用$自增符号 -->
+    <!-- 输入.demo$*5 -->
+    <div class="demo1"></div>
+    <div class="demo2"></div>
+    <div class="demo3"></div>
+    <div class="demo4"></div>
+    <div class="demo5"></div>
+
+
+    <!-- 生成的标签里默认带几个文字，用{} -->
+    <!-- 输入a{这是一个链接} -->
+    <a href="">这是一个链接</a>
+    <!-- 输入div{这能一次生成五个}*5 -->
+    <div>这能一次生成五个</div>
+    <div>这能一次生成五个</div>
+    <div>这能一次生成五个</div>
+    <div>这能一次生成五个</div>
+    <div>这能一次生成五个</div>
+    <!-- 或者输入div*5{这样还能生成五个} -->
+    <div>这样还能生成五个</div>
+    <div>这样还能生成五个</div>
+    <div>这样还能生成五个</div>
+    <div>这样还能生成五个</div>
+    <div>这样还能生成五个</div>
+
+    <!-- 综合运用 -->
+    <!-- 输入div*5{这是第$个链接} -->
+    <div>这是第1个链接</div>
+    <div>这是第2个链接</div>
+    <div>这是第3个链接</div>
+    <div>这是第4个链接</div>
+    <div>这是第5个链接</div>
+</body>
+
+</html>

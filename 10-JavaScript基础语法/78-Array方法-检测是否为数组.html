@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 判断是否为数组
+        // （1）instanceof 运算符。可以用来检测是否为数组
+        var arr = [];
+        var obj = {};
+        console.log(arr instanceof Array); //true
+        console.log(obj instanceof Array); //false
+
+        // 应用：反转数组
+        function reverse(arr) {
+            // 首先判断传入的实参是否为数组
+            if (arr instanceof Array) {
+                var newArr = [];
+                for (var i = arr.length - 1; i >= 0; i--) {
+                    newArr[newArr.length] = arr[i];
+                }
+                return newArr;
+            } else {
+                return 'error 请输入数组'; //else里面也要返回！！！
+            }
+        }
+        console.log(reverse(1, 2, 3));
+        console.log(reverse([1, 2, 3]));
+
+
+        // （2）Array.isArray(参数);  h5新增，ie9以上版本支持
+        console.log(Array.isArray(arr)); //true
+        console.log(Array.isArray(obj)); //false
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

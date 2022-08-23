@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>类选择器</title>
+    <style>
+        /* 类选择器：.red定义样式，class="red"调用样式
+        类名red是自己起的名字，但不能用标签名字作为类名，尽量遵照命名规范。*/
+        
+        .red {
+            color: red;
+        }
+        
+        .font {
+            font-size: 35px;
+        }
+        
+        .pink {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        
+        .salmon {
+            width: 100px;
+            height: 100px;
+            background-color: salmon;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <li>昨天</li>
+        <li class="red">今天</li>
+        <li class="red">明天</li>
+    </ul>
+    <div class="red">我也要变色</div>
+
+    <!-- 用<div></div>画三个盒子 -->
+    <div class="pink"></div>
+    <div class="salmon"></div>
+    <div class="pink"></div>
+
+    <!-- 一个标签有多个类名 -->
+    <div class="red font">变色变字体</div>
+</body>
+
+</html>

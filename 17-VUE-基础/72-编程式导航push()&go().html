@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!-- 导入 vue 文件，为全局 window 对象挂载 Vue 构造函数 -->
+    <script src="js/vue.js"></script>
+    <!-- 导入 vue-router 文件，为全局 window 对象挂载 VueRouter 构造函数 -->
+    <script src="js/vue-router_3.0.2.js"></script>
+  </head>
+
+  <body>
+    <!-- 声明式导航：通过点击链接实现导航的方式，叫做声明式导航
+            例如：普通网页中的 <a></a> 链接 或 vue 中的 <router-link></router-link>
+         编程式导航：通过调用JavaScript形式的API实现导航的方式，叫做编程式导航
+            例如：普通网页中的 location.href -->
+
+    <!-- this.$router.push('hash地址')  跳转到指定hash地址,并增加一条历史记录
+         this.$router.replace('hash地址')  跳转到指定hash地址,并替换掉当前的历史记录
+         this.$router.go(n)   前进或后退,-1表示后退一步-->
+
+    <!-- router.push() 方法的参数规则
+         1.hash地址(常用)
+         router.push('/home')
+         2.对象
+         router.push({ path: '/home' })
+         3.命名的路由(传递参数)
+         router.push({ name: '/user', params: { userId: 123 }})
+         4.带查询参数，变成 /register?uname=lisi
+         router.push({ path: '/register', query: { uname: 'lisi' }}) -->
+
+    <!-- 被vm实例所控制的区域 -->
+    <div id="app">
+      <router-link to="/user">User</router-link>
+      <router-link to="/register">Register</router-link>
+      <router-view></router-view>
+    </div>
+
+    <script>
+      // 定义路由组件
+      const User = {
+        template: `
+            <div>
+                <h1>User 组件</h1>
+                <button @click="goRegister">跳转到register</button>    
+            </div>
+            `,
+        methods: {
+          goRegister: function () {
+            this.$router.push('/register')
+          },
+        },
+      }
+      const Register = {
+        template: `
+            <div>
+                <h1>Register 组件</h1>
+                <button @click="goBack">后退</button>    
+            </div>
+            `,
+        methods: {
+          goBack: function () {
+            this.$router.go(-1)
+          },
+        },
+      }
+
+      // 创建路由实例对象
+      var router = new VueRouter({
+        routes: [
+          {
+            path: '/user',
+            component: User,
+          },
+          {
+            path: '/register',
+            component: Register,
+          },
+        ],
+      })
+
+      // 创建vm实例对象
+      var vm = new Vue({
+        el: '#app',
+        data: {},
+        // 'router': router
+        router,
+      })
+    </script>
+  </body>
+</html>

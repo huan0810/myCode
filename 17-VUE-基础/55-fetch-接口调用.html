@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      // Fetch API基于Promise实现的，比传统Ajax简单，
+      // 使用时直接用fetch调用接口，通过.then()获取数据，
+      // 获取数据时通过text()方法返回一个Promise实例对象，再通过下一个.then()获取实际数据
+
+      fetch('http://localhost:3000/fdata')
+        .then(function (data) {
+          //text()属于fetchAPI的一部分,返回的是一个Promise实例对象,用于获取后台返回的数据
+          return data.text()
+          console.log(data.text()) //得到Promise实例对象
+        })
+        .then(function (data) {
+          console.log(data) //Hello Fetch!
+        })
+    </script>
+  </body>
+</html>

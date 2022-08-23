@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1.立即执行函数: 不需要调用，立马能够自己执行的函数.
+        // 2.如果有多个立即执行函数，一定要用;隔开
+        // 3. 两种写法，立即执行函数可以传递参数
+        // 4. 立即执行函数独立创建了一个作用域, 里面所有的变量都是局部变量 不会有命名冲突的情况
+
+        // (function() {})()
+        // (function() {}())
+
+        (function(num) {
+            console.log(num);
+        })(1); // 第二个小括号可以看做是调用函数,里面可以写实参
+
+        (function(a, b) {
+            console.log(a + b);
+        }(1, 2)); //第二个小括号可以写实参
+
+        // 也可以给函数起名字
+        (function sum(a, b) {
+            console.log(a + b);
+            var num = 10; // 局部变量
+        }(2, 3));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 遍历对象
+        var obj = {
+            name: '李小娇',
+            age: 18,
+            sex: '女',
+            fun: function() { //for...in也可以遍历方法，但是很少用
+                console.log('Hi~');
+            }
+        }
+
+        // for循环无法遍历对象，我们用for...in遍历对象
+        // for...in 里面的变量 我们喜欢写 k 或者 key
+        // for (变量 in 对象) {
+
+        // }
+
+        for (var k in obj) {
+            console.log(k); //变量k，得到属性名,string类型
+            console.log(obj[k]); //obj[k],得到属性值。不能用obj.k 返回undefined
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

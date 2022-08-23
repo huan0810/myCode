@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // continue关键字： 立即跳出本次循环， 继续下一次循环
+
+        // 1：吃5个包子，第3个有虫子，扔掉第3个，继续吃第45个包子
+        for (var i = 1; i <= 5; i++) {
+            if (i == 3) {
+                continue; //退出本次循环。终止第3次循环，直接跳到i++上，执行第4次循环
+            }
+            console.log('我在吃第' + i + '个包子');
+        }
+
+        // 2.1-100之间，除了能被7整除的数，其他整数求和
+        var sum = 0;
+        for (var i = 1; i <= 100; i++) {
+            if (i % 7 == 0) {
+                continue;
+            }
+            sum += i;
+        }
+        console.log(sum);
+
+        // 3.1-100之间，除了个位数为3的整数，其他整数求和
+        console.log('----------');
+        var sum = 0;
+        for (var i = 1; i <= 100; i++) {
+            if (i % 10 == 3) { //找出个位数为3的数
+                console.log(i);
+                continue;
+            }
+            sum += i;
+        }
+        console.log(sum);
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

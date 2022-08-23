@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 数组扁平化
+      // 遍历数组内每一个元素，单个元素直接添加res数组，是数组就继续调用flat函数扁平化
+      function flat(arr) {
+        let res = []
+        arr.forEach((item) => {
+          if (item instanceof Array) {
+            res.push(...flat(item))
+          } else {
+            res.push(item)
+          }
+        })
+        return res
+      }
+
+      const arr = [1, 2, [3, 4, [5, 6], 7], 8]
+      console.log(flat(arr))
+    </script>
+  </body>
+</html>
